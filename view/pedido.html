@@ -26,19 +26,19 @@
                     <div ng-show="showMarcas" ng-repeat="marca in produtos">
                         <!--  <span>{{marca.name}}</span> -->
                         <div class="item-list" ng-click="selecionaMarca(marca)">
-                            <img src="{{marca.image}}" class="img-responsive">
+                            <img ng-src="{{marca.image}}" class="img-responsive">
                         </div>
                     </div>
 
                     <div ng-show="showFamilias" ng-repeat="familia in marca.familia">
                         <div class="item-list" ng-click="selecionaFamilia(familia)">
-                            <img src="{{familia.image}}" class="img-responsive">
+                            <img ng-src="{{familia.image}}" class="img-responsive">
                         </div>
                     </div>
 
                     <div ng-show="showProdutos" ng-repeat="produto in familia.produtos">
                         <div class="item-list" ng-click="selecionaProduto(produto)">
-                            <img src="{{produto.image}}" class="img-responsive">
+                            <img ng-src="{{produto.image}}" class="img-responsive">
                         </div>
                     </div>
 

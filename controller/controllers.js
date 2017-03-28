@@ -32,14 +32,18 @@ angular.module("App.controllers", [])
             $rootScope.showMarcas = true; 
         }
         $scope.selecionaMarca = function(marca) {
-            $rootScope.marca = marca;
-            $rootScope.showMarcas = false; 
-            $rootScope.showFamilias = true; 
+            if (marca.familia){
+                $rootScope.marca = marca;
+                $rootScope.showMarcas = false; 
+                $rootScope.showFamilias = true; 
+            }
         }
         $scope.selecionaFamilia = function(familia) {
-            $rootScope.showFamilias = false; 
-            $rootScope.showProdutos = true; 
-            $rootScope.familia = familia;
+            if (familia.produtos){
+                $rootScope.showFamilias = false; 
+                $rootScope.showProdutos = true; 
+                $rootScope.familia = familia;
+            }
         }
 
     })
@@ -382,22 +386,28 @@ angular.module("App.controllers", [])
                     image: 'images/familia/produto_lavalouca.webp',
                     produtos: [{
                             name: 'Ype Clear Care',
-                            image: 'images/produto/LL Ype Clear Care_novo.png'
+                            image: 'images/produto/LL Ype Clear Care_novo.png',
+                            price: '3,55'
                         }, {
                             name: 'Ype Clear',
-                            image: 'images/produto/LL Ype Clear_novo.png'
+                            image: 'images/produto/LL Ype Clear_novo.png',
+                            price: '4,55'
                         }, {
                             name: 'Ype Coco',
-                            image: 'images/produto/LL Ype Coco_novo.png'
+                            image: 'images/produto/LL Ype Coco_novo.png',
+                            price: '5,55'
                         }, {
                             name: 'Ype Limao',
-                            image: 'images/produto/LL Ype Limao_novo.png'
+                            image: 'images/produto/LL Ype Limao_novo.png',
+                            price: '6,55'
                         }, {
                             name: 'Ype Maca PET',
-                            image: 'images/produto/LL Ype Maca PET novo.png'
+                            image: 'images/produto/LL Ype Maca PET novo.png',
+                            price: '1,55'
                         }, {
                             name: 'Ype Neutro',
-                            image: 'images/produto/LL Ype Neutro_novo.png'
+                            image: 'images/produto/LL Ype Neutro_novo.png',
+                            price: '2,55'
                         }
 
                     ]

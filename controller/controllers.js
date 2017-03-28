@@ -346,82 +346,82 @@ angular.module("App.controllers", [])
 
         $rootScope.produtos = [{
             name: 'assolan',
-            image: '/images/marcas/marca_assolan.webp',
+            image: 'images/marcas/marca_assolan.webp',
         }, {
             name: 'atol',
-            image: '/images/marcas/marca_atol.webp',
+            image: 'images/marcas/marca_atol.webp',
         }, {
             name: 'perfex',
-            image: '/images/marcas/marca_perfex.webp',
+            image: 'images/marcas/marca_perfex.webp',
         }, {
             name: 'tixan',
-            image: '/images/marcas/marca_tixan.webp',
+            image: 'images/marcas/marca_tixan.webp',
         }, {
             name: 'ype',
-            image: '/images/marcas/marca_ype.webp',
+            image: 'images/marcas/marca_ype.webp',
             familia: [{
                     name: 'cloro_gel',
-                    image: '/images/familia/cloro_gel_thumb.webp'
+                    image: 'images/familia/cloro_gel_thumb.webp'
                 }, {
                     name: 'cross',
-                    image: '/images/familia/cross_thumb.webp'
+                    image: 'images/familia/cross_thumb.webp'
                 }, {
                     name: 'aguasanitaria',
-                    image: '/images/familia/produto_aguasanitaria.webp'
+                    image: 'images/familia/produto_aguasanitaria.webp'
                 }, {
                     name: 'amaciantes',
-                    image: '/images/familia/produto_amaciantes.webp'
+                    image: 'images/familia/produto_amaciantes.webp'
                 }, {
                     name: 'amaciantes_concentrado',
-                    image: '/images/familia/produto_amaciantes_concentrado.webp'
+                    image: 'images/familia/produto_amaciantes_concentrado.webp'
                 }, {
                     name: 'desinfetante',
-                    image: '/images/familia/produto_desinfetante.webp'
+                    image: 'images/familia/produto_desinfetante.webp'
                 }, {
                     name: 'lavalouca',
-                    image: '/images/familia/produto_lavalouca.webp',
+                    image: 'images/familia/produto_lavalouca.webp',
                     produtos: [{
                             name: 'Ype Clear Care',
-                            image: '/images/produto/LL Ype Clear Care_novo.png'
+                            image: 'images/produto/LL Ype Clear Care_novo.png'
                         }, {
                             name: 'Ype Clear',
-                            image: '/images/produto/LL Ype Clear_novo.png'
+                            image: 'images/produto/LL Ype Clear_novo.png'
                         }, {
                             name: 'Ype Coco',
-                            image: '/images/produto/LL Ype Coco_novo.png'
+                            image: 'images/produto/LL Ype Coco_novo.png'
                         }, {
                             name: 'Ype Limao',
-                            image: '/images/produto/LL Ype Limao_novo.png'
+                            image: 'images/produto/LL Ype Limao_novo.png'
                         }, {
                             name: 'Ype Maca PET',
-                            image: '/images/produto/LL Ype Maca PET novo.png'
+                            image: 'images/produto/LL Ype Maca PET novo.png'
                         }, {
                             name: 'Ype Neutro',
-                            image: '/images/produto/LL Ype Neutro_novo.png'
+                            image: 'images/produto/LL Ype Neutro_novo.png'
                         }
 
                     ]
                 }, {
                     name: 'lustramoveis',
-                    image: '/images/familia/produto_lustramoveis.webp'
+                    image: 'images/familia/produto_lustramoveis.webp'
                 }, {
                     name: 'multiuso',
-                    image: '/images/familia/produto_multiuso.webp'
+                    image: 'images/familia/produto_multiuso.webp'
                 }, {
                     name: 'sabaoembarra',
-                    image: '/images/familia/produto_sabaoembarra.webp'
+                    image: 'images/familia/produto_sabaoembarra.webp'
                 }, {
                     name: 'saboneteaction',
-                    image: '/images/familia/produto_saboneteaction.webp'
+                    image: 'images/familia/produto_saboneteaction.webp'
                 }, {
                     name: 'saboneteluxo',
-                    image: '/images/familia/produto_saboneteluxo.webp'
+                    image: 'images/familia/produto_saboneteluxo.webp'
                 }, {
                     name: 'sabonetesuave',
-                    image: '/images/familia/produto_sabonetesuave.webp'
+                    image: 'images/familia/produto_sabonetesuave.webp'
                 }, {
                     name: 'ypepremium',
-                    image: '/images/familia/produto_ypepremium.webp'
+                    image: 'images/familia/produto_ypepremium.webp'
                 }
 
             ]

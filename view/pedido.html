@@ -1,0 +1,131 @@
+<panel title="" linkback="">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="panel panel-ype">
+                <div class="panel-heading"><i class="fa fa-user-circle" aria-hidden="true"></i> Cliente</div>
+                <div class="panel-body">
+                    <div class="row flex-row home-entry ">
+                        <entry title="" onlyview="viewEvento" type="select " size="12" model="convidadoGrupoAlvo.grupo " list="listaClientes"></entry>
+                    </div>
+                    <!-- 
+                    <div class="input-group input-group-lg grupo-busca ">
+                        <span class="input-group-addon " id="sizing-addon1 "><i class="fa fa-search " aria-hidden="true "></i></span>
+                        <input type="text " class="form-control " placeholder="busca " aria-describedby="sizing-addon1 " ng-model="filtro ">
+                    </div>
+                     -->
+                </div>
+            </div>
+            <div class="row flex-row ">
+                <span class="produtos ">
+
+                    <button ng-show="buttonAdd" type="button" class="btn btn-success add-item" ng-show="collapseFormEvento " ng-click="novoItemPedido()">
+                        <i class="fa fa-plus-circle fa-3x" aria-hidden="true"></i></i>
+                        <span>Adicionar Item</span>
+                </button>
+                <div class="image-list">
+                    <div ng-show="showMarcas" ng-repeat="marca in produtos">
+                        <!--  <span>{{marca.name}}</span> -->
+                        <div class="item-list" ng-click="selecionaMarca(marca)">
+                            <img src="{{marca.image}}" class="img-responsive">
+                        </div>
+                    </div>
+
+                    <div ng-show="showFamilias" ng-repeat="familia in marca.familia">
+                        <div class="item-list" ng-click="selecionaFamilia(familia)">
+                            <img src="{{familia.image}}" class="img-responsive">
+                        </div>
+                    </div>
+
+                    <div ng-show="showProdutos" ng-repeat="produto in familia.produtos">
+                        <div class="item-list" ng-click="selecionaProduto(produto)">
+                            <img src="{{produto.image}}" class="img-responsive">
+                        </div>
+                    </div>
+
+                </div>
+                <!-- <img class="pull-left img-responsive " src="images/produtos.png "> -->
+                </span>
+            </div>
+            <table class="table table-hover ">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>SKU</th>
+                        <th>Quantidade</th>
+                        <th>Preço</th>
+                        <th>Impostos</th>
+                        <!-- <th>Ações</th> -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="itemEvento in listaEventos | filter:filtro " ng-class="{ 'tr-selected': itemEvento.id==evento.id} ">
+                        <!-- 'tr-disabled':!itemEvento.ativo,  -->
+                        <td>{{itemEvento.id + 1}}</td>
+                        <td>SKU9888787787</td>
+                        <td>22</td>
+                        <td>R$ 44,90</td>
+                        <td>R$ 10,90</td>
+                        <!-- <td> <span class="btn btn-info btn-xs " ng-click="visualizarEvento(itemVoluntario) "><i class="fa fa-search " aria-hidden="true "></i></span></td> -->
+                    </tr>
+                </tbody>
+            </table>
+            <button type="button " class="btn btn-success pull-right " ng-show="collapseFormEvento " ng-click="novoEvento() "><i class="fa fa-floppy-o" aria-hidden="true "></i> Salvar Pedido</button>
+        </div>
+        <div class="col-md-3">
+            <div class="panel panel-ype">
+                <div class="panel-heading"><i class="fa fa-usd" aria-hidden="true"></i> Pedido de Vendas</div>
+                <div class="panel-body">
+                </div>
+            </div>
+            <div class="panel panel-ype">
+                <div class="panel-heading"><i class="fa fa-history" aria-hidden="true"></i> Histórico de pedidos</div>
+                <div class="panel-body">
+                    <table class="table table-hover ">
+                        <tbody>
+                            <tr ng-repeat="itemEvento in listaEventos | filter:filtro " ng-class="{ 'tr-selected': itemEvento.id==evento.id} ">
+                                <td>2017000198{{itemEvento.id + 1}}</td>
+                                <td><i class="fa fa-search" aria-hidden="true"></i></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="panel panel-ype">
+                <div class="panel-heading"><i class="fa fa-link" aria-hidden="true"></i> Mix perfeito</div>
+                <div class="panel-body">
+                    <table class="table table-hover ">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Qnt</th>
+                                <th>Produto</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><i class="fa fa-plus-circle" aria-hidden="true"></i></td>
+                                <td>01</td>
+                                <td>Detergente Ypê 5l</td>
+                            </tr>
+                            <tr>
+                                <td><i class="fa fa-plus-circle" aria-hidden="true"></i></td>
+                                <td>05</td>
+                                <td>Desinfetante 1l</td>
+                            </tr>
+                            <tr>
+                                <td><i class="fa fa-plus-circle" aria-hidden="true"></i></td>
+                                <td>08</td>
+                                <td>Multiuso Ypê</td>
+                            </tr>
+                            <tr>
+                                <td><i class="fa fa-plus-circle" aria-hidden="true"></i></td>
+                                <td>15</td>
+                                <td>Sabão barra 100g</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</panel>

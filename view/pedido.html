@@ -35,8 +35,8 @@
                         <span>Adicionar Item</span>
                     </button>
                 </div>
-                <div class="col-md-9">
-                    <span class="produtos ">
+                    mais vendidos
+                    <span class="produtos" ng-show="showMarcas || showFamilias || showProdutos">
                         <div class="image-list">
                             <div ng-show="showMarcas" ng-repeat="marca in produtos">
                                 <!--  <span>{{marca.name}}</span> -->
@@ -60,7 +60,6 @@
                         </div>
                     <!-- <img class="pull-left img-responsive " src="images/produtos.png "> -->
                     </span>
-                </div>
             </div>
             <table class="table table-hover ">
                 <thead>

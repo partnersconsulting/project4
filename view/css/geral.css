@@ -884,3 +884,24 @@ tfoot {
 .item-list img {
     max-height: 100px;
 }
+
+.form-mini entry {
+    padding: 0;
+}
+
+.form-mini .form-group {
+    margin-bottom: 5px;
+    display: flex;
+}
+
+.form-mini .form-group label {
+    color: #000;
+    font-size: 12px;
+    margin-right: 10px;
+        line-height: 12px;
+}
+
+.form-mini .form-group input {
+    height: 20px;
+    border: none;
+}

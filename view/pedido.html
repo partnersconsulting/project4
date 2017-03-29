@@ -5,8 +5,21 @@
                 <div class="panel-heading"><i class="fa fa-user-circle" aria-hidden="true"></i> Cliente</div>
                 <div class="panel-body">
                     <div class="row flex-row home-entry ">
-                        <entry title="" onlyview="viewEvento" type="select " size="12" model="convidadoGrupoAlvo.grupo " list="listaClientes"></entry>
+                        <entry title="" onlyview="viewEvento" type="select " size="4" model="convidadoGrupoAlvo.grupo " list="listaClientes"></entry>
+                        <div class="col-md-4 form-mini">
+                            <entry title="Nome" type="text" size="12" model="cliente.nome"></entry>
+                            <entry title="Codigo" type="text" size="12" model="cliente.codigo"></entry>
+                            <entry title="Contato" type="text" size="12" model="cliente.contato "></entry>
+                            <entry title="Endereco" type="text" size="12" model="cliente.endereco "></entry>
+                        </div>
+                        <div class="col-md-4 form-mini">
+                            <entry title="Valor comprometido" type="text" size="12" model="cliente.valorComprometido"></entry>
+                            <entry title="Valor a vencer" type="text" size="12" model="cliente.valorVencer"></entry>
+                        </div>
                     </div>
+
+                    
+
                     <!-- 
                     <div class="input-group input-group-lg grupo-busca ">
                         <span class="input-group-addon " id="sizing-addon1 "><i class="fa fa-search " aria-hidden="true "></i></span>
@@ -16,35 +29,38 @@
                 </div>
             </div>
             <div class="row flex-row ">
-                <span class="produtos ">
-
+                <div class="col-md-3">
                     <button ng-show="buttonAdd" type="button" class="btn btn-success add-item" ng-show="collapseFormEvento " ng-click="novoItemPedido()">
                         <i class="fa fa-plus-circle fa-3x" aria-hidden="true"></i></i>
                         <span>Adicionar Item</span>
-                </button>
-                <div class="image-list">
-                    <div ng-show="showMarcas" ng-repeat="marca in produtos">
-                        <!--  <span>{{marca.name}}</span> -->
-                        <div class="item-list" ng-click="selecionaMarca(marca)">
-                            <img ng-src="{{marca.image}}" class="img-responsive">
-                        </div>
-                    </div>
-
-                    <div ng-show="showFamilias" ng-repeat="familia in marca.familia">
-                        <div class="item-list" ng-click="selecionaFamilia(familia)">
-                            <img ng-src="{{familia.image}}" class="img-responsive">
-                        </div>
-                    </div>
-
-                    <div ng-show="showProdutos" ng-repeat="produto in familia.produtos">
-                        <div class="item-list" ng-click="selecionaProduto(produto)">
-                            <img ng-src="{{produto.image}}" class="img-responsive">
-                        </div>
-                    </div>
-
+                    </button>
                 </div>
-                <!-- <img class="pull-left img-responsive " src="images/produtos.png "> -->
-                </span>
+                <div class="col-md-9">
+                    <span class="produtos ">
+                        <div class="image-list">
+                            <div ng-show="showMarcas" ng-repeat="marca in produtos">
+                                <!--  <span>{{marca.name}}</span> -->
+                                <div class="item-list" ng-click="selecionaMarca(marca)">
+                                    <img ng-src="{{marca.image}}" class="img-responsive">
+                                </div>
+                            </div>
+
+                            <div ng-show="showFamilias" ng-repeat="familia in marca.familia">
+                                <div class="item-list" ng-click="selecionaFamilia(familia)">
+                                    <img ng-src="{{familia.image}}" class="img-responsive">
+                                </div>
+                            </div>
+
+                            <div ng-show="showProdutos" ng-repeat="produto in familia.produtos">
+                                <div class="item-list" ng-click="selecionaProduto(produto)">
+                                    <img ng-src="{{produto.image}}" class="img-responsive">
+                                </div>
+                            </div>
+
+                        </div>
+                    <!-- <img class="pull-left img-responsive " src="images/produtos.png "> -->
+                    </span>
+                </div>
             </div>
             <table class="table table-hover ">
                 <thead>
@@ -72,11 +88,11 @@
             <button type="button " class="btn btn-success pull-right " ng-show="collapseFormEvento " ng-click="novoEvento() "><i class="fa fa-floppy-o" aria-hidden="true "></i> Salvar Pedido</button>
         </div>
         <div class="col-md-3">
-            <div class="panel panel-ype">
+            <!-- <div class="panel panel-ype">
                 <div class="panel-heading"><i class="fa fa-usd" aria-hidden="true"></i> Pedido de Vendas</div>
                 <div class="panel-body">
                 </div>
-            </div>
+            </div> -->
             <div class="panel panel-ype">
                 <div class="panel-heading"><i class="fa fa-history" aria-hidden="true"></i> Histórico de pedidos</div>
                 <div class="panel-body">

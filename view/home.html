@@ -1,7 +1,6 @@
 <panel title="" linkback="">
     <!--  -->
-
-<!--  <div class="toggle">
+    <!--  <div class="toggle">
     <input type="checkbox">
     <span class="button"></span>
     <span class="label">+</span>
@@ -11,123 +10,118 @@
     <span class="button"></span>
     <span class="label">–</span>
   </div> -->
-
-<!--   <canvas id="doughnut" class="chart chart-doughnut"
+    <!--   <canvas id="doughnut" class="chart chart-doughnut"
   chart-data="data" chart-labels="labels">
 </canvas> 
      -->
-
-<!-- menus
+    <!-- menus
 
 §  Pedido de Venda CLIENTES§  Clientes (C4C)§  Atividades (C4C)§  Visitas (C4C)§  Calendário (C4C)OUTROS§  Catalogo (C4C)§  Biblioteca (C4C)§  Contratos§  Plano de Negócio§  Feeds (C4C)
 
  -->
 
 <div class="holder1">
-  
-    <div class="main circle bubble bubble1">
-      <span class="bubble-inner">
+  <div class="main circle bubble bubble1" ng-repeat="itemMenu in activeMenu" ng-click="openSub(itemMenu)">
+    <span class="bubble-inner">
+      <i class="fa {{itemMenu.icon}} fa-3x"></i>
+    </span>
+  </div>
+</div>
+
+
+ <!-- 
+    <div class="holder1">
+        <div class="main circle bubble bubble1">
+            <span class="bubble-inner">
         <i class="fa fa-plus fa-3x"></i>
       </span>
-    </div>
-  
-  <a href="#">
-    <div class="home circle small bubble bubble2">
-        <span class="bubble-inner">
+        </div>
+        <a href="#">
+            <div class="home circle small bubble bubble2">
+                <span class="bubble-inner">
       <i class="fa fa-home fa-2x"></i>
            </span>
-    </div>
-  </a>
-  
-  <a href="#">
-    <div class="mail circle small bubble bubble3">
-      <span class="bubble-inner">
+            </div>
+        </a>
+        <a href="#">
+            <div class="mail circle small bubble bubble3">
+                <span class="bubble-inner">
       <i class="fa fa-envelope fa-2x"></i>
          </span>
-    </div>
-  </a>
-
-  <a href="#">
-    <div class="setting circle small bubble bubble4">
-      <span class="bubble-inner">
+            </div>
+        </a>
+        <a href="#">
+            <div class="setting circle small bubble bubble4">
+                <span class="bubble-inner">
       <i class="fa fa-cog fa-2x"></i>
          </span>
+            </div>
+        </a>
     </div>
-  </a>
-</div>
-
-<div class="holder2">
-  
-    <div class="main circle bubble bubble1">
-      <span class="bubble-inner">
+    <div class="holder2">
+        <div class="main circle bubble bubble1">
+            <span class="bubble-inner">
         <i class="fa fa-history fa-3x"></i>
       </span>
-    </div>
-  
-  <a href="#">
-    <div class="home circle small bubble bubble2">
-        <span class="bubble-inner">
+        </div>
+        <a href="#">
+            <div class="home circle small bubble bubble2">
+                <span class="bubble-inner">
       <i class="fa fa-home fa-2x"></i>
            </span>
-    </div>
-  </a>
-  
-  <a href="#">
-    <div class="mail circle small bubble bubble3">
-      <span class="bubble-inner">
+            </div>
+        </a>
+        <a href="#">
+            <div class="mail circle small bubble bubble3">
+                <span class="bubble-inner">
       <i class="fa fa-envelope fa-2x"></i>
          </span>
-    </div>
-  </a>
-
-  <a href="#">
-    <div class="setting circle small bubble bubble4">
-      <span class="bubble-inner">
+            </div>
+        </a>
+        <a href="#">
+            <div class="setting circle small bubble bubble4">
+                <span class="bubble-inner">
       <i class="fa fa-cog fa-2x"></i>
          </span>
+            </div>
+        </a>
     </div>
-  </a>
-</div>
-
-<div class="holder3">
-  
-    <div class="main circle bubble bubble1">
-      <span class="bubble-inner">
+    <div class="holder3">
+        <div class="main circle bubble bubble1">
+            <span class="bubble-inner">
         <i class="fa fa-bars fa-3x"></i>
       </span>
-    </div>
-  
-  <a href="#">
-    <div class="home circle small bubble bubble2">
-        <span class="bubble-inner">
+        </div>
+        <a href="#">
+            <div class="home circle small bubble bubble2">
+                <span class="bubble-inner">
       <i class="fa fa-home fa-2x"></i>
            </span>
-    </div>
-  </a>
-  
-  <a href="#">
-    <div class="mail circle small bubble bubble3">
-      <span class="bubble-inner">
+            </div>
+        </a>
+        <a href="#">
+            <div class="mail circle small bubble bubble3">
+                <span class="bubble-inner">
       <i class="fa fa-envelope fa-2x"></i>
          </span>
-    </div>
-  </a>
-
-  <a href="#">
-    <div class="setting circle small bubble bubble4">
-      <span class="bubble-inner">
+            </div>
+        </a>
+        <a href="#">
+            <div class="setting circle small bubble bubble4">
+                <span class="bubble-inner">
       <i class="fa fa-cog fa-2x"></i>
          </span>
-    </div>
-  </a>
-</div>
+            </div>
+        </a>
+    </div> -->
+
 
     <div ng-repeat="group in linksHome" class="link-group">
         <h2>{{group.title}}</h2>
         <a href="{{itemGroup.link}}" target="{{itemGroup.target}}" ng-repeat="itemGroup in group.list" class="tile effect1">
             <!-- <i class="fa fa-5x {{itemGroup.icon}}" aria-hidden="true"></i>
              -->
-            <img src="{{itemGroup.image}}" class="img-responsive">
+            <img ng-src="{{itemGroup.image}}" class="img-responsive">
             <span class="title">{{itemGroup.title}}</span>
             <span class="text">{{itemGroup.text}}</span>
         </a>

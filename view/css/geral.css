@@ -816,9 +816,9 @@ tfoot {
     background: #fff;
     display: flex;
     margin-bottom: 15px;
-
-        height: 100px;
+    height: 110px;
     overflow-x: scroll;
+    overflow-y: hidden;
 }
 
 .banner-ype {
@@ -876,7 +876,7 @@ tfoot {
 }
 
 .panel-historico .panel-body {
-    height: 190px;
+    height: 135px;
     padding: 10px;
 }
 
@@ -903,7 +903,12 @@ tfoot {
     flex-grow: 1;
     width: 90px;
     height: 90px;
-        min-width: 90px;
+    min-width: 90px;
+    cursor: pointer;
+}
+
+.item-list:hover {
+    border: 2px solid #666;
 }
 
 .item-list img {
@@ -948,23 +953,25 @@ tfoot {
 
 .table-items {
     display: block;
-    height: 258px;
+    height: 251px;
 }
 
 .table-items tbody {
-    overflow-y: scroll;
+    /* overflow-y: scroll;*/
     height: 220px;
-    display: block;
+    /*display: block;*/
 }
 
-.table-items thead {
-    display: block;
-}
 
-.table-items tr {
+/*.table-items thead {
+    display: block;
+}*/
+
+
+/*.table-items tr {
     width: 100%;
     display: inline-table;
-}
+}*/
 
 .row-margin {
     margin-bottom: 40px;
@@ -984,4 +991,74 @@ tfoot {
     border-left: 1px solid;
     text-align: center;
     border-right: 1px solid;
+}
+
+.selected-product {
+    text-align: left;
+}
+
+.selected-product .title {
+    font-size: 22px;
+    font-weight: 600;
+    display: block;
+    text-align: left;
+}
+
+.selected-product .props {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.selected-product .prop {
+    font-size: 16px;
+    display: block;
+    text-align: left;
+}
+
+.number-picker {
+    position: relative;
+    padding: 20px;
+    background: #eee;
+    display: inline-block;
+    margin-top: 20px;
+    margin: 2px 15px;
+}
+
+.number-picker input {
+    max-width: 60px;
+    vertical-align: top;
+    height: 38px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 22px;
+}
+
+.number-picker .title {
+    font-size: 15px;
+    font-weight: 600;
+    text-align: left;
+    display: inline;
+    vertical-align: super;
+}
+
+.number-picker .title:after {
+    content: ":";
+    display: inline-block;
+}
+
+.historico {
+    text-align: left;
+}
+
+.historico .titulo {
+    text-align: left;
+    font-size: 22px;
+    margin-right: 100px;
+}
+
+.historico .data {
+}
+
+.historico .close {
+    margin-top: -10px;
 }

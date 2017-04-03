@@ -1,5 +1,5 @@
 angular.module("App.controllers", [])
-    .controller("HomeController", function($scope, $rootScope) {
+    .controller("HomeController", function($scope, $rootScope, $location) {
 
         /*$scope.labels = ["Download Sales", "In-Store Sales", "Mail-Order Sales"];
         $scope.data = [300, 500, 100];
@@ -7,22 +7,25 @@ angular.module("App.controllers", [])
 */
 
 
+
+
         $rootScope.menu = [{
                 name: "menu1",
                 icon: "fa-plus",
-                subs: [{
-                    name: "sub1",
-                    icon: "fa-home",
-                    link: "/link-sub1",
-                }, {
-                    name: "sub2",
-                    icon: "fa-envelope",
-                    link: "/link-sub2",
-                }, {
-                    name: "sub3",
-                    icon: "fa-cog",
-                    link: "/link-sub3",
-                }]
+                link: "/cadastro_evento"
+                    /*subs: [{
+                        name: "sub1",
+                        icon: "fa-home",
+                        link: "/link-sub1",
+                    }, {
+                        name: "sub2",
+                        icon: "fa-envelope",
+                        link: "/link-sub2",
+                    }, {
+                        name: "sub3",
+                        icon: "fa-cog",
+                        link: "/link-sub3",
+                    }]*/
             }, {
                 name: "menu2",
                 icon: "fa-history",
@@ -66,35 +69,68 @@ angular.module("App.controllers", [])
         $rootScope.activeMenu = $rootScope.menu;
 
         $rootScope.openSub = function(sub) {
-            $rootScope.activeMenu = sub;
+            // $rootScope.activeMenu = sub;
+            $location.path(sub.link);
         }
 
     })
     .controller("PedidosController", function($scope, $rootScope, $uibModal) {
-        $rootScope.showMarcas = true;
-        $rootScope.showFamilias = false;
-        $rootScope.buttonAdd = true;
-        $rootScope.marca = '';
-        $rootScope.familia = '';
 
+        $rootScope.itemPedido = {};
+
+        $rootScope.selectedHistoric = null;
+
+
+        $rootScope.clear = function() {
+            console.log("XXX clear()");
+
+            $rootScope.showMarcas = true;
+            $rootScope.showFamilias = false;
+            $rootScope.buttonAdd = true;
+            $rootScope.selectedProduct = '';
+            $rootScope.marca = '';
+            $rootScope.familia = '';
+
+            $rootScope.itemPedido = {};
+        }
+
+        $rootScope.clear();
+
+        /*$rootScope.precoComDesconto = $rootScope.itemPedido.desconto * $rootScope.selectedProduct;*/
         //$rootScope.produtos = [{
 
-        $scope.novoItemPedido = function() {
+
+        $rootScope.closeHistoric = function() {
+            $rootScope.selectedHistoric = null;
+        }
+
+        $rootScope.abrirHistorico = function() {
+            $scope.open('lg', '', 'view/modal/historico.html', '');
+        }
 
 
-        $scope.open('md', '', 'view/modal/novo-item.html', '');
+        $rootScope.selectHistoric = function(historic) {
+            $rootScope.selectedHistoric = historic;
+        }
+
+        $rootScope.novoItemPedido = function() {
+            console.log("novoItemPedido()");
+
+            $scope.open('md', '', 'view/modal/novo-item.html', '');
 
             //$rootScope.buttonAdd = false;
             //$rootScope.showMarcas = true;
         }
-        $scope.selecionaMarca = function(marca) {
+        $rootScope.selecionaMarca = function(marca) {
+            console.log("selecionaMarca()" + marca.name);
             if (marca.familia) {
                 $rootScope.marca = marca;
                 $rootScope.showMarcas = false;
                 $rootScope.showFamilias = true;
             }
         }
-        $scope.selecionaFamilia = function(familia) {
+        $rootScope.selecionaFamilia = function(familia) {
+            console.log("selecionaFamilia()" + familia.name);
             if (familia.produtos) {
                 $rootScope.showFamilias = false;
                 $rootScope.showProdutos = true;
@@ -102,20 +138,91 @@ angular.module("App.controllers", [])
             }
         }
 
+        $rootScope.selecionaMaisVendido = function(produto) {
+            $rootScope.selectedProduct = produto;
+            $rootScope.showProdutos = false;
+            $rootScope.showMarcas = false;
+            $rootScope.showFamilias = true;
+            $scope.open('md', '', 'view/modal/novo-item.html', '');
+
+        }
+        $rootScope.selecionaProduto = function(produto) {
+            $rootScope.selectedProduct = produto;
+            $rootScope.showProdutos = false;
+            console.log("selecionaProduto()" + produto.name);
+        }
+
+        $rootScope.adicionarMix = function() {
+            console.log('adicionar mix');
+            angular.forEach($rootScope.selectedClient.listaMix.items, function(value, key) {
+                $rootScope.adicionarNoPedido(value);
+            });
+
+            $rootScope.selectedClient.listaMix.items = [];
+        }
+
+        $rootScope.totalItems = 0;
+        $rootScope.valorTotal = 0;
+
+        $rootScope.adicionarNoPedido = function(item) {
+            $rootScope.itensPedido.push(item);
+            $rootScope.totalItems = $rootScope.totalItems + Number(item.quantidade);
+            $rootScope.valorTotal = $rootScope.valorTotal + Number(item.quantidade * item.price);
+        }
 
 
         $scope.open('md', '', 'view/modal/cliente.html', '');
     })
     .controller("ModalInstanceCtrl", function($scope, $rootScope, $uibModalInstance) {
+
+
+        $scope.reloadPedido = function() {
+
+            angular.forEach($rootScope.selectedHistoric.items, function(value, key) {
+                $rootScope.adicionarNoPedido(value);
+            });
+
+            
+
+            $uibModalInstance.dismiss('cancel');
+        }
+
+        $scope.adicionar = function() {
+
+            var item = {
+                id: "200700" + $rootScope.itensPedido.length,
+                name: $rootScope.selectedProduct.name,
+                sku: $rootScope.selectedProduct.sku,
+                quantidade: $rootScope.itemPedido.qnt,
+                price: $rootScope.selectedProduct.price,
+                impostos: 1.22,
+                desconto: $rootScope.itemPedido.desconto / 100
+            };
+
+            $rootScope.adicionarNoPedido(item);
+
+
+
+            $uibModalInstance.dismiss('cancel');
+        }
+
+
+
+
         $scope.ok = function() {
+            console.log("ok()");
+            $rootScope.clear();
             $uibModalInstance.close();
         };
 
         $scope.cancel = function() {
+            console.log("cancel()");
+            $rootScope.clear();
             $uibModalInstance.dismiss('cancel');
         };
 
         $scope.selectClient = function(client) {
+            console.log("selectClient()");
             $uibModalInstance.dismiss('cancel');
 
             $rootScope.selectedClient = client;
@@ -126,13 +233,15 @@ angular.module("App.controllers", [])
 
         $scope.open = function(size, parentSelector, page, tipo) {
 
+            var r = '?n=' + Math.random();
+
             var parentElem = parentSelector ?
                 angular.element($document[0].querySelector('.modal-demo ' + parentSelector)) : undefined;
             var modalInstance = $uibModal.open({
                 animation: true,
                 ariaLabelledBy: 'modal-title',
                 ariaDescribedBy: 'modal-body',
-                templateUrl: page,
+                templateUrl: page + r,
                 controller: 'ModalInstanceCtrl',
                 controllerAs: '$ctrl',
                 size: size,
@@ -170,19 +279,36 @@ angular.module("App.controllers", [])
 
         var historic = [{
             number: "20171112",
-            date: "01/01/2017"
+            date: "01/01/2017",
+            items: [
+                { "id": "2007000", "name": "Pano Multiuso Perfex", "sku": "SKU20170142", "quantidade": "10", "price": 6.55, "impostos": 1.22, "desconto": 0 },
+                { "id": "2007001", "name": "Ype sabão em pó 500g", "sku": "SKU20170142", "quantidade": "10", "price": 1.55, "impostos": 1.22, "desconto": 0 },
+                { "id": "2007002", "name": "Ype Lava Roupas", "sku": "SKU20170142", "quantidade": "10", "price": 2.55, "impostos": 1.22, "desconto": 0 },
+                { "id": "2007003", "name": "Ype barra 200g", "sku": "SKU20170142", "quantidade": "10", "price": 4.55, "impostos": 1.22, "desconto": 0 },
+                { "id": "2007004", "name": "Agua Sanitaria 5l", "sku": "SKU20170142", "quantidade": "50", "price": 3.55, "impostos": 1.22, "desconto": 0 }
+            ]
         }, {
             number: "20171189",
-            date: "15/01/2017"
+            date: "15/01/2017",
+            items: [
+                { "id": "2007000", "name": "Agua Sanitaria 5l", "sku": "SKU20170142", "quantidade": "15", "price": 3.55, "impostos": 1.22, "desconto": 0.005 },
+                { "id": "2007001", "name": "Ype Lava Roupas", "sku": "SKU20170142", "quantidade": "50", "price": 2.55, "impostos": 1.22, "desconto": 0.045 }
+            ]
         }, {
             number: "20171199",
-            date: "30/01/2017"
+            date: "30/01/2017",
+            items: [
+                { "id": "2007000", "name": "Lava Louça Ype 5l neutro", "sku": "SKU20170142", "quantidade": 40, "price": 13.55, "impostos": 1.22, "desconto": 0.04 },
+                { "id": "2007001", "name": "Lava Louça Ype 5l clear", "sku": "SKU20170142", "quantidade": "50", "price": 12.55, "impostos": 1.22, "desconto": 0 },
+                { "id": "2007002", "name": "Ype sabão em pó 500g", "sku": "SKU20170142", "quantidade": 30, "price": 1.55, "impostos": 1.22, "desconto": 0.085 }
+            ]
         }, {
             number: "20171222",
-            date: "15/02/2017"
-        }, {
-            number: "20171333 ",
-            date: "30/02/2017"
+            date: "15/02/2017",
+            items: [
+                { "id": "2007000", "name": "Pano Multiuso Perfex", "sku": "SKU20170142", "quantidade": 20, "price": 6.55, "impostos": 1.22, "desconto": 0.03 },
+                { "id": "2007001", "name": "Ype Clear", "sku": "SKU20170002", "quantidade": 40, "price": 4.55, "impostos": 1.22, "desconto": 0 }
+            ]
         }];
 
         var credito = {
@@ -191,190 +317,143 @@ angular.module("App.controllers", [])
             comprometido: "R$ 30.000,00",
             liberar: {
                 total: "R$ 10.000,00",
-                faturas: [
-                    {
-                        code: "3232",
-                        data: "22/04",
-                        valor: "R$ 3.500,00"
-                    },
-                    {
-                        code: "3256",
-                        data: "28/04",
-                        valor: "R$ 1.000,00"
-                    },
-                    {
-                        code: "3359",
-                        data: "30/04",
-                        valor: "R$ 5.500,00"
-                    }
-                ]
+                faturas: [{
+                    code: "3232",
+                    data: "22/04",
+                    valor: "R$ 3.500,00"
+                }, {
+                    code: "3256",
+                    data: "28/04",
+                    valor: "R$ 1.000,00"
+                }, {
+                    code: "3359",
+                    data: "30/04",
+                    valor: "R$ 5.500,00"
+                }]
             }
         }
 
         var listaMix = {
             name: "Mix perfeito",
             items: [{
-                quantidade: "01 cx",
+                id: "200700055",
+                sku: 'SKU20170042',
+                quantidade: 1,
+                impostos: 1.22,
+                price: 1.27,
+                desconto: .3,
                 name: "Detergente Ypê 5l"
             }, {
-                quantidade: "05 cx",
+                id: "200700051",
+                sku: 'SKU20170984',
+                quantidade: 5,
+                impostos: 1.42,
+                price: 2.99,
+                desconto: .3,
                 name: "Desinfetante 1l"
             }, {
-                quantidade: "08 un",
+                id: "200700089",
+                sku: 'SKU20170499',
+                quantidade: 8,
+                impostos: 1.92,
+                price: 4.90,
+                desconto: .3,
                 name: "Multiuso Ypê"
             }, {
-                quantidade: "01 un",
+                id: "200700099",
+                sku: 'SKU20170142',
+                quantidade: 10,
+                impostos: 1.51,
+                price: 3.77,
+                desconto: .3,
                 name: "Sabão barra 100g"
             }]
         };
 
+
         $rootScope.listaClientes = [
-            { code: '2017011', name: 'Grupo Pão de Açucar', historic: historic, listaMix:listaMix, credito:credito },
-            { code: '2017012', name: 'Covabra Supermecados', historic: historic, listaMix:listaMix, credito:credito },
-            { code: '2017013', name: 'Sam`s Club', historic: historic, listaMix:listaMix, credito:credito },
-            { code: '2017014', name: 'Walmart', historic: historic, listaMix:listaMix, credito:credito },
-            { code: '2017015', name: 'Makro', historic: historic, listaMix:listaMix, credito:credito },
-            { code: '2017016', name: 'Delben Supermercados', historic: historic, listaMix:listaMix, credito:credito },
-            { code: '2017017', name: 'Cliente Supermercados 1', historic: historic, listaMix:listaMix, credito:credito },
-            { code: '2017018', name: 'Cliente Supermercados 2', historic: historic, listaMix:listaMix, credito:credito },
-            { code: '2017019', name: 'Cliente Supermercados 3', historic: historic, listaMix:listaMix, credito:credito }
+            { code: '2017011', name: 'Grupo Pão de Açucar', historic: historic, listaMix: listaMix, credito: credito },
+            { code: '2017012', name: 'Covabra Supermecados', historic: historic, listaMix: listaMix, credito: credito },
+            { code: '2017013', name: 'Sam`s Club', historic: historic, listaMix: listaMix, credito: credito },
+            { code: '2017014', name: 'Walmart', historic: historic, listaMix: listaMix, credito: credito },
+            { code: '2017015', name: 'Makro', historic: historic, listaMix: listaMix, credito: credito },
+            { code: '2017016', name: 'Delben Supermercados', historic: historic, listaMix: listaMix, credito: credito },
+            { code: '2017017', name: 'Cliente Supermercados 1', historic: historic, listaMix: listaMix, credito: credito },
+            { code: '2017018', name: 'Cliente Supermercados 2', historic: historic, listaMix: listaMix, credito: credito },
+            { code: '2017019', name: 'Cliente Supermercados 3', historic: historic, listaMix: listaMix, credito: credito }
 
         ];
 
         $rootScope.maisVendidos = [{
+                id: "200700099",
+                sku: 'SKU20170142',
+                impostos: 1.51,
+                desconto: .1,
                 name: 'Agua Sanitaria 5l',
                 image: 'images/produto/agua-5l-2016.png',
-                price: '3,55'
+                price: 3.55
             }, {
+                id: "200700099",
+                sku: 'SKU20170142',
+                impostos: 1.51,
+                desconto: .1,
                 name: 'Ype barra 200g',
                 image: 'images/produto/barra-neutro-2016.jpg',
-                price: '4,55'
+                price: 4.55
             }, {
+                id: "200700099",
+                sku: 'SKU20170142',
+                impostos: 1.51,
+                desconto: .1,
                 name: 'Assolan la de aço',
                 image: 'images/produto/La_de_Aco_Assolan.png',
-                price: '5,55'
+                price: 5.55
             }, {
+                id: "200700099",
+                sku: 'SKU20170142',
+                impostos: 2.51,
+                desconto: .1,
                 name: 'Pano Multiuso Perfex',
                 image: 'images/produto/Pano Multiuso_Perfex Azul.png',
-                price: '6,55'
+                price: 6.55
             }, {
+                id: "200700099",
+                sku: 'SKU20170142',
+                impostos: 0.51,
+                desconto: .1,
                 name: 'Ype sabão em pó 500g',
                 image: 'images/produto/YpePremiumReg-500g-Lateral-Esq-2013.png',
-                price: '1,55'
+                price: 1.55
             }, {
+                id: "200700099",
+                sku: 'SKU20170142',
+                impostos: 0.91,
+                desconto: .1,
                 name: 'Ype Lava Roupas',
                 image: 'images/produto/Ypremium_Novo_Baixa.png',
-                price: '2,55'
+                price: 2.55
             }, {
+                id: "200700099",
+                sku: 'SKU20170142',
+                impostos: 4.51,
+                desconto: .1,
                 name: 'Lava Louça Ype 5l clear',
                 image: 'images/produto/louca-ype-5l-clear-2016.jpg',
-                price: '12,55'
+                price: 12.55
             }, {
+                id: "200700099",
+                sku: 'SKU20170142',
+                impostos: 4.51,
+                desconto: .1,
                 name: 'Lava Louça Ype 5l neutro',
                 image: 'images/produto/louca-ype-5l-neutro-2016.png',
-                price: '13,55'
+                price: 13.55
             }
 
         ];
 
 
-        $rootScope.itensPedido = [{
-            id: "20170001",
-            name: "prod ype 1",
-            sku: "SKU20170001",
-            quantidade: 10,
-            precoUnitario: 3.15,
-            impostos: 1.22,
-            desconto: .112
-        }, {
-            id: "20170022",
-            name: "prod ype 22",
-            sku: "SKU20170022",
-            quantidade: 15,
-            precoUnitario: 2.15,
-            impostos: 0.95,
-            desconto: .155
-        }, {
-            id: "20170002",
-            name: "prod ype 2",
-            sku: "SKU20170002",
-            quantidade: 5,
-            precoUnitario: 9.55,
-            impostos: 3.21,
-            desconto: .059
-        }, {
-            id: "20170005",
-            name: "prod ype 5",
-            sku: "SKU20170005",
-            quantidade: 20,
-            precoUnitario: 2.98,
-            impostos: 1.11,
-            desconto: .079
-        }, {
-            id: "20170001",
-            name: "prod ype 1",
-            sku: "SKU20170001",
-            quantidade: 10,
-            precoUnitario: 3.15,
-            impostos: 1.22,
-            desconto: .112
-        }, {
-            id: "20170022",
-            name: "prod ype 22",
-            sku: "SKU20170022",
-            quantidade: 15,
-            precoUnitario: 2.15,
-            impostos: 0.95,
-            desconto: .155
-        }, {
-            id: "20170002",
-            name: "prod ype 2",
-            sku: "SKU20170002",
-            quantidade: 5,
-            precoUnitario: 9.55,
-            impostos: 3.21,
-            desconto: .059
-        }, {
-            id: "20170005",
-            name: "prod ype 5",
-            sku: "SKU20170005",
-            quantidade: 20,
-            precoUnitario: 2.98,
-            impostos: 1.11,
-            desconto: .079
-        }, {
-            id: "20170001",
-            name: "prod ype 1",
-            sku: "SKU20170001",
-            quantidade: 10,
-            precoUnitario: 3.15,
-            impostos: 1.22,
-            desconto: .112
-        }, {
-            id: "20170022",
-            name: "prod ype 22",
-            sku: "SKU20170022",
-            quantidade: 15,
-            precoUnitario: 2.15,
-            impostos: 0.95,
-            desconto: .155
-        }, {
-            id: "20170002",
-            name: "prod ype 2",
-            sku: "SKU20170002",
-            quantidade: 5,
-            precoUnitario: 9.55,
-            impostos: 3.21,
-            desconto: .059
-        }, {
-            id: "20170005",
-            name: "prod ype 5",
-            sku: "SKU20170005",
-            quantidade: 20,
-            precoUnitario: 2.98,
-            impostos: 1.11,
-            desconto: .079
-        }];
+        $rootScope.itensPedido = [];
 
         $rootScope.produtos = [{
             name: 'assolan',
@@ -414,28 +493,34 @@ angular.module("App.controllers", [])
                     image: 'images/familia/produto_lavalouca.webp',
                     produtos: [{
                             name: 'Ype Clear Care',
+                            sku: 'SKU20170001',
                             image: 'images/produto/LL Ype Clear Care_novo.png',
-                            price: '3,55'
+                            price: 3.55
                         }, {
                             name: 'Ype Clear',
+                            sku: 'SKU20170002',
                             image: 'images/produto/LL Ype Clear_novo.png',
-                            price: '4,55'
+                            price: 4.55
                         }, {
                             name: 'Ype Coco',
+                            sku: 'SKU20170003',
                             image: 'images/produto/LL Ype Coco_novo.png',
-                            price: '5,55'
+                            price: 5.55
                         }, {
                             name: 'Ype Limao',
+                            sku: 'SKU20170004',
                             image: 'images/produto/LL Ype Limao_novo.png',
-                            price: '6,55'
+                            price: 6.55
                         }, {
                             name: 'Ype Maca PET',
+                            sku: 'SKU20170005',
                             image: 'images/produto/LL Ype Maca PET novo.png',
-                            price: '1,55'
+                            price: 1.55
                         }, {
                             name: 'Ype Neutro',
+                            sku: 'SKU20170006',
                             image: 'images/produto/LL Ype Neutro_novo.png',
-                            price: '2,55'
+                            price: 2.55
                         }
 
                     ]

@@ -1,7 +1,8 @@
 .holder1 {
     position: fixed;
-    right: 240px;
+    right: 30px;
     top: 170px;
+    width: 240px;
 }
 
 .holder2 {
@@ -17,7 +18,7 @@
 }
 
 .main {
-    margin: 5px 0 0 5px;
+    margin: 20px;
 }
 
 .home {
@@ -33,8 +34,8 @@
 }
 
 .circle {
-    width: 10em;
-    height: 10em;
+    width: 70px;
+    height: 70px;
     /*   background-color: #09f;
   border: 4px solid #004d80;
   border-radius: 50%; */
@@ -60,7 +61,7 @@
 }
 
 .bubble {
-    display: block;
+    display: inline-block;
 }
 
 .bubble1 {

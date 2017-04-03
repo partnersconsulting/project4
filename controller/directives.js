@@ -17,8 +17,61 @@ angular.module('App.directives', [])
         ddo.templateUrl = 'view/directives/panel.html' + r;
         return ddo;
     })
+    .directive('numberpicker', function() {
+        var ddo = {};
 
-.directive('entry', function() {
+        ddo.restrict = 'E';
+
+        ddo.scope = {
+            title: '@title',
+            min: '@min',
+            max: '@max',
+            step: '@step',
+            model: '='
+        }
+
+
+        ddo.controller = function($rootScope, $scope, $attrs) {
+
+            $scope.model = $scope.min;
+
+            $scope.plusOne = function() {
+                $scope.model = Number($scope.model) + Number($scope.step);
+                $scope.checkValues();
+            }
+            $scope.minusOne = function() {
+                $scope.model = Number($scope.model) - Number($scope.step);
+                $scope.checkValues();
+            }
+
+            $scope.change = function() {
+                $scope.checkValues();
+            }
+
+            $scope.checkValues = function() {
+
+                if ($scope.model > $scope.max) {
+                    $scope.model = $scope.max;
+                }
+
+                if ($scope.model < $scope.min) {
+                    $scope.model = $scope.min;
+                }
+            }
+        }
+
+        ddo.compile = function(element, attrs) {
+            element.attr('class', "number-picker");
+        }
+
+
+
+        var r = '?n=' + Math.random();
+
+        ddo.templateUrl = 'view/directives/number-picker.html' + r;
+        return ddo;
+    })
+    .directive('entry', function() {
         var ddo = {};
 
 
@@ -83,4 +136,23 @@ angular.module('App.directives', [])
                 });
             }
         }
+    }).directive('numbersOnly', function() {
+        return {
+            require: 'ngModel',
+            link: function(scope, element, attr, ngModelCtrl) {
+                function fromUser(text) {
+                    if (text) {
+                        var transformedInput = text.replace(/[^0-9]/g, '');
+
+                        if (transformedInput !== text) {
+                            ngModelCtrl.$setViewValue(transformedInput);
+                            ngModelCtrl.$render();
+                        }
+                        return transformedInput;
+                    }
+                    return undefined;
+                }
+                ngModelCtrl.$parsers.push(fromUser);
+            }
+        };
     });

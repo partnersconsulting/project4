@@ -2,32 +2,35 @@
     <h3 class="modal-title" id="modal-title">Adicionar item</h3>
 </div>
 <div class="modal-body" id="modal-body">
-    <div class="input-group input-group-lg">
-        <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
-        <input type="text" class="form-control" placeholder="busca cliente" aria-describedby="sizing-addon1" ng-model="filtro">
+    <div ng-show="showMarcas" class="item-list" ng-click="selecionaMarca(marca)" ng-repeat="marca in produtos">
+        <img ng-src="{{marca.image}}" class="img-responsive">
     </div>
-    <hr>
-    <table class="table table-hover table-striped">
-        <thead>
-            <tr>
-                <th>Codigo</th>
-                <th>Cliente</th>
-                
-            </tr>
-        </thead>
-        <tbody>
+    <div ng-show="showFamilias" class="item-list" ng-click="selecionaFamilia(familia)" ng-repeat="familia in marca.familia">
+        <img ng-src="{{familia.image}}" class="img-responsive">
+    </div>
+    <div ng-show="showProdutos" class="item-list" ng-click="selecionaProduto(produto)" ng-repeat="produto in familia.produtos">
+        <img ng-src="{{produto.image}}" class="img-responsive">
+    </div>
+    <div ng-show="selectedProduct" class="selected-product">
+        <div class="row">
+            <div class="col-md-2">
+                <img ng-src="{{selectedProduct.image}}" class="img-responsive">
+            </div>
+            <div class="col-md-10">
+                <span class="title">{{selectedProduct.name}}</span>
+                <div class="props">
+                    <span class="prop">Preço Unitário: R$ {{selectedProduct.price}}</span>
+                   <!--  <span ng-show="precoComDesconto > 0" class="prop">Preço com Desconto: R$ {{precoComDesconto}}</span> -->
+                </div>
+	            <numberpicker model="itemPedido.qnt"  title="Quantidade" min="10" max="50" step="10"></numberpicker>
+	            <numberpicker model="itemPedido.desconto" title="Desconto(%)" min="0" max="10" step=".5"></numberpicker>
+            </div>
 
 
-
-            <tr ng-repeat="cliente in listaClientes | filter:filtro" ng-click="selectClient(cliente)">
-                <th scope="row">{{cliente.code}}</th>
-                <th>{{cliente.name}}</th>
-                
-            </tr>
-        </tbody>
-    </table>
-
+        </div>
+    </div>
 </div>
 <div class="modal-footer">
+    <button class="btn btn-success" type="button" ng-click="adicionar()">Adicionar</button>
     <button class="btn btn-warning" type="button" ng-click="cancel()">Cancelar</button>
 </div>

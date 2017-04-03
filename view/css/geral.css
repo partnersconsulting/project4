@@ -962,6 +962,7 @@ tfoot {
 .table-items {
     display: block;
     height: 251px;
+        overflow: scroll;
 }
 
 .table-items tbody {
@@ -1032,7 +1033,8 @@ tfoot {
     background: #eee;
     display: inline-block;
     margin-top: 20px;
-    margin: 2px 15px;
+    margin: 2px 0px;
+    width: 100%;
 }
 
 .number-picker input {

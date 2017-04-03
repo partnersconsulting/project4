@@ -111,6 +111,12 @@ angular.module("App.controllers", [])
             //$rootScope.buttonAdd = false;
             //$rootScope.showMarcas = true;
         }
+        $rootScope.concluirPedido = function() {
+            $scope.open('md', '', 'view/modal/pedido-concluido.html', '');
+             $rootScope.selectedClient = null;
+             $rootScope.clear();
+            
+        }
         $rootScope.selecionaMarca = function(marca) {
             console.log("selecionaMarca()" + marca.name);
             if (marca.familia) {

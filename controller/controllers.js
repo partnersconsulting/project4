@@ -43,7 +43,7 @@ angular.module("App.controllers", [])
                 icon: "fa-share-alt",
                 link: "https://my330686.crm.ondemand.com/sap/public/ap/ui/repository/SAP_UI/HTML5/newclient.html?app.component=/SAP_UI_CT/Main/root.uiccwoc&rootWindow=X&redirectUrl=/sap/public/ap/ui/runtime&sap-ui-language=pt#Nav/1/eyJiSXNTaG93bkFzV29jVmlldyI6dHJ1ZSwidGFyZ2V0IjoiL0JZRF9DT0QvU2FsZXNPbkRlbWFuZC9WaXNpdC9WaXNpdEV4ZWN1dGlvbi9DT0RfVmlzaXRfV0NWSUVXLldDVklFVy51aXdvY3ZpZXciLCJ3aW5JZCI6IjFhNWZlZDYxYzQwOGE3MmMzZDQ4MjExMmNiNWQyMDM0In0=",
             }
-             
+
 
         ];
 
@@ -53,7 +53,7 @@ angular.module("App.controllers", [])
             // $rootScope.activeMenu = sub;
 
             var res = sub.link.match(/http/g);
-            if ( res && res.length > 0 ) {
+            if (res && res.length > 0) {
                 $window.open(sub.link);
             } else {
                 $location.path(sub.link);
@@ -172,7 +172,7 @@ angular.module("App.controllers", [])
                 $rootScope.adicionarNoPedido(value);
             });
 
-            
+
 
             $uibModalInstance.dismiss('cancel');
         }
@@ -361,16 +361,70 @@ angular.module("App.controllers", [])
         };
 
 
-        $rootScope.listaClientes = [
-            { code: '2017011', name: 'Grupo Pão de Açucar', historic: historic, listaMix: listaMix, credito: credito },
-            { code: '2017012', name: 'Covabra Supermecados', historic: historic, listaMix: listaMix, credito: credito },
-            { code: '2017013', name: 'Sam`s Club', historic: historic, listaMix: listaMix, credito: credito },
-            { code: '2017014', name: 'Walmart', historic: historic, listaMix: listaMix, credito: credito },
-            { code: '2017015', name: 'Makro', historic: historic, listaMix: listaMix, credito: credito },
-            { code: '2017016', name: 'Delben Supermercados', historic: historic, listaMix: listaMix, credito: credito },
-            { code: '2017017', name: 'Cliente Supermercados 1', historic: historic, listaMix: listaMix, credito: credito },
-            { code: '2017018', name: 'Cliente Supermercados 2', historic: historic, listaMix: listaMix, credito: credito },
-            { code: '2017019', name: 'Cliente Supermercados 3', historic: historic, listaMix: listaMix, credito: credito }
+        $rootScope.listaClientes = [{
+                code: '2017011',
+                name: 'Grupo Pão de Açucar',
+                address: "Av. Brigadeiro Luiz Antonio, 21 - Bela vista - São Paulo - SP",
+                historic: historic,
+                listaMix: listaMix,
+                credito: credito
+            }, {
+                code: '2017012',
+                name: 'Covabra Supermecados',
+                address: "Rua Macuco, 200 - Moema - São Paulo - SP",
+                historic: historic,
+                listaMix: listaMix,
+                credito: credito
+            }, {
+                code: '2017013',
+                name: 'Sam`s Club',
+                address: "Av Bandeirantes, km 20 - São Paulo - SP",
+                historic: historic,
+                listaMix: listaMix,
+                credito: credito
+            }, {
+                code: '2017014',
+                name: 'Walmart',
+                address: "Radial Leste, 2000 - Tatuapé - São Paulo - SP",
+                historic: historic,
+                listaMix: listaMix,
+                credito: credito
+            }, {
+                code: '2017015',
+                name: 'Makro',
+                address: "Rodovia Dutra km 40 - São Paulo - SP",
+                historic: historic,
+                listaMix: listaMix,
+                credito: credito
+            }, {
+                code: '2017016',
+                name: 'Delben Supermercados',
+                address: "Av. Brigadeiro Luiz Antonio, 21 - Bela vista - São Paulo - SP",
+                historic: historic,
+                listaMix: listaMix,
+                credito: credito
+            }, {
+                code: '2017017',
+                name: 'Cliente Supermercados 1',
+                address: "Rua Macuco, 200 - Moema - São Paulo - SP",
+                historic: historic,
+                listaMix: listaMix,
+                credito: credito
+            }, {
+                code: '2017018',
+                name: 'Cliente Supermercados 2',
+                address: "Av Bandeirantes, km 20 - São Paulo - SP",
+                historic: historic,
+                listaMix: listaMix,
+                credito: credito
+            }, {
+                code: '2017019',
+                name: 'Cliente Supermercados 3',
+                address: "Radial Leste, 2000 - Tatuapé - São Paulo - SP",
+                historic: historic,
+                listaMix: listaMix,
+                credito: credito
+            }
 
         ];
 

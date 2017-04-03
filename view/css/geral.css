@@ -881,7 +881,7 @@ tfoot {
 }
 
 .painel-mix .panel-body {
-    height: 236px;
+    height: 165px;
     padding: 10px;
 }
 
@@ -1056,9 +1056,12 @@ tfoot {
     margin-right: 100px;
 }
 
-.historico .data {
-}
+.historico .data {}
 
 .historico .close {
     margin-top: -10px;
+}
+
+.btn-finish {
+    margin-top: 25px;
 }

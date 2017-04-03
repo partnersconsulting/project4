@@ -545,63 +545,63 @@ angular.module("App.controllers", [])
             list: [{
                 title: "Atividades em Aberto",
                 icon: 'fa-calendar',
-                link: "#/cadastro_evento",
+                link: "https://my330686.crm.ondemand.com/sap/public/ap/ui/repository/SAP_UI/HTML5/newclient.html?app.component=/SAP_UI_CT/Main/root.uiccwoc&rootWindow=X&redirectUrl=/sap/public/ap/ui/runtime&sap-ui-language=pt#Nav/1/eyJiSXNTaG93bkFzV29jVmlldyI6dHJ1ZSwidGFyZ2V0IjoiL0JZRF9DT0QvVUlJbmZyYXN0cnVjdHVyZS9GRUVEL0NPRF9GRUVEX1dDVklFVy5XQ1ZJRVcudWl3b2N2aWV3Iiwid2luSWQiOiJjZWMyMmI4M2RiYjcyODFlZjQ2ZmVhNjg0ZjhjZjEwNiJ9",
                 image: "images/kpi1.png",
-                target: '_self'
+                target: '_blank'
             }, {
                 title: "Próximas Visitas",
                 icon: 'fa-pencil-square-o',
-                link: "#/cadastro_evento",
+                link: "https://my330686.crm.ondemand.com/sap/public/ap/ui/repository/SAP_UI/HTML5/newclient.html?app.component=/SAP_UI_CT/Main/root.uiccwoc&rootWindow=X&redirectUrl=/sap/public/ap/ui/runtime&sap-ui-language=pt#Nav/1/eyJiSXNTaG93bkFzV29jVmlldyI6dHJ1ZSwidGFyZ2V0IjoiL0JZRF9DT0QvVUlJbmZyYXN0cnVjdHVyZS9GRUVEL0NPRF9GRUVEX1dDVklFVy5XQ1ZJRVcudWl3b2N2aWV3Iiwid2luSWQiOiJjZWMyMmI4M2RiYjcyODFlZjQ2ZmVhNjg0ZjhjZjEwNiJ9",
                 image: "images/kpi2.png",
-                target: '_self'
+                target: '_blank'
             }, {
                 title: "Minhas Tarefas",
                 icon: 'fa-pencil-square-o',
-                link: "#/cadastro_evento",
+                link: "https://my330686.crm.ondemand.com/sap/public/ap/ui/repository/SAP_UI/HTML5/newclient.html?app.component=/SAP_UI_CT/Main/root.uiccwoc&rootWindow=X&redirectUrl=/sap/public/ap/ui/runtime&sap-ui-language=pt#Nav/1/eyJiSXNTaG93bkFzV29jVmlldyI6dHJ1ZSwidGFyZ2V0IjoiL0JZRF9DT0QvVUlJbmZyYXN0cnVjdHVyZS9GRUVEL0NPRF9GRUVEX1dDVklFVy5XQ1ZJRVcudWl3b2N2aWV3Iiwid2luSWQiOiJjZWMyMmI4M2RiYjcyODFlZjQ2ZmVhNjg0ZjhjZjEwNiJ9",
                 image: "images/kpi3.png",
-                target: '_self'
+                target: '_blank'
             }]
         }, {
             title: "Relatorios Pedidos",
             list: [{
                 title: "Pedidos Faturado x Meta",
                 icon: 'fa-calendar',
-                link: "#/cadastro_evento",
+                link: "https://my330686.crm.ondemand.com/sap/public/ap/ui/repository/SAP_UI/HTML5/newclient.html?app.component=/SAP_UI_CT/Main/root.uiccwoc&rootWindow=X&redirectUrl=/sap/public/ap/ui/runtime&sap-ui-language=pt#Nav/1/eyJiSXNTaG93bkFzV29jVmlldyI6dHJ1ZSwidGFyZ2V0IjoiL0JZRF9DT0QvVUlJbmZyYXN0cnVjdHVyZS9GRUVEL0NPRF9GRUVEX1dDVklFVy5XQ1ZJRVcudWl3b2N2aWV3Iiwid2luSWQiOiJjZWMyMmI4M2RiYjcyODFlZjQ2ZmVhNjg0ZjhjZjEwNiJ9",
                 image: "images/kpi4.png",
-                target: '_self'
+                target: '_blank'
             }, {
                 title: "Valores em Aberto",
                 icon: 'fa-pencil-square-o',
-                link: "#/cadastro_evento",
+                link: "https://my330686.crm.ondemand.com/sap/public/ap/ui/repository/SAP_UI/HTML5/newclient.html?app.component=/SAP_UI_CT/Main/root.uiccwoc&rootWindow=X&redirectUrl=/sap/public/ap/ui/runtime&sap-ui-language=pt#Nav/1/eyJiSXNTaG93bkFzV29jVmlldyI6dHJ1ZSwidGFyZ2V0IjoiL0JZRF9DT0QvVUlJbmZyYXN0cnVjdHVyZS9GRUVEL0NPRF9GRUVEX1dDVklFVy5XQ1ZJRVcudWl3b2N2aWV3Iiwid2luSWQiOiJjZWMyMmI4M2RiYjcyODFlZjQ2ZmVhNjg0ZjhjZjEwNiJ9",
                 image: "images/kpi5.png",
-                target: '_self'
+                target: '_blank'
             }, {
                 title: "Previsão Faturado x Aberto",
                 icon: 'fa-pencil-square-o',
-                link: "#/cadastro_evento",
+                link: "https://my330686.crm.ondemand.com/sap/public/ap/ui/repository/SAP_UI/HTML5/newclient.html?app.component=/SAP_UI_CT/Main/root.uiccwoc&rootWindow=X&redirectUrl=/sap/public/ap/ui/runtime&sap-ui-language=pt#Nav/1/eyJiSXNTaG93bkFzV29jVmlldyI6dHJ1ZSwidGFyZ2V0IjoiL0JZRF9DT0QvVUlJbmZyYXN0cnVjdHVyZS9GRUVEL0NPRF9GRUVEX1dDVklFVy5XQ1ZJRVcudWl3b2N2aWV3Iiwid2luSWQiOiJjZWMyMmI4M2RiYjcyODFlZjQ2ZmVhNjg0ZjhjZjEwNiJ9",
                 image: "images/kpi6.png",
-                target: '_self'
+                target: '_blank'
             }]
         }, {
             title: "Relatorios Vendas",
             list: [{
                 title: "Venda por Familia de Produto",
                 icon: 'fa-calendar',
-                link: "#/cadastro_evento",
+                link: "https://my330686.crm.ondemand.com/sap/public/ap/ui/repository/SAP_UI/HTML5/newclient.html?app.component=/SAP_UI_CT/Main/root.uiccwoc&rootWindow=X&redirectUrl=/sap/public/ap/ui/runtime&sap-ui-language=pt#Nav/1/eyJiSXNTaG93bkFzV29jVmlldyI6dHJ1ZSwidGFyZ2V0IjoiL0JZRF9DT0QvVUlJbmZyYXN0cnVjdHVyZS9GRUVEL0NPRF9GRUVEX1dDVklFVy5XQ1ZJRVcudWl3b2N2aWV3Iiwid2luSWQiOiJjZWMyMmI4M2RiYjcyODFlZjQ2ZmVhNjg0ZjhjZjEwNiJ9",
                 image: "images/kpi7.png",
-                target: '_self'
+                target: '_blank'
             }, {
                 title: "Receita de Vendas por Cliente",
                 icon: 'fa-pencil-square-o',
-                link: "#/cadastro_evento",
+                link: "https://my330686.crm.ondemand.com/sap/public/ap/ui/repository/SAP_UI/HTML5/newclient.html?app.component=/SAP_UI_CT/Main/root.uiccwoc&rootWindow=X&redirectUrl=/sap/public/ap/ui/runtime&sap-ui-language=pt#Nav/1/eyJiSXNTaG93bkFzV29jVmlldyI6dHJ1ZSwidGFyZ2V0IjoiL0JZRF9DT0QvVUlJbmZyYXN0cnVjdHVyZS9GRUVEL0NPRF9GRUVEX1dDVklFVy5XQ1ZJRVcudWl3b2N2aWV3Iiwid2luSWQiOiJjZWMyMmI4M2RiYjcyODFlZjQ2ZmVhNjg0ZjhjZjEwNiJ9",
                 image: "images/kpi1.png",
-                target: '_self'
+                target: '_blank'
             }, {
                 title: "Cotas Promocionais por Cliente",
                 icon: 'fa-pencil-square-o',
-                link: "#/cadastro_evento",
+                link: "https://my330686.crm.ondemand.com/sap/public/ap/ui/repository/SAP_UI/HTML5/newclient.html?app.component=/SAP_UI_CT/Main/root.uiccwoc&rootWindow=X&redirectUrl=/sap/public/ap/ui/runtime&sap-ui-language=pt#Nav/1/eyJiSXNTaG93bkFzV29jVmlldyI6dHJ1ZSwidGFyZ2V0IjoiL0JZRF9DT0QvVUlJbmZyYXN0cnVjdHVyZS9GRUVEL0NPRF9GRUVEX1dDVklFVy5XQ1ZJRVcudWl3b2N2aWV3Iiwid2luSWQiOiJjZWMyMmI4M2RiYjcyODFlZjQ2ZmVhNjg0ZjhjZjEwNiJ9",
                 image: "images/kpi2.png",
-                target: '_self'
+                target: '_blank'
             }]
         }]
     });

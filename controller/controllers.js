@@ -111,6 +111,25 @@ angular.module("App.controllers", [])
             //$rootScope.buttonAdd = false;
             //$rootScope.showMarcas = true;
         }
+
+        $rootScope.removerItem = function(itemPedido) {
+            console.log(itemPedido.id);
+
+
+
+            var index = $rootScope.itensPedido.indexOf(itemPedido);
+            $rootScope.itensPedido.splice(index, 1);
+
+
+
+       
+
+
+
+
+
+        }   
+
         $rootScope.concluirPedido = function() {
             $scope.open('md', '', 'view/modal/pedido-concluido.html', '');
              $rootScope.selectedClient = null;

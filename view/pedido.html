@@ -99,6 +99,7 @@
                         <th>Preço com desconto</th>
                         <th>Impostos</th>
                         <th>Valor Total</th>
+                        <th></th>
                         <!-- <th>Ações</th> -->
                     </tr>
                 </thead>
@@ -112,7 +113,7 @@
                         <td>R$ {{(itemPedido.price - (itemPedido.price * itemPedido.desconto)).toFixed(2)}}</td>
                         <td>R$ {{itemPedido.impostos}}</td>
                         <td>R$ {{((itemPedido.price - (itemPedido.price * itemPedido.desconto)) * itemPedido.quantidade).toFixed(2)}}</td>
-                        <!-- <td> <span class="btn btn-info btn-xs " ng-click="visualizarEvento(itemVoluntario) "><i class="fa fa-search " aria-hidden="true "></i></span></td> -->
+                         <td class="botao-excluir-row"> <span class="btn btn-danger btn-xs" ng-click="removerItem(itemPedido)"><i class="fa fa-times-circle" aria-hidden="true "></i></span></td>
                     </tr>
                 </tbody>
             </table>

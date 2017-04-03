@@ -1083,3 +1083,7 @@ tfoot {
     width: 110px;
     height: 110px;
 }
+
+.botao-excluir-row{
+        padding: 2px !important;
+}

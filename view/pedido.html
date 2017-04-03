@@ -107,7 +107,7 @@
                         <td>{{itemPedido.id}}</td>
                         <td>{{itemPedido.name}}</td>
                         <td>{{itemPedido.sku}}</td>
-                        <td>{{itemPedido.quantidade}}</td>
+                        <td>{{itemPedido.quantidade}} CX</td>
                         <td>R$ {{itemPedido.price}}</td>
                         <td>R$ {{(itemPedido.price - (itemPedido.price * itemPedido.desconto)).toFixed(2)}}</td>
                         <td>R$ {{itemPedido.impostos}}</td>
@@ -153,7 +153,7 @@
                         <tbody>
                             <tr ng-repeat="item in selectedClient.listaMix.items">
                                 <!-- <td><i class="fa fa-plus-circle" aria-hidden="true"></i></td> -->
-                                <td>{{item.quantidade}}</td>
+                                <td>{{item.quantidade}} CX</td>
                                 <td>{{item.name}}</td>
                                 <td>{{item.desconto*100}}%</td>
                             </tr>

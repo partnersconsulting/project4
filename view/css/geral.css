@@ -259,7 +259,7 @@ select.form-control {
 
 .table {
     background: #fff;
-    font-size: 13px;
+    font-size: 12px;
 }
 
 .dropdown-alpa {
@@ -986,7 +986,10 @@ tfoot {
 }
 
 .row-info {
-    height: 40px;
+       height: 40px;
+    position: fixed;
+    width: 100%;
+    bottom: 0px;
 }
 
 .row-info div {

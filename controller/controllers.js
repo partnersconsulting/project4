@@ -1,5 +1,5 @@
 angular.module("App.controllers", [])
-    .controller("HomeController", function($scope, $rootScope, $location) {
+    .controller("HomeController", function($scope, $rootScope, $location, $window) {
 
         /*$scope.labels = ["Download Sales", "In-Store Sales", "Mail-Order Sales"];
         $scope.data = [300, 500, 100];
@@ -51,7 +51,14 @@ angular.module("App.controllers", [])
 
         $rootScope.openSub = function(sub) {
             // $rootScope.activeMenu = sub;
-            $location.path(sub.link);
+
+            var res = sub.link.match(/http/g);
+            if ( res && res.length > 0 ) {
+                $window.open(sub.link);
+            } else {
+                $location.path(sub.link);
+            }
+
         }
 
     })

@@ -71,6 +71,14 @@ angular.module('App.directives', [])
         ddo.templateUrl = 'view/directives/number-picker.html' + r;
         return ddo;
     })
+    .directive('targetBlank', function() {
+        return {
+            compile: function(element) {
+                var elems = (element.prop("tagName") === 'A') ? element : element.find('a');
+                elems.attr("target", "_blank");
+            }
+        };
+    })
     .directive('entry', function() {
         var ddo = {};
 

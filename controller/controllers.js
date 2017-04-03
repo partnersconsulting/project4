@@ -68,6 +68,8 @@ angular.module("App.controllers", [])
 
         $rootScope.selectedHistoric = null;
 
+        $rootScope.selectedClient = null;
+
 
         $rootScope.clear = function() {
             console.log("XXX clear()");

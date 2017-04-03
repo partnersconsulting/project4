@@ -6,7 +6,7 @@ angular.module('App', ["App.controllers", "App.services", "App.directives", "App
                 templateUrl: 'view/home.html',
                 controller: 'HomeController'
             })
-            .when('/cadastro_evento', {
+            .when('/cadastro_pedido', {
                 templateUrl: 'view/pedido.html',
                 controller: 'PedidosController'
             })

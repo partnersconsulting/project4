@@ -10,9 +10,9 @@ angular.module("App.controllers", [])
 
 
         $rootScope.menu = [{
-                name: "menu1",
+                name: "Novo Pedido",
                 icon: "fa-plus",
-                link: "/cadastro_evento"
+                link: "/cadastro_pedido"
                     /*subs: [{
                         name: "sub1",
                         icon: "fa-home",
@@ -27,42 +27,23 @@ angular.module("App.controllers", [])
                         link: "/link-sub3",
                     }]*/
             }, {
-                name: "menu2",
+                name: "Feed",
                 icon: "fa-history",
-                link: "/link2",
+                link: "https://my330686.crm.ondemand.com/sap/public/ap/ui/repository/SAP_UI/HTML5/newclient.html?app.component=/SAP_UI_CT/Main/root.uiccwoc&rootWindow=X&redirectUrl=/sap/public/ap/ui/runtime&sap-ui-language=pt#Nav/1/eyJiSXNTaG93bkFzV29jVmlldyI6dHJ1ZSwidGFyZ2V0IjoiL0JZRF9DT0QvVUlJbmZyYXN0cnVjdHVyZS9GRUVEL0NPRF9GRUVEX1dDVklFVy5XQ1ZJRVcudWl3b2N2aWV3Iiwid2luSWQiOiJjZWMyMmI4M2RiYjcyODFlZjQ2ZmVhNjg0ZjhjZjEwNiJ9",
             }, {
-                name: "menu3",
-                icon: "fa-bars",
-                link: "/link3",
+                name: "Calendário",
+                icon: "fa-calendar",
+                link: "https://my330686.crm.ondemand.com/sap/public/ap/ui/repository/SAP_UI/HTML5/newclient.html?app.component=/SAP_UI_CT/Main/root.uiccwoc&rootWindow=X&redirectUrl=/sap/public/ap/ui/runtime&sap-ui-language=pt#Nav/1/eyJ0YXJnZXQiOiIvQllEX0NPRC9TYWxlc09uRGVtYW5kL0FjdGl2aXRpZXMvQ2FsZW5kYXJWaWV3L01vYmlsZUNhbGVuZGFyX09XTC5PV0wudWljb21wb25lbnQiLCJ3aW5JZCI6IkNBTEVOREFSIn0=",
             }, {
-                name: "menu3",
-                icon: "fa-bars",
-                link: "/link3",
+                name: "Clientes",
+                icon: "fa-users",
+                link: "https://my330686.crm.ondemand.com/sap/public/ap/ui/repository/SAP_UI/HTML5/newclient.html?app.component=/SAP_UI_CT/Main/root.uiccwoc&rootWindow=X&redirectUrl=/sap/public/ap/ui/runtime&sap-ui-language=pt#Nav/1/eyJiSXNTaG93bkFzV29jVmlldyI6dHJ1ZSwidGFyZ2V0IjoiL0JZRF9DT0QvU2FsZXNPbkRlbWFuZC9BY2NvdW50L1VJL0NPRF9BY2NvdW50X1dDVi5XQ1ZJRVcudWl3b2N2aWV3Iiwid2luSWQiOiIzYzkwNzdmNmU3YjhkOGNmY2Y2Mzk4N2E3YTBhNmQ3OSJ9",
             }, {
-                name: "menu3",
-                icon: "fa-bars",
-                link: "/link3",
-            }, {
-                name: "menu3",
-                icon: "fa-bars",
-                link: "/link3",
-            }, {
-                name: "menu3",
-                icon: "fa-bars",
-                link: "/link3",
-            }, {
-                name: "menu3",
-                icon: "fa-bars",
-                link: "/link3",
-            }, {
-                name: "menu3",
-                icon: "fa-bars",
-                link: "/link3",
-            }, {
-                name: "menu3",
-                icon: "fa-bars",
-                link: "/link3",
+                name: "Visitas",
+                icon: "fa-share-alt",
+                link: "https://my330686.crm.ondemand.com/sap/public/ap/ui/repository/SAP_UI/HTML5/newclient.html?app.component=/SAP_UI_CT/Main/root.uiccwoc&rootWindow=X&redirectUrl=/sap/public/ap/ui/runtime&sap-ui-language=pt#Nav/1/eyJiSXNTaG93bkFzV29jVmlldyI6dHJ1ZSwidGFyZ2V0IjoiL0JZRF9DT0QvU2FsZXNPbkRlbWFuZC9WaXNpdC9WaXNpdEV4ZWN1dGlvbi9DT0RfVmlzaXRfV0NWSUVXLldDVklFVy51aXdvY3ZpZXciLCJ3aW5JZCI6IjFhNWZlZDYxYzQwOGE3MmMzZDQ4MjExMmNiNWQyMDM0In0=",
             }
+             
 
         ];
 

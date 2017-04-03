@@ -1,6 +1,6 @@
 .holder1 {
     position: fixed;
-        left: 750px;
+    left: 750px;
     top: 170px;
     width: 240px;
 }
@@ -18,7 +18,7 @@
 }
 
 .main {
-    margin: 20px;
+    margin: 10px;
 }
 
 .home {
@@ -41,8 +41,29 @@
   border-radius: 50%; */
     /*position: fixed;
     
-    */-webkit-transition: all 0.5s ease-in-out;
+    */
+    -webkit-transition: all 0.5s ease-in-out;
     transition: all 0.5s ease-in-out;
+}
+
+.circle:nth-child(1) {
+    width: 110px;
+    height: 110px;
+}
+
+.circle:nth-child(2) {
+    width: 75px;
+    height: 75px;
+}
+
+.circle:nth-child(4) {
+    width: 85px;
+    height: 85px;
+}
+
+.circle:nth-child(5) {
+    width: 95px;
+    height: 95px;
 }
 
 .circle i {

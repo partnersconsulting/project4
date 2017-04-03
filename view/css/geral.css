@@ -1065,3 +1065,8 @@ tfoot {
 .btn-finish {
     margin-top: 25px;
 }
+
+.buttonAdd {
+    width: 110px;
+    height: 110px;
+}

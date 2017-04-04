@@ -284,6 +284,7 @@ angular.module("App.controllers", [])
             $rootScope.familia = '';
 
             $rootScope.itemPedido = {};
+            
         }
 
 

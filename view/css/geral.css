@@ -259,7 +259,7 @@ select.form-control {
 
 .table {
     background: #fff;
-    font-size: 12px;
+    font-size: 11px;
 }
 
 .dropdown-alpa {
@@ -862,6 +862,7 @@ tfoot {
 
 .panel-ype .panel-body {
     background: rgba(255, 255, 255, .9);
+    padding: 5px;
 }
 
 .panel-ype .panel-heading {
@@ -948,7 +949,7 @@ tfoot {
 .form-mini .form-group .form-control {
     height: 20px;
     border: none;
-    padding: 1px 7px;
+    padding: 1px 4px;
         line-height: 19px;
 }
 .form-mini .form-group .form-control.address {

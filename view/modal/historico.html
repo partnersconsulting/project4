@@ -16,14 +16,20 @@
     <table class="table table-hover table-striped" ng-hide="selectedHistoric">
         <thead>
             <tr>
-                <th>Codigo</th>
-                <th>Cliente</th>
+                <th>Codigo Pedido</th>
+                <th>Data</th>
+                <th>Total Items</th>
+                <th>Desconto</th>
+                <th>Valor</th>
             </tr>
         </thead>
         <tbody>
             <tr ng-repeat="historic in selectedClient.historic | filter:filtro" ng-click="selectHistoric(historic)">
                 <th scope="row">{{historic.number}}</th>
                 <th>{{historic.date}}</th>
+                <th>{{historic.quantidade}}</th>
+                <th>{{historic.desconto}}</th>
+                <th>R$ {{historic.valor}}</th>
             </tr>
         </tbody>
     </table>

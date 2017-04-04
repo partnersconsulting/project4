@@ -43,6 +43,15 @@ angular.module("App.controllers", [])
                 icon: "fa-share-alt",
                 link: "https://my330686.crm.ondemand.com/sap/public/ap/ui/repository/SAP_UI/HTML5/newclient.html?app.component=/SAP_UI_CT/Main/root.uiccwoc&rootWindow=X&redirectUrl=/sap/public/ap/ui/runtime&sap-ui-language=pt#Nav/1/eyJiSXNTaG93bkFzV29jVmlldyI6dHJ1ZSwidGFyZ2V0IjoiL0JZRF9DT0QvU2FsZXNPbkRlbWFuZC9WaXNpdC9WaXNpdEV4ZWN1dGlvbi9DT0RfVmlzaXRfV0NWSUVXLldDVklFVy51aXdvY3ZpZXciLCJ3aW5JZCI6IjFhNWZlZDYxYzQwOGE3MmMzZDQ4MjExMmNiNWQyMDM0In0=",
             }
+            /*, {
+                name: "Minhas Tarefas",
+                icon: "fa-list-alt",
+                link: "https://my330686.crm.ondemand.com/sap/public/ap/ui/repository/SAP_UI/HTML5/newclient.html?app.component=/SAP_UI_CT/Main/root.uiccwoc&rootWindow=X&redirectUrl=/sap/public/byd/runtime&sap-ui-language=pt#Nav/1/eyJiSXNTaG93bkFzV29jVmlldyI6dHJ1ZSwidGFyZ2V0IjoiL0JZRF9DT0QvU2FsZXNPbkRlbWFuZC9BY3Rpdml0aWVzL1Rhc2svVUkvQ09EX1Rhc2suV0NWSUVXLnVpd29jdmlldyIsIndpbklkIjoiMWJiYjE2NTA0N2E3Mzk4NjI0OTJhNjkyZjc2NGQ3NzcifQ==",
+            }, {
+                name: "Minhas Visitas Pendentes",
+                icon: "fa-pencil-square-o",
+                link: "https://my330686.crm.ondemand.com/sap/public/ap/ui/repository/SAP_UI/HTML5/newclient.html?app.component=/SAP_UI_CT/Main/root.uiccwoc&rootWindow=X&redirectUrl=/sap/public/byd/runtime&sap-ui-language=pt#Nav/1/eyJiSXNTaG93bkFzV29jVmlldyI6dHJ1ZSwidGFyZ2V0IjoiL0JZRF9DT0QvU2FsZXNPbkRlbWFuZC9WaXNpdC9WaXNpdEV4ZWN1dGlvbi9DT0RfVmlzaXRfV0NWSUVXLldDVklFVy51aXdvY3ZpZXciLCJ3aW5JZCI6IjczMWRiZjljMjQwMWM3ZGE5M2E1N2E1MDJjZmU4OGFkIn0=",
+            }*/
 
 
         ];
@@ -61,14 +70,29 @@ angular.module("App.controllers", [])
 
         }
 
+
+
+
     })
-    .controller("PedidosController", function($scope, $rootScope, $uibModal) {
+    .controller("PedidosController", function($scope, $rootScope, $uibModal, $window) {
 
         $rootScope.itemPedido = {};
 
         $rootScope.selectedHistoric = null;
 
         $rootScope.selectedClient = null;
+
+ $rootScope.openClienteLink = function() {
+            console.log();
+
+            if ($rootScope.selectedClient.code==2017011){
+                $window.open('https://my330686.crm.ondemand.com/sap/public/ap/ui/repository/SAP_UI/HTML5/newclient.html?app.component=/SAP_UI_CT/Main/root.uiccwoc&rootWindow=X&redirectUrl=/sap/public/byd/runtime&sap-ui-language=pt#Nav/1/eyJ0aGluZ3BhcmFtcyI6eyJLZXkiOiJPYm5LZXkkPD94bWwgdmVyc2lvbj1cIjEuMFwiIGVuY29kaW5nPVwidXRmLTE2XCI/PjxPYm5LZXk+PFNvdXJjZT48U291cmNlUGF0aD4vQllEX0NPRC9TYWxlc09uRGVtYW5kL0FjY291bnQvVUkvQ09EX0FjY291bnRfU09XTC5PV0wudWljb21wb25lbnQ8L1NvdXJjZVBhdGg+PC9Tb3VyY2U+PFBhdGg+L1Jvb3QvRGF0YUxpc3RbMDAxNjNFMDNBMDcwMUVEMjhCOURBRkVBMUQyNkIwMURdL1VVSUQ8L1BhdGg+PERhdGE+PFVVSUQ+MDAxNjNFMDNBMDcwMUVEMjhCOURBRkVBMUQyNkIwMUQ8L1VVSUQ+PC9EYXRhPjwvT2JuS2V5PiJ9LCJpblBvcnQiOiJJbnNwZWN0IiwidGFyZ2V0IjoiL0JZRF9DT0QvU2FsZXNPbkRlbWFuZC9BY2NvdW50L1VJL0NPRF9BY2NvdW50X1RJLlRJLnVpY29tcG9uZW50Iiwid2luSWQiOiI1YmU5Y2M5N2IxZmQ4NzJhOGE5MzU4ODRlY2RkNmEzYiJ9');
+            } else if ($rootScope.selectedClient.code==2017015){
+                $window.open('https://my330686.crm.ondemand.com/sap/public/ap/ui/repository/SAP_UI/HTML5/newclient.html?app.component=/SAP_UI_CT/Main/root.uiccwoc&rootWindow=X&redirectUrl=/sap/public/byd/runtime&sap-ui-language=pt#Nav/1/eyJ0aGluZ3BhcmFtcyI6eyJLZXkiOiJPYm5LZXkkPD94bWwgdmVyc2lvbj1cIjEuMFwiIGVuY29kaW5nPVwidXRmLTE2XCI/PjxPYm5LZXk+PFNvdXJjZT48U291cmNlUGF0aD4vQllEX0NPRC9TYWxlc09uRGVtYW5kL0FjY291bnQvVUkvQ09EX0FjY291bnRfU09XTC5PV0wudWljb21wb25lbnQ8L1NvdXJjZVBhdGg+PC9Tb3VyY2U+PFBhdGg+L1Jvb3QvRGF0YUxpc3RbMDAxNjNFMDNBMDcwMUVEMjhCOURCMDA0RUFBRTMwMURdL1VVSUQ8L1BhdGg+PERhdGE+PFVVSUQ+MDAxNjNFMDNBMDcwMUVEMjhCOURCMDA0RUFBRTMwMUQ8L1VVSUQ+PC9EYXRhPjwvT2JuS2V5PiJ9LCJpblBvcnQiOiJJbnNwZWN0IiwidGFyZ2V0IjoiL0JZRF9DT0QvU2FsZXNPbkRlbWFuZC9BY2NvdW50L1VJL0NPRF9BY2NvdW50X1RJLlRJLnVpY29tcG9uZW50Iiwid2luSWQiOiJjYmQ0MWFiOTc4ZDA4ODAyZGFhYjFhNmM3NzFmYmVhNCJ9');
+            } else {
+                console.log("Sem link");
+            }
+        }
 
 
         $rootScope.clear = function() {
@@ -122,19 +146,21 @@ angular.module("App.controllers", [])
 
 
 
-       
 
 
 
 
 
-        }   
+
+        }
 
         $rootScope.concluirPedido = function() {
             $scope.open('md', '', 'view/modal/pedido-concluido.html', '');
-             $rootScope.selectedClient = null;
-             $rootScope.clear();
-            
+            $rootScope.selectedClient = null;
+            $rootScope.clear();
+
+            $rootScope.itensPedido = [];
+
         }
         $rootScope.selecionaMarca = function(marca) {
             console.log("selecionaMarca()" + marca.name);
@@ -168,12 +194,14 @@ angular.module("App.controllers", [])
         }
 
         $rootScope.adicionarMix = function() {
-            console.log('adicionar mix');
+
             angular.forEach($rootScope.selectedClient.listaMix.items, function(value, key) {
                 $rootScope.adicionarNoPedido(value);
             });
 
             $rootScope.selectedClient.listaMix.items = [];
+
+            $rootScope.clear();
         }
 
         $rootScope.totalItems = 0;
@@ -295,6 +323,9 @@ angular.module("App.controllers", [])
         var historic = [{
             number: "20171112",
             date: "01/01/2017",
+            quantidade: "54",
+            desconto: "12%",
+            valor: "1.544,00",
             items: [
                 { "id": "2007000", "name": "Pano Multiuso Perfex", "sku": "SKU20170142", "quantidade": "10", "price": 6.55, "impostos": 1.22, "desconto": 0 },
                 { "id": "2007001", "name": "Ype sabão em pó 500g", "sku": "SKU20170142", "quantidade": "10", "price": 1.55, "impostos": 1.22, "desconto": 0 },
@@ -305,6 +336,9 @@ angular.module("App.controllers", [])
         }, {
             number: "20171189",
             date: "15/01/2017",
+            quantidade: "97",
+            desconto: "15%",
+            valor: "3.822,00",
             items: [
                 { "id": "2007000", "name": "Agua Sanitaria 5l", "sku": "SKU20170142", "quantidade": "15", "price": 3.55, "impostos": 1.22, "desconto": 0.005 },
                 { "id": "2007001", "name": "Ype Lava Roupas", "sku": "SKU20170142", "quantidade": "50", "price": 2.55, "impostos": 1.22, "desconto": 0.045 }
@@ -312,6 +346,9 @@ angular.module("App.controllers", [])
         }, {
             number: "20171199",
             date: "30/01/2017",
+             quantidade: "200",
+            desconto: "5%",
+            valor: "2.822,00",
             items: [
                 { "id": "2007000", "name": "Lava Louça Ype 5l neutro", "sku": "SKU20170142", "quantidade": 40, "price": 13.55, "impostos": 1.22, "desconto": 0.04 },
                 { "id": "2007001", "name": "Lava Louça Ype 5l clear", "sku": "SKU20170142", "quantidade": "50", "price": 12.55, "impostos": 1.22, "desconto": 0 },
@@ -320,6 +357,9 @@ angular.module("App.controllers", [])
         }, {
             number: "20171222",
             date: "15/02/2017",
+            quantidade: "12",
+            desconto: "2%",
+            valor: "450,00",
             items: [
                 { "id": "2007000", "name": "Pano Multiuso Perfex", "sku": "SKU20170142", "quantidade": 20, "price": 6.55, "impostos": 1.22, "desconto": 0.03 },
                 { "id": "2007001", "name": "Ype Clear", "sku": "SKU20170002", "quantidade": 40, "price": 4.55, "impostos": 1.22, "desconto": 0 }
@@ -624,25 +664,21 @@ angular.module("App.controllers", [])
         $rootScope.linksHome = [{
             title: "Atividades",
             list: [{
-                title: "Atividades em Aberto",
+                title: "MINHAS TAREFAS",
                 icon: 'fa-calendar',
-                link: "https://my330686.crm.ondemand.com/sap/public/ap/ui/repository/SAP_UI/HTML5/newclient.html?app.component=/SAP_UI_CT/Main/root.uiccwoc&rootWindow=X&redirectUrl=/sap/public/ap/ui/runtime&sap-ui-language=pt#Nav/1/eyJiSXNTaG93bkFzV29jVmlldyI6dHJ1ZSwidGFyZ2V0IjoiL0JZRF9DT0QvVUlJbmZyYXN0cnVjdHVyZS9GRUVEL0NPRF9GRUVEX1dDVklFVy5XQ1ZJRVcudWl3b2N2aWV3Iiwid2luSWQiOiJjZWMyMmI4M2RiYjcyODFlZjQ2ZmVhNjg0ZjhjZjEwNiJ9",
+                link: "https://my330686.crm.ondemand.com/sap/public/ap/ui/repository/SAP_UI/HTML5/newclient.html?app.component=/SAP_UI_CT/Main/root.uiccwoc&rootWindow=X&redirectUrl=/sap/public/byd/runtime&sap-ui-language=pt#Nav/1/eyJiSXNTaG93bkFzV29jVmlldyI6dHJ1ZSwidGFyZ2V0IjoiL0JZRF9DT0QvU2FsZXNPbkRlbWFuZC9BY3Rpdml0aWVzL1Rhc2svVUkvQ09EX1Rhc2suV0NWSUVXLnVpd29jdmlldyIsIndpbklkIjoiMWJiYjE2NTA0N2E3Mzk4NjI0OTJhNjkyZjc2NGQ3NzcifQ==",
                 image: "images/kpi1.png",
                 target: '_blank'
             }, {
-                title: "Próximas Visitas",
+                title: "PRÓXIMAS VISITAS",
                 icon: 'fa-pencil-square-o',
-                link: "https://my330686.crm.ondemand.com/sap/public/ap/ui/repository/SAP_UI/HTML5/newclient.html?app.component=/SAP_UI_CT/Main/root.uiccwoc&rootWindow=X&redirectUrl=/sap/public/ap/ui/runtime&sap-ui-language=pt#Nav/1/eyJiSXNTaG93bkFzV29jVmlldyI6dHJ1ZSwidGFyZ2V0IjoiL0JZRF9DT0QvVUlJbmZyYXN0cnVjdHVyZS9GRUVEL0NPRF9GRUVEX1dDVklFVy5XQ1ZJRVcudWl3b2N2aWV3Iiwid2luSWQiOiJjZWMyMmI4M2RiYjcyODFlZjQ2ZmVhNjg0ZjhjZjEwNiJ9",
+                link: "https://my330686.crm.ondemand.com/sap/public/ap/ui/repository/SAP_UI/HTML5/newclient.html?app.component=/SAP_UI_CT/Main/root.uiccwoc&rootWindow=X&redirectUrl=/sap/public/byd/runtime&sap-ui-language=pt#Nav/1/eyJiSXNTaG93bkFzV29jVmlldyI6dHJ1ZSwidGFyZ2V0IjoiL0JZRF9DT0QvU2FsZXNPbkRlbWFuZC9WaXNpdC9WaXNpdEV4ZWN1dGlvbi9DT0RfVmlzaXRfV0NWSUVXLldDVklFVy51aXdvY3ZpZXciLCJ3aW5JZCI6IjczMWRiZjljMjQwMWM3ZGE5M2E1N2E1MDJjZmU4OGFkIn0=",
                 image: "images/kpi2.png",
                 target: '_blank'
-            }, {
-                title: "Minhas Tarefas",
-                icon: 'fa-pencil-square-o',
-                link: "https://my330686.crm.ondemand.com/sap/public/ap/ui/repository/SAP_UI/HTML5/newclient.html?app.component=/SAP_UI_CT/Main/root.uiccwoc&rootWindow=X&redirectUrl=/sap/public/ap/ui/runtime&sap-ui-language=pt#Nav/1/eyJiSXNTaG93bkFzV29jVmlldyI6dHJ1ZSwidGFyZ2V0IjoiL0JZRF9DT0QvVUlJbmZyYXN0cnVjdHVyZS9GRUVEL0NPRF9GRUVEX1dDVklFVy5XQ1ZJRVcudWl3b2N2aWV3Iiwid2luSWQiOiJjZWMyMmI4M2RiYjcyODFlZjQ2ZmVhNjg0ZjhjZjEwNiJ9",
-                image: "images/kpi3.png",
-                target: '_blank'
             }]
-        }, {
+
+        }
+        /*, {
             title: "Relatorios Pedidos",
             list: [{
                 title: "Pedidos Faturado x Meta",
@@ -684,5 +720,6 @@ angular.module("App.controllers", [])
                 image: "images/kpi2.png",
                 target: '_blank'
             }]
-        }]
+        }*/
+        ]
     });

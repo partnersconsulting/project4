@@ -6,8 +6,8 @@ angular.module("App.controllers", [])
 
 */
 
-
-
+        $rootScope.clear();
+        $rootScope.itensPedido = [];
 
         $rootScope.menu = [{
                 name: "Novo Pedido",
@@ -28,7 +28,7 @@ angular.module("App.controllers", [])
                     }]*/
             }, {
                 name: "Feed",
-                icon: "fa-history",
+                icon: "fa-rss-square",
                 link: "https://my330686.crm.ondemand.com/sap/public/ap/ui/repository/SAP_UI/HTML5/newclient.html?app.component=/SAP_UI_CT/Main/root.uiccwoc&rootWindow=X&redirectUrl=/sap/public/ap/ui/runtime&sap-ui-language=pt#Nav/1/eyJiSXNTaG93bkFzV29jVmlldyI6dHJ1ZSwidGFyZ2V0IjoiL0JZRF9DT0QvVUlJbmZyYXN0cnVjdHVyZS9GRUVEL0NPRF9GRUVEX1dDVklFVy5XQ1ZJRVcudWl3b2N2aWV3Iiwid2luSWQiOiJjZWMyMmI4M2RiYjcyODFlZjQ2ZmVhNjg0ZjhjZjEwNiJ9",
             }, {
                 name: "Calendário",
@@ -82,12 +82,12 @@ angular.module("App.controllers", [])
 
         $rootScope.selectedClient = null;
 
- $rootScope.openClienteLink = function() {
+        $rootScope.openClienteLink = function() {
             console.log();
 
-            if ($rootScope.selectedClient.code==2017011){
+            if ($rootScope.selectedClient.code == 2017011) {
                 $window.open('https://my330686.crm.ondemand.com/sap/public/ap/ui/repository/SAP_UI/HTML5/newclient.html?app.component=/SAP_UI_CT/Main/root.uiccwoc&rootWindow=X&redirectUrl=/sap/public/byd/runtime&sap-ui-language=pt#Nav/1/eyJ0aGluZ3BhcmFtcyI6eyJLZXkiOiJPYm5LZXkkPD94bWwgdmVyc2lvbj1cIjEuMFwiIGVuY29kaW5nPVwidXRmLTE2XCI/PjxPYm5LZXk+PFNvdXJjZT48U291cmNlUGF0aD4vQllEX0NPRC9TYWxlc09uRGVtYW5kL0FjY291bnQvVUkvQ09EX0FjY291bnRfU09XTC5PV0wudWljb21wb25lbnQ8L1NvdXJjZVBhdGg+PC9Tb3VyY2U+PFBhdGg+L1Jvb3QvRGF0YUxpc3RbMDAxNjNFMDNBMDcwMUVEMjhCOURBRkVBMUQyNkIwMURdL1VVSUQ8L1BhdGg+PERhdGE+PFVVSUQ+MDAxNjNFMDNBMDcwMUVEMjhCOURBRkVBMUQyNkIwMUQ8L1VVSUQ+PC9EYXRhPjwvT2JuS2V5PiJ9LCJpblBvcnQiOiJJbnNwZWN0IiwidGFyZ2V0IjoiL0JZRF9DT0QvU2FsZXNPbkRlbWFuZC9BY2NvdW50L1VJL0NPRF9BY2NvdW50X1RJLlRJLnVpY29tcG9uZW50Iiwid2luSWQiOiI1YmU5Y2M5N2IxZmQ4NzJhOGE5MzU4ODRlY2RkNmEzYiJ9');
-            } else if ($rootScope.selectedClient.code==2017015){
+            } else if ($rootScope.selectedClient.code == 2017015) {
                 $window.open('https://my330686.crm.ondemand.com/sap/public/ap/ui/repository/SAP_UI/HTML5/newclient.html?app.component=/SAP_UI_CT/Main/root.uiccwoc&rootWindow=X&redirectUrl=/sap/public/byd/runtime&sap-ui-language=pt#Nav/1/eyJ0aGluZ3BhcmFtcyI6eyJLZXkiOiJPYm5LZXkkPD94bWwgdmVyc2lvbj1cIjEuMFwiIGVuY29kaW5nPVwidXRmLTE2XCI/PjxPYm5LZXk+PFNvdXJjZT48U291cmNlUGF0aD4vQllEX0NPRC9TYWxlc09uRGVtYW5kL0FjY291bnQvVUkvQ09EX0FjY291bnRfU09XTC5PV0wudWljb21wb25lbnQ8L1NvdXJjZVBhdGg+PC9Tb3VyY2U+PFBhdGg+L1Jvb3QvRGF0YUxpc3RbMDAxNjNFMDNBMDcwMUVEMjhCOURCMDA0RUFBRTMwMURdL1VVSUQ8L1BhdGg+PERhdGE+PFVVSUQ+MDAxNjNFMDNBMDcwMUVEMjhCOURCMDA0RUFBRTMwMUQ8L1VVSUQ+PC9EYXRhPjwvT2JuS2V5PiJ9LCJpblBvcnQiOiJJbnNwZWN0IiwidGFyZ2V0IjoiL0JZRF9DT0QvU2FsZXNPbkRlbWFuZC9BY2NvdW50L1VJL0NPRF9BY2NvdW50X1RJLlRJLnVpY29tcG9uZW50Iiwid2luSWQiOiJjYmQ0MWFiOTc4ZDA4ODAyZGFhYjFhNmM3NzFmYmVhNCJ9');
             } else {
                 console.log("Sem link");
@@ -95,20 +95,10 @@ angular.module("App.controllers", [])
         }
 
 
-        $rootScope.clear = function() {
-            console.log("XXX clear()");
 
-            $rootScope.showMarcas = true;
-            $rootScope.showFamilias = false;
-            $rootScope.buttonAdd = true;
-            $rootScope.selectedProduct = '';
-            $rootScope.marca = '';
-            $rootScope.familia = '';
-
-            $rootScope.itemPedido = {};
-        }
 
         $rootScope.clear();
+
 
         /*$rootScope.precoComDesconto = $rootScope.itemPedido.desconto * $rootScope.selectedProduct;*/
         //$rootScope.produtos = [{
@@ -137,21 +127,10 @@ angular.module("App.controllers", [])
         }
 
         $rootScope.removerItem = function(itemPedido) {
-            console.log(itemPedido.id);
-
-
-
             var index = $rootScope.itensPedido.indexOf(itemPedido);
             $rootScope.itensPedido.splice(index, 1);
 
-
-
-
-
-
-
-
-
+            $rootScope.updateCartValues();
         }
 
         $rootScope.concluirPedido = function() {
@@ -180,10 +159,12 @@ angular.module("App.controllers", [])
         }
 
         $rootScope.selecionaMaisVendido = function(produto) {
+            $rootScope.clear();
+
             $rootScope.selectedProduct = produto;
             $rootScope.showProdutos = false;
             $rootScope.showMarcas = false;
-            $rootScope.showFamilias = true;
+            $rootScope.showFamilias = false;
             $scope.open('md', '', 'view/modal/novo-item.html', '');
 
         }
@@ -202,6 +183,8 @@ angular.module("App.controllers", [])
             $rootScope.selectedClient.listaMix.items = [];
 
             $rootScope.clear();
+
+            $rootScope.updateCartValues();
         }
 
         $rootScope.totalItems = 0;
@@ -209,8 +192,17 @@ angular.module("App.controllers", [])
 
         $rootScope.adicionarNoPedido = function(item) {
             $rootScope.itensPedido.push(item);
-            $rootScope.totalItems = $rootScope.totalItems + Number(item.quantidade);
-            $rootScope.valorTotal = $rootScope.valorTotal + Number(item.quantidade * item.price);
+            $rootScope.updateCartValues();
+        }
+
+        $rootScope.updateCartValues = function() {
+            $rootScope.totalItems = 0;
+            $rootScope.valorTotal = 0;
+            angular.forEach($rootScope.itensPedido, function(value, key) {
+
+                $rootScope.totalItems += Number(value.quantidade);
+                $rootScope.valorTotal += Number(value.quantidade * value.price);
+            });
         }
 
 
@@ -218,6 +210,14 @@ angular.module("App.controllers", [])
     })
     .controller("ModalInstanceCtrl", function($scope, $rootScope, $uibModalInstance) {
 
+        var r = Math.random();
+
+        $scope.numeroPedido = Math.round(r * 9999999);
+
+        $rootScope.novoPedido = function() {
+            $uibModalInstance.dismiss('cancel');
+            $rootScope.open('md', '', 'view/modal/cliente.html', '');
+        }
 
         $scope.reloadPedido = function() {
 
@@ -273,8 +273,21 @@ angular.module("App.controllers", [])
     })
     .controller("MainController", function($scope, $rootScope, $filter, $uibModal, $document, $location) {
 
+        $rootScope.clear = function() {
+            console.log("XXX clear()");
 
-        $scope.open = function(size, parentSelector, page, tipo) {
+            $rootScope.showMarcas = true;
+            $rootScope.showFamilias = false;
+            $rootScope.buttonAdd = true;
+            $rootScope.selectedProduct = '';
+            $rootScope.marca = '';
+            $rootScope.familia = '';
+
+            $rootScope.itemPedido = {};
+        }
+
+
+        $rootScope.open = function(size, parentSelector, page, tipo) {
 
             var r = '?n=' + Math.random();
 
@@ -346,7 +359,7 @@ angular.module("App.controllers", [])
         }, {
             number: "20171199",
             date: "30/01/2017",
-             quantidade: "200",
+            quantidade: "200",
             desconto: "5%",
             valor: "2.822,00",
             items: [
@@ -465,27 +478,6 @@ angular.module("App.controllers", [])
                 code: '2017016',
                 name: 'Delben Supermercados',
                 address: "Av. Brigadeiro Luiz Antonio, 21 - Bela vista - São Paulo - SP",
-                historic: historic,
-                listaMix: listaMix,
-                credito: credito
-            }, {
-                code: '2017017',
-                name: 'Cliente Supermercados 1',
-                address: "Rua Macuco, 200 - Moema - São Paulo - SP",
-                historic: historic,
-                listaMix: listaMix,
-                credito: credito
-            }, {
-                code: '2017018',
-                name: 'Cliente Supermercados 2',
-                address: "Av Bandeirantes, km 20 - São Paulo - SP",
-                historic: historic,
-                listaMix: listaMix,
-                credito: credito
-            }, {
-                code: '2017019',
-                name: 'Cliente Supermercados 3',
-                address: "Radial Leste, 2000 - Tatuapé - São Paulo - SP",
                 historic: historic,
                 listaMix: listaMix,
                 credito: credito
@@ -664,38 +656,43 @@ angular.module("App.controllers", [])
         $rootScope.linksHome = [{
             title: "Atividades",
             list: [{
-                title: "MINHAS TAREFAS",
+                title: "Minhas Tarefas",
                 icon: 'fa-calendar',
                 link: "https://my330686.crm.ondemand.com/sap/public/ap/ui/repository/SAP_UI/HTML5/newclient.html?app.component=/SAP_UI_CT/Main/root.uiccwoc&rootWindow=X&redirectUrl=/sap/public/byd/runtime&sap-ui-language=pt#Nav/1/eyJiSXNTaG93bkFzV29jVmlldyI6dHJ1ZSwidGFyZ2V0IjoiL0JZRF9DT0QvU2FsZXNPbkRlbWFuZC9BY3Rpdml0aWVzL1Rhc2svVUkvQ09EX1Rhc2suV0NWSUVXLnVpd29jdmlldyIsIndpbklkIjoiMWJiYjE2NTA0N2E3Mzk4NjI0OTJhNjkyZjc2NGQ3NzcifQ==",
                 image: "images/kpi1.png",
                 target: '_blank'
             }, {
-                title: "PRÓXIMAS VISITAS",
+                title: "Próximas Visitas",
                 icon: 'fa-pencil-square-o',
                 link: "https://my330686.crm.ondemand.com/sap/public/ap/ui/repository/SAP_UI/HTML5/newclient.html?app.component=/SAP_UI_CT/Main/root.uiccwoc&rootWindow=X&redirectUrl=/sap/public/byd/runtime&sap-ui-language=pt#Nav/1/eyJiSXNTaG93bkFzV29jVmlldyI6dHJ1ZSwidGFyZ2V0IjoiL0JZRF9DT0QvU2FsZXNPbkRlbWFuZC9WaXNpdC9WaXNpdEV4ZWN1dGlvbi9DT0RfVmlzaXRfV0NWSUVXLldDVklFVy51aXdvY3ZpZXciLCJ3aW5JZCI6IjczMWRiZjljMjQwMWM3ZGE5M2E1N2E1MDJjZmU4OGFkIn0=",
                 image: "images/kpi2.png",
                 target: '_blank'
+            }, {
+                title: "Atividades em Aberto",
+                icon: 'fa-pencil-square-o',
+                link: "",
+                image: "images/kpi3.png",
+                target: '_self'
             }]
 
-        }
-        /*, {
+        }, {
             title: "Relatorios Pedidos",
             list: [{
                 title: "Pedidos Faturado x Meta",
                 icon: 'fa-calendar',
-                link: "https://my330686.crm.ondemand.com/sap/public/ap/ui/repository/SAP_UI/HTML5/newclient.html?app.component=/SAP_UI_CT/Main/root.uiccwoc&rootWindow=X&redirectUrl=/sap/public/ap/ui/runtime&sap-ui-language=pt#Nav/1/eyJiSXNTaG93bkFzV29jVmlldyI6dHJ1ZSwidGFyZ2V0IjoiL0JZRF9DT0QvVUlJbmZyYXN0cnVjdHVyZS9GRUVEL0NPRF9GRUVEX1dDVklFVy5XQ1ZJRVcudWl3b2N2aWV3Iiwid2luSWQiOiJjZWMyMmI4M2RiYjcyODFlZjQ2ZmVhNjg0ZjhjZjEwNiJ9",
+                link: "",
                 image: "images/kpi4.png",
                 target: '_blank'
             }, {
                 title: "Valores em Aberto",
                 icon: 'fa-pencil-square-o',
-                link: "https://my330686.crm.ondemand.com/sap/public/ap/ui/repository/SAP_UI/HTML5/newclient.html?app.component=/SAP_UI_CT/Main/root.uiccwoc&rootWindow=X&redirectUrl=/sap/public/ap/ui/runtime&sap-ui-language=pt#Nav/1/eyJiSXNTaG93bkFzV29jVmlldyI6dHJ1ZSwidGFyZ2V0IjoiL0JZRF9DT0QvVUlJbmZyYXN0cnVjdHVyZS9GRUVEL0NPRF9GRUVEX1dDVklFVy5XQ1ZJRVcudWl3b2N2aWV3Iiwid2luSWQiOiJjZWMyMmI4M2RiYjcyODFlZjQ2ZmVhNjg0ZjhjZjEwNiJ9",
+                link: "",
                 image: "images/kpi5.png",
                 target: '_blank'
             }, {
                 title: "Previsão Faturado x Aberto",
                 icon: 'fa-pencil-square-o',
-                link: "https://my330686.crm.ondemand.com/sap/public/ap/ui/repository/SAP_UI/HTML5/newclient.html?app.component=/SAP_UI_CT/Main/root.uiccwoc&rootWindow=X&redirectUrl=/sap/public/ap/ui/runtime&sap-ui-language=pt#Nav/1/eyJiSXNTaG93bkFzV29jVmlldyI6dHJ1ZSwidGFyZ2V0IjoiL0JZRF9DT0QvVUlJbmZyYXN0cnVjdHVyZS9GRUVEL0NPRF9GRUVEX1dDVklFVy5XQ1ZJRVcudWl3b2N2aWV3Iiwid2luSWQiOiJjZWMyMmI4M2RiYjcyODFlZjQ2ZmVhNjg0ZjhjZjEwNiJ9",
+                link: "",
                 image: "images/kpi6.png",
                 target: '_blank'
             }]
@@ -704,22 +701,21 @@ angular.module("App.controllers", [])
             list: [{
                 title: "Venda por Familia de Produto",
                 icon: 'fa-calendar',
-                link: "https://my330686.crm.ondemand.com/sap/public/ap/ui/repository/SAP_UI/HTML5/newclient.html?app.component=/SAP_UI_CT/Main/root.uiccwoc&rootWindow=X&redirectUrl=/sap/public/ap/ui/runtime&sap-ui-language=pt#Nav/1/eyJiSXNTaG93bkFzV29jVmlldyI6dHJ1ZSwidGFyZ2V0IjoiL0JZRF9DT0QvVUlJbmZyYXN0cnVjdHVyZS9GRUVEL0NPRF9GRUVEX1dDVklFVy5XQ1ZJRVcudWl3b2N2aWV3Iiwid2luSWQiOiJjZWMyMmI4M2RiYjcyODFlZjQ2ZmVhNjg0ZjhjZjEwNiJ9",
+                link: "",
                 image: "images/kpi7.png",
                 target: '_blank'
             }, {
                 title: "Receita de Vendas por Cliente",
                 icon: 'fa-pencil-square-o',
-                link: "https://my330686.crm.ondemand.com/sap/public/ap/ui/repository/SAP_UI/HTML5/newclient.html?app.component=/SAP_UI_CT/Main/root.uiccwoc&rootWindow=X&redirectUrl=/sap/public/ap/ui/runtime&sap-ui-language=pt#Nav/1/eyJiSXNTaG93bkFzV29jVmlldyI6dHJ1ZSwidGFyZ2V0IjoiL0JZRF9DT0QvVUlJbmZyYXN0cnVjdHVyZS9GRUVEL0NPRF9GRUVEX1dDVklFVy5XQ1ZJRVcudWl3b2N2aWV3Iiwid2luSWQiOiJjZWMyMmI4M2RiYjcyODFlZjQ2ZmVhNjg0ZjhjZjEwNiJ9",
+                link: "",
                 image: "images/kpi1.png",
                 target: '_blank'
             }, {
                 title: "Cotas Promocionais por Cliente",
                 icon: 'fa-pencil-square-o',
-                link: "https://my330686.crm.ondemand.com/sap/public/ap/ui/repository/SAP_UI/HTML5/newclient.html?app.component=/SAP_UI_CT/Main/root.uiccwoc&rootWindow=X&redirectUrl=/sap/public/ap/ui/runtime&sap-ui-language=pt#Nav/1/eyJiSXNTaG93bkFzV29jVmlldyI6dHJ1ZSwidGFyZ2V0IjoiL0JZRF9DT0QvVUlJbmZyYXN0cnVjdHVyZS9GRUVEL0NPRF9GRUVEX1dDVklFVy5XQ1ZJRVcudWl3b2N2aWV3Iiwid2luSWQiOiJjZWMyMmI4M2RiYjcyODFlZjQ2ZmVhNjg0ZjhjZjEwNiJ9",
+                link: "",
                 image: "images/kpi2.png",
                 target: '_blank'
             }]
-        }*/
-        ]
+        }]
     });

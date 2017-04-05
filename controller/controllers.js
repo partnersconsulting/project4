@@ -135,8 +135,8 @@ angular.module("App.controllers", [])
 
         $rootScope.concluirPedido = function() {
             $scope.open('md', '', 'view/modal/pedido-concluido.html', '');
-            $rootScope.selectedClient = null;
-            $rootScope.clear();
+            //$rootScope.selectedClient = null;
+            //$rootScope.clear();
 
             $rootScope.itensPedido = [];
 
@@ -216,7 +216,8 @@ angular.module("App.controllers", [])
 
         $rootScope.novoPedido = function() {
             $uibModalInstance.dismiss('cancel');
-            $rootScope.open('md', '', 'view/modal/cliente.html', '');
+            $rootScope.clear();
+            //$rootScope.open('md', '', 'view/modal/cliente.html', '');
         }
 
         $scope.reloadPedido = function() {

@@ -88,35 +88,37 @@
                         </span>
                 </div>
             </div>
-            <table class="table table-hover table-items">
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Nome</th>
-                        <th>SKU</th>
-                        <th>Qnt</th>
-                        <th>Preço Unitário</th>
-                        <th>Preço com desconto</th>
-                        <th>Impostos</th>
-                        <th>Valor Total</th>
-                        <th></th>
-                        <!-- <th>Ações</th> -->
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="itemPedido in itensPedido">
-                        <td>{{itemPedido.id}}</td>
-                        <td>{{itemPedido.name}}</td>
-                        <td>{{itemPedido.sku}}</td>
-                        <td>{{itemPedido.quantidade}} CX</td>
-                        <td>R$ {{itemPedido.price}}</td>
-                        <td>R$ {{(itemPedido.price - (itemPedido.price * itemPedido.desconto)).toFixed(2)}}</td>
-                        <td>R$ {{itemPedido.impostos}}</td>
-                        <td>R$ {{((itemPedido.price - (itemPedido.price * itemPedido.desconto)) * itemPedido.quantidade).toFixed(2)}}</td>
-                         <td class="botao-excluir-row"> <span class="btn btn-danger btn-xs" ng-click="removerItem(itemPedido)"><i class="fa fa-times-circle" aria-hidden="true "></i></span></td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-items">
+                <table class="table table-hover table-responsive ">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nome</th>
+                            <th>SKU</th>
+                            <th>Qnt</th>
+                            <th>Preço Unitário</th>
+                            <th>Preço com desconto</th>
+                            <th>Impostos</th>
+                            <th>Valor Total</th>
+                            <th></th>
+                            <!-- <th>Ações</th> -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="itemPedido in itensPedido">
+                            <td>{{itemPedido.id}}</td>
+                            <td>{{itemPedido.name}}</td>
+                            <td>{{itemPedido.sku}}</td>
+                            <td>{{itemPedido.quantidade}} CX</td>
+                            <td>R$ {{itemPedido.price}}</td>
+                            <td>R$ {{(itemPedido.price - (itemPedido.price * itemPedido.desconto)).toFixed(2)}}</td>
+                            <td>R$ {{itemPedido.impostos}}</td>
+                            <td>R$ {{((itemPedido.price - (itemPedido.price * itemPedido.desconto)) * itemPedido.quantidade).toFixed(2)}}</td>
+                             <td class="botao-excluir-row"> <span class="btn btn-danger btn-xs" ng-click="removerItem(itemPedido)"><i class="fa fa-times-circle" aria-hidden="true "></i></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
             <button type="button " class="btn btn-success pull-right " ng-show="collapseFormEvento " ng-click="novoEvento() "><i class="fa fa-floppy-o" aria-hidden="true "></i> Salvar Pedido</button>
         </div>
         <div class="col-md-3">

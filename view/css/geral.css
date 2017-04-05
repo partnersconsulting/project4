@@ -104,8 +104,9 @@ select.form-control {
     /*  background-image: linear-gradient(to bottom, #dff2f3 0, #dcecf0 50%, #dde4eb 100%); */
     height: 100%;
 }
+
 .panel-body-home {
-       height: calc(100vh - 145px);
+    height: calc(100vh - 145px);
 }
 
 .panel-body-form {
@@ -408,8 +409,8 @@ tfoot {
 .tile {
     vertical-align: top;
     /*width: 210px;*/
-        /*width: calc(28% - 40px);*/
-            width: 30%;
+    /*width: calc(28% - 40px);*/
+    width: 30%;
     border: 1px solid #dddddd;
     border-radius: 10px;
     box-shadow: 0px 0px 30px rgba(0, 0, 135, 0.55);
@@ -419,7 +420,7 @@ tfoot {
     margin-bottom: 5px;
     margin-right: 20px;
     text-decoration: none;
-        height: 80%;
+    height: 80%;
 }
 
 .tile:hover {
@@ -681,8 +682,8 @@ tfoot {
 .link-group {
     padding: 5px 20px;
     display: block;
-        width: calc(100% - 190px);
-            height: 33%;
+    width: calc(100% - 190px);
+    height: 33%;
 }
 
 .link-group h2 {
@@ -849,7 +850,7 @@ tfoot {
     font-weight: 600;
     padding: 4px;
     float: right;
-        margin-top: 105px;
+    margin-top: 105px;
 }
 
 .logo-ype {
@@ -891,13 +892,13 @@ tfoot {
 
 .panel-historico .panel-body {
     /*height: 135px;*/
-        height: calc(50vh - 250px);
+    height: calc(50vh - 250px);
     padding: 10px;
 }
 
 .painel-mix .panel-body {
     /*height: 165px;*/
-        height: calc(50vh - 220px);
+    height: calc(50vh - 220px);
     padding: 10px;
 }
 
@@ -981,15 +982,34 @@ tfoot {
 .table-items {
     display: block;
     height: calc(100vh - 517px);
-    overflow-y: scroll;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: rgba(255, 255, 255, .4);
+}
+.table-items:before {
+        content: "\f07a";
+    font: 344px/1 FontAwesome;
+    display: block;
+    float: left;
+    position: fixed;
+    left: 19%;
+    bottom: 100px;
+    opacity: .3;
+    color: #fff;
 }
 
-.table-items tbody {
+.table-items table {
+    margin: 0;
+}
+
+
+/*.table-items tbody {
     
         width: 100%;
     position: relative;
     display: inline-table;
 }
+*/
 
 
 /*.table-items thead {

@@ -10,6 +10,10 @@ angular.module('App', ["App.controllers", "App.services", "App.directives", "App
                 templateUrl: 'view/pedido.html',
                 controller: 'PedidosController'
             })
+   .when('/cadastro_plano', {
+                templateUrl: 'view/plano.html',
+                controller: 'PlanoController'
+            })
 
 
             /*.when('/cadastro_voluntario', {

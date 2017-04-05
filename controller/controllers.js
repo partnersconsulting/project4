@@ -13,19 +13,10 @@ angular.module("App.controllers", [])
                 name: "Novo Pedido",
                 icon: "fa-plus",
                 link: "/cadastro_pedido"
-                    /*subs: [{
-                        name: "sub1",
-                        icon: "fa-home",
-                        link: "/link-sub1",
-                    }, {
-                        name: "sub2",
-                        icon: "fa-envelope",
-                        link: "/link-sub2",
-                    }, {
-                        name: "sub3",
-                        icon: "fa-cog",
-                        link: "/link-sub3",
-                    }]*/
+            }, {
+                name: "Plano de Negócio",
+                icon: "fa-product-hunt",
+                link: "/cadastro_plano"
             }, {
                 name: "Feed",
                 icon: "fa-rss-square",
@@ -72,6 +63,29 @@ angular.module("App.controllers", [])
 
 
 
+
+    })
+    .controller("PlanoController", function($scope, $rootScope, $uibModal, $window) {
+        $rootScope.clear();
+
+        $rootScope.selectedAcao = null;
+
+        $rootScope.selecionaAcao = function(acao) {
+            $rootScope.selectedAcao = acao;
+            $scope.open('md', '', 'view/modal/nova-acao.html', '');
+        }
+
+        $rootScope.adicionarNovaAcao = function(item) {
+            $rootScope.itensAcoes.push(item);
+        }
+
+
+        $rootScope.novaAcao = {};
+
+        $rootScope.selecionaProdutoAcao = function(produto) {
+            $rootScope.selectedProductAcao = produto;
+            $rootScope.showProdutos = false;
+        }
 
     })
     .controller("PedidosController", function($scope, $rootScope, $uibModal, $window) {
@@ -141,22 +155,7 @@ angular.module("App.controllers", [])
             $rootScope.itensPedido = [];
 
         }
-        $rootScope.selecionaMarca = function(marca) {
-            console.log("selecionaMarca()" + marca.name);
-            if (marca.familia) {
-                $rootScope.marca = marca;
-                $rootScope.showMarcas = false;
-                $rootScope.showFamilias = true;
-            }
-        }
-        $rootScope.selecionaFamilia = function(familia) {
-            console.log("selecionaFamilia()" + familia.name);
-            if (familia.produtos) {
-                $rootScope.showFamilias = false;
-                $rootScope.showProdutos = true;
-                $rootScope.familia = familia;
-            }
-        }
+
 
         $rootScope.selecionaMaisVendido = function(produto) {
             $rootScope.clear();
@@ -220,6 +219,23 @@ angular.module("App.controllers", [])
             //$rootScope.open('md', '', 'view/modal/cliente.html', '');
         }
 
+        $rootScope.selecionaMarca = function(marca) {
+            console.log("selecionaMarca()" + marca.name);
+            if (marca.familia) {
+                $rootScope.marca = marca;
+                $rootScope.showMarcas = false;
+                $rootScope.showFamilias = true;
+            }
+        }
+        $rootScope.selecionaFamilia = function(familia) {
+            console.log("selecionaFamilia()" + familia.name);
+            if (familia.produtos) {
+                $rootScope.showFamilias = false;
+                $rootScope.showProdutos = true;
+                $rootScope.familia = familia;
+            }
+        }
+
         $scope.reloadPedido = function() {
 
             angular.forEach($rootScope.selectedHistoric.items, function(value, key) {
@@ -228,6 +244,24 @@ angular.module("App.controllers", [])
 
 
 
+            $uibModalInstance.dismiss('cancel');
+        }
+
+        $scope.adicionarAcao = function() {
+
+
+
+            var item = {
+                sku: $rootScope.selectedProductAcao.sku,
+                tipo: $rootScope.selectedAcao.name,
+                verba: $rootScope.novaAcao.verba,
+                volume: $rootScope.novaAcao.volume,
+                desconto: $rootScope.novaAcao.desconto,
+                tipoPagamento: $rootScope.novaAcao.tipoPagamento.name,
+                precoUnitario: $rootScope.selectedProductAcao.price
+            }
+
+            $rootScope.adicionarNovaAcao(item);
             $uibModalInstance.dismiss('cancel');
         }
 
@@ -244,9 +278,6 @@ angular.module("App.controllers", [])
             };
 
             $rootScope.adicionarNoPedido(item);
-
-
-
             $uibModalInstance.dismiss('cancel');
         }
 
@@ -285,7 +316,7 @@ angular.module("App.controllers", [])
             $rootScope.familia = '';
 
             $rootScope.itemPedido = {};
-            
+
         }
 
 
@@ -557,43 +588,100 @@ angular.module("App.controllers", [])
 
 
         $rootScope.itensPedido = [];
+        $rootScope.itensAcoes = [];
+
+
+
+        $rootScope.listaTiposPagamentos = [{
+            name: "CRÉDITO EM CONTA",
+            value: "tipo1"
+        }, {
+            name: "DESCONTO PRÓXIMA COMPRA",
+            value: "tipo2"
+        }, {
+            name: "PAGAMENTO EM DINHEIRO",
+            value: "tipo3"
+        }, {
+            name: "COMPRA",
+            value: "tipo4"
+        }];
+
+        $rootScope.listaObjetivos = [{
+                name: "AUMENTAR VOLUME VENDAS",
+                value: "obj1"
+            }, {
+                name: "AUMENTAR RECEITA",
+                value: "obj2"
+            }, {
+                name: "DIMINUIÇÃO DE ESTOQUE",
+                value: "obj3"
+            }, {
+                name: "ANIVERSÁRIO",
+                value: "obj4"
+            }
+
+        ];
+        $rootScope.listaAcoes = [{
+            name: "AÇÃO ANIVERSÁRIO",
+            value: "acao1"
+        }, {
+            name: "AÇÃO REBATE",
+            value: "acao2"
+        }, {
+            name: "AÇÃO DESCONTO",
+            value: "acao3"
+        }, {
+            name: "AÇÃO GONDOLA",
+            value: "acao4"
+        }, {
+            name: "AÇÃO MATERIAL MERCHANT",
+            value: "acao5"
+        }, {
+            name: "AÇÃO PONTA ESTOQUE",
+            value: "acao6"
+        }, {
+            name: "AÇÃO NATAL",
+            value: "acao7"
+        }];
+
+
 
         $rootScope.produtos = [{
             name: 'assolan',
-            image: 'images/marcas/marca_assolan.webp',
+            image: 'images/marcas/marca_assolan.png',
         }, {
             name: 'atol',
-            image: 'images/marcas/marca_atol.webp',
+            image: 'images/marcas/marca_atol.png',
         }, {
             name: 'perfex',
-            image: 'images/marcas/marca_perfex.webp',
+            image: 'images/marcas/marca_perfex.png',
         }, {
             name: 'tixan',
-            image: 'images/marcas/marca_tixan.webp',
+            image: 'images/marcas/marca_tixan.png',
         }, {
             name: 'ype',
-            image: 'images/marcas/marca_ype.webp',
+            image: 'images/marcas/marca_ype.png',
             familia: [{
                     name: 'cloro_gel',
-                    image: 'images/familia/cloro_gel_thumb.webp'
+                    image: 'images/familia/cloro_gel_thumb.png'
                 }, {
                     name: 'cross',
-                    image: 'images/familia/cross_thumb.webp'
+                    image: 'images/familia/cross_thumb.png'
                 }, {
                     name: 'aguasanitaria',
-                    image: 'images/familia/produto_aguasanitaria.webp'
+                    image: 'images/familia/produto_aguasanitaria.png'
                 }, {
                     name: 'amaciantes',
-                    image: 'images/familia/produto_amaciantes.webp'
+                    image: 'images/familia/produto_amaciantes.png'
                 }, {
                     name: 'amaciantes_concentrado',
-                    image: 'images/familia/produto_amaciantes_concentrado.webp'
+                    image: 'images/familia/produto_amaciantes_concentrado.png'
                 }, {
                     name: 'desinfetante',
-                    image: 'images/familia/produto_desinfetante.webp'
+                    image: 'images/familia/produto_desinfetante.png'
                 }, {
                     name: 'lavalouca',
-                    image: 'images/familia/produto_lavalouca.webp',
+                    image: 'images/familia/produto_lavalouca.png',
                     produtos: [{
                             name: 'Ype Clear Care',
                             sku: 'SKU20170001',
@@ -629,25 +717,25 @@ angular.module("App.controllers", [])
                     ]
                 }, {
                     name: 'lustramoveis',
-                    image: 'images/familia/produto_lustramoveis.webp'
+                    image: 'images/familia/produto_lustramoveis.png'
                 }, {
                     name: 'multiuso',
-                    image: 'images/familia/produto_multiuso.webp'
+                    image: 'images/familia/produto_multiuso.png'
                 }, {
                     name: 'sabaoembarra',
-                    image: 'images/familia/produto_sabaoembarra.webp'
+                    image: 'images/familia/produto_sabaoembarra.png'
                 }, {
                     name: 'saboneteaction',
-                    image: 'images/familia/produto_saboneteaction.webp'
+                    image: 'images/familia/produto_saboneteaction.png'
                 }, {
                     name: 'saboneteluxo',
-                    image: 'images/familia/produto_saboneteluxo.webp'
+                    image: 'images/familia/produto_saboneteluxo.png'
                 }, {
                     name: 'sabonetesuave',
-                    image: 'images/familia/produto_sabonetesuave.webp'
+                    image: 'images/familia/produto_sabonetesuave.png'
                 }, {
                     name: 'ypepremium',
-                    image: 'images/familia/produto_ypepremium.webp'
+                    image: 'images/familia/produto_ypepremium.png'
                 }
 
             ]

@@ -217,7 +217,6 @@ select.form-control {
     color: #fff;
     font-size: 1em;
     opacity: .8;
-    text-transform: capitalize;
     line-height: 22px;
     font-weight: 600;
 }
@@ -225,7 +224,6 @@ select.form-control {
 .form-group label {
     font-size: 0.875rem;
     opacity: .8;
-    text-transform: capitalize;
     line-height: 22px;
 }
 
@@ -947,15 +945,13 @@ tfoot {
     font-size: 11px;
     margin-right: 10px;
     line-height: 12px;
+    padding-top: 5px;
+    display: inline-table;
 }
 
 .form-mini .form-group input {
     height: 20px;
     border: none;
-}
-
-.form-mini .form-group label {
-    padding-top: 5px;
 }
 
 .form-mini .form-group label:after {
@@ -979,6 +975,23 @@ tfoot {
     font-size: 15px;
 }
 
+.form-mini.form-label label {
+    width: 30%;
+    line-height: 25px;
+}
+
+.form-mini.form-label .form-control {
+    width: 65%;
+    line-height: 25px;
+    height: 30px;
+    background: #ddd;
+}
+.form-mini.form-label select.form-control ,
+.form-mini.form-label input.form-control  {
+    
+    background: #fff    ;
+}
+
 .table-items {
     display: block;
     height: calc(100vh - 517px);
@@ -986,8 +999,9 @@ tfoot {
     overflow-x: hidden;
     background: rgba(255, 255, 255, .4);
 }
+
 .table-items:before {
-        content: "\f07a";
+    content: "\f07a";
     font: 344px/1 FontAwesome;
     display: block;
     float: left;
@@ -1126,4 +1140,46 @@ tfoot {
 
 .botao-excluir-row {
     padding: 2px !important;
+}
+
+.acoes {
+    background: #fff;
+    display: flex;
+    margin-bottom: 15px;
+    height: 110px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+.acoes .item-list {
+    border: 3px solid #58a00f;
+    margin: 5px;
+    padding: 0px;
+    display: inline-block;
+    flex-grow: 1;
+    width: 90px;
+    height: 90px;
+    min-width: 90px;
+    cursor: pointer;
+    color: #360;
+    padding-top: 10px;
+}
+
+.acoes .item-list:hover {
+    border: 3px solid #060;
+}
+
+.acoes .item-list label {
+    font-size: 11px;
+    text-align: center;
+    margin-top: 10px;
+    color: #067106;
+    font-weight: 600;
+    line-height: 14px;
+    width: 100%;
+}
+
+.acoes .item-list i {
+    width: 100%;
+    text-align: center;
 }

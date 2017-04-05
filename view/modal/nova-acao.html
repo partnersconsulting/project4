@@ -1,0 +1,41 @@
+<div class="modal-header header-green">
+    <h3 class="modal-title" id="modal-title">Adicionar Ação</h3>
+</div>
+<div class="modal-body" id="modal-body">
+    <div ng-show="showMarcas" class="item-list" ng-click="selecionaMarca(marca)" ng-repeat="marca in produtos">
+        <img ng-src="{{marca.image}}" class="img-responsive">
+    </div>
+    <div ng-show="showFamilias" class="item-list" ng-click="selecionaFamilia(familia)" ng-repeat="familia in marca.familia">
+        <img ng-src="{{familia.image}}" class="img-responsive">
+    </div>
+    <div ng-show="showProdutos" class="item-list" ng-click="selecionaProdutoAcao(produto)" ng-repeat="produto in familia.produtos">
+        <img ng-src="{{produto.image}}" class="img-responsive">
+    </div>
+    <div ng-show="selectedProductAcao" class="selected-product">
+        <div class="row">
+            <div class="col-md-2">
+                <img ng-src="{{selectedProductAcao.image}}" class="img-responsive">
+            </div>
+            <div class="col-md-10">
+                <span class="title">{{selectedProductAcao.name}}</span>
+                <div class="props">
+                    <span class="prop">Preço Unitário: R$ {{selectedProductAcao.price}}</span>
+                   <!--  <span ng-show="precoComDesconto > 0" class="prop">Preço com Desconto: R$ {{precoComDesconto}}</span> -->
+                </div>
+	            
+
+                <entry title="Verba" type="text" size="12" model="novaAcao.verba"></entry>
+                <entry title="Volume" type="text" size="12" model="novaAcao.volume"></entry>
+                <entry title="Desconto(%)" type="text" size="12" model="novaAcao.desconto"></entry>
+                <entry title="Tipo Pagamento" type="select" size="12" model="novaAcao.tipoPagamento" list="listaTiposPagamentos"></entry>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-success" type="button" ng-click="adicionarAcao()">Adicionar</button>
+    <button class="btn btn-warning" type="button" ng-click="cancel()">Cancelar</button>
+</div>

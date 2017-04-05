@@ -1,8 +1,8 @@
 .holder1 {
     position: fixed;
-    left: 750px;
     top: 170px;
     width: 240px;
+        right: 10px;
 }
 
 .holder2 {

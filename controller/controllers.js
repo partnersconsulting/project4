@@ -80,6 +80,8 @@ angular.module("App.controllers", [])
     .controller("PlanoController", function($scope, $rootScope, $uibModal, $window) {
         $rootScope.clear();
 
+        $rootScope.plano = {};
+
          $rootScope.closeHistoricPlan = function() {
             $rootScope.selectedHistoricPlan = null;
         }
@@ -122,7 +124,21 @@ angular.module("App.controllers", [])
             //$rootScope.selectedClient = null;
             //$rootScope.clear();
 
-            $rootScope.itensPedido = [];
+
+            $rootScope.selectedClientPlan.historicPlan.push({
+                
+                codigo: Math.round(Math.random() * 9999999),
+                tipo: "Cliente",
+                objetivo: $rootScope.plano.objetivo,
+                nome: $rootScope.plano.nome,
+                inicio: $rootScope.plano.dataInicio,
+                fim: $rootScope.plano.dataFim,
+                valor: "120.000,00",
+                items: $rootScope.itensAcoes
+
+            });
+
+
             $rootScope.itensAcoes = [];
 
         }
@@ -206,6 +222,18 @@ angular.module("App.controllers", [])
             $scope.open('md', '', 'view/modal/pedido-concluido.html', '');
             //$rootScope.selectedClient = null;
             //$rootScope.clear();
+
+            $rootScope.selectedClient.historic.push({
+                
+                number: Math.round(Math.random() * 9999999),
+                date: "07/04/2017",
+                quantidade: "54",
+                desconto: "12%",
+                valor: "20.544,00",
+                items: $rootScope.itensPedido
+
+            });
+
 
             $rootScope.itensPedido = [];
 

@@ -1000,7 +1000,7 @@ tfoot {
     background: rgba(255, 255, 255, .4);
 }
 
-.table-items:before {
+/*.table-items:before {
     content: "\f07a";
     font: 344px/1 FontAwesome;
     display: block;
@@ -1010,7 +1010,8 @@ tfoot {
     bottom: 100px;
     opacity: .3;
     color: #fff;
-}
+    pointer-events: none;
+}*/
 
 .table-items table {
     margin: 0;

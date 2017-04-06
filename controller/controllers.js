@@ -80,6 +80,9 @@ angular.module("App.controllers", [])
     .controller("PlanoController", function($scope, $rootScope, $uibModal, $window) {
         $rootScope.clear();
 
+
+        $scope.open('md', '', 'view/modal/cliente-plano.html', '');
+
         $rootScope.plano = {};
 
          $rootScope.closeHistoricPlan = function() {
@@ -152,10 +155,12 @@ angular.module("App.controllers", [])
             $scope.open('lg', '', 'view/modal/historico-plano.html', '');
         }
 
-        $scope.open('md', '', 'view/modal/cliente-plano.html', '');
+        
 
     })
     .controller("PedidosController", function($scope, $rootScope, $uibModal, $window) {
+
+        $scope.open('md', '', 'view/modal/cliente.html', '');
 
         $rootScope.itemPedido = {};
 
@@ -295,7 +300,7 @@ angular.module("App.controllers", [])
         }
 
 
-        $scope.open('md', '', 'view/modal/cliente.html', '');
+        
     })
     .controller("ModalInstanceCtrl", function($scope, $rootScope, $uibModalInstance, $location) {
 
@@ -309,12 +314,15 @@ angular.module("App.controllers", [])
          $rootScope.novoPlano = function() {
             $uibModalInstance.dismiss('cancel');
             $rootScope.clear();
+            $scope.open('md', '', 'view/modal/cliente-plano.html', '');
             //$rootScope.open('md', '', 'view/modal/cliente.html', '');
         }
 
         $rootScope.novoPedido = function() {
             $uibModalInstance.dismiss('cancel');
             $rootScope.clear();
+            $scope.open('md', '', 'view/modal/cliente.html', '');
+
             //$rootScope.open('md', '', 'view/modal/cliente.html', '');
         }
 
@@ -429,6 +437,7 @@ angular.module("App.controllers", [])
             $rootScope.selectedAcao = {};
             $rootScope.selectedProductAcao = null;
             $rootScope.novaAcao = {};
+            $rootScope.plano = {};
 
         }
 

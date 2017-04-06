@@ -2,10 +2,12 @@
     <label ng-show="title.length > 1" >{{ title }}</label>
 
 
-    <input ng-show="type == 'text' || type == 'number' || type == 'email'" ng-model="model" class="form-control" type="{{type}}">
+    <input ng-show="type == 'text' || type == 'number' || type == 'email'" ng-model="model" class="form-control" type="{{type}}" placeholder="{{placeholder}}">
     <input ng-show="type == 'phone'" ng-model="model" class="form-control" type="text" >
 
-    <input ng-show="type == 'file'" ng-model="model" class="form-control" type="file" >
+    <input ng-show="type == 'currency'" ng-model="model" class="form-control" type="text" amount="model" currency-input valid-number placeholder="{{placeholder}}">
+
+    <input ng-show="type == 'file'" ng-model="model" class="form-control" type="file">
 
 
     <select ng-show="type == 'select'" class="form-control" ng-model="model" ng-options="item.name for item in list">

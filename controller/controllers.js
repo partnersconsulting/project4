@@ -112,6 +112,10 @@ angular.module("App.controllers", [])
 
         }
 
+        $rootScope.abrirHistoricoPlan = function() {
+            $scope.open('lg', '', 'view/modal/historico-plano.html', '');
+        }
+
         $scope.open('md', '', 'view/modal/cliente-plano.html', '');
 
     })
@@ -152,6 +156,9 @@ angular.module("App.controllers", [])
         $rootScope.abrirHistorico = function() {
             $scope.open('lg', '', 'view/modal/historico.html', '');
         }
+
+
+        
 
 
         $rootScope.selectHistoric = function(historic) {
@@ -223,6 +230,8 @@ angular.module("App.controllers", [])
         $rootScope.adicionarNoPedido = function(item) {
             $rootScope.itensPedido.push(item);
             $rootScope.updateCartValues();
+
+            $rootScope.clear();
         }
 
         $rootScope.updateCartValues = function() {

@@ -12,21 +12,15 @@
             <tr>
                 <th>Codigo</th>
                 <th>Cliente</th>
-                
             </tr>
         </thead>
         <tbody>
-        	
-
-
             <tr ng-repeat="cliente in listaClientes | filter:filtro" ng-click="selectClient(cliente)">
                 <th scope="row">{{cliente.code}}</th>
                 <th>{{cliente.name}}</th>
-                
             </tr>
         </tbody>
     </table>
-
 </div>
 <div class="modal-footer">
     <button class="btn btn-warning" type="button" ng-click="cancel()">Cancelar</button>

@@ -99,6 +99,8 @@ angular.module("App.controllers", [])
             $rootScope.showProdutos = false;
         }
 
+         $scope.open('md', '', 'view/modal/cliente-plano.html', '');
+
     })
     .controller("PedidosController", function($scope, $rootScope, $uibModal, $window) {
 
@@ -221,8 +223,11 @@ angular.module("App.controllers", [])
     })
     .controller("ModalInstanceCtrl", function($scope, $rootScope, $uibModalInstance) {
 
+
+
         var r = Math.random();
 
+        $scope.clientType = false;
         $scope.numeroPedido = Math.round(r * 9999999);
 
         $rootScope.novoPedido = function() {

@@ -109,11 +109,11 @@ angular.module("App.controllers", [])
 
         $rootScope.adicionarMixPlan = function() {
 
-            angular.forEach($rootScope.selectedClient.listaMixPlan, function(value, key) {
+            angular.forEach($rootScope.listMixPlan, function(value, key) {
                 $rootScope.adicionarNovaAcao(value);
             });
 
-            $rootScope.selectedClient.listaMixPlan = [];
+            $rootScope.listMixPlan = [];
 
             $rootScope.clear();
 
@@ -235,6 +235,7 @@ angular.module("App.controllers", [])
             });
 
 
+
             $rootScope.itensPedido = [];
 
         }
@@ -258,11 +259,11 @@ angular.module("App.controllers", [])
 
         $rootScope.adicionarMix = function() {
 
-            angular.forEach($rootScope.selectedClient.listaMix.items, function(value, key) {
+            angular.forEach($rootScope.listMix.items, function(value, key) {
                 $rootScope.adicionarNoPedido(value);
             });
 
-            $rootScope.selectedClient.listaMix.items = [];
+            $rootScope.listMix.items = [];
 
             $rootScope.clear();
 
@@ -400,8 +401,12 @@ angular.module("App.controllers", [])
         };
 
         $scope.selectClient = function(client) {
-            console.log("selectClient()");
+            console.log("selectClient() " + client.listaMix.items);
             $uibModalInstance.dismiss('cancel');
+
+            $rootScope.listMix = {};
+            $rootScope.listMix.items = client.listaMix.items;
+            $rootScope.listMixPlan = client.listaMixPlan;
 
             $rootScope.selectedClient = client;
             $rootScope.selectedClientPlan = client;
@@ -542,7 +547,7 @@ angular.module("App.controllers", [])
             }
         }
 
-        var listaMix = {
+        $rootScope.listaMix = {
             name: "Mix perfeito",
             items: [{
                 id: "200700055",
@@ -609,7 +614,7 @@ angular.module("App.controllers", [])
 
         ];
 
-        var listaMixPlan = [{ "sku": "SKU20170001", "tipo": "AÇÃO ANIVERSÁRIO", "verba": "10000", "volume": "50", "desconto": "1", "tipoPagamento": "CRÉDITO EM CONTA", "precoUnitario": 3.55 },
+        $rootScope.listaMixPlan = [{ "sku": "SKU20170001", "tipo": "AÇÃO ANIVERSÁRIO", "verba": "10000", "volume": "50", "desconto": "1", "tipoPagamento": "CRÉDITO EM CONTA", "precoUnitario": 3.55 },
             { "sku": "SKU20170002", "tipo": "AÇÃO NATAL", "verba": "100000", "volume": "200", "desconto": "5", "tipoPagamento": "DESCONTO PRÓXIMA COMPRA", "precoUnitario": 4.55 },
             { "sku": "SKU20170006", "tipo": "AÇÃO PONTA ESTOQUE", "verba": "40000", "volume": "40", "desconto": "4", "tipoPagamento": "PAGAMENTO EM DINHEIRO", "precoUnitario": 2.55 }
         ];
@@ -621,54 +626,54 @@ angular.module("App.controllers", [])
                 name: 'Grupo Pão de Açucar',
                 address: "Av. Brigadeiro Luiz Antonio, 21 - Bela vista - São Paulo - SP",
                 historic: historic,
-                listaMix: listaMix,
+                listaMix: $rootScope.listaMix,
                 historicPlan: historicPlan,
-                listaMixPlan: listaMixPlan,
+                listaMixPlan: $rootScope.listaMixPlan,
                 credito: credito
             }, {
                 code: '2017012',
                 name: 'Covabra Supermecados',
                 address: "Rua Macuco, 200 - Moema - São Paulo - SP",
                 historic: historic,
-                listaMix: listaMix,
+                listaMix: $rootScope.listaMix,
                 historicPlan: historicPlan,
-                listaMixPlan: listaMixPlan,
+                listaMixPlan: $rootScope.listaMixPlan,
                 credito: credito
             }, {
                 code: '2017013',
                 name: 'Sam`s Club',
                 address: "Av Bandeirantes, km 20 - São Paulo - SP",
                 historic: historic,
-                listaMix: listaMix,
+                listaMix: $rootScope.listaMix,
                 historicPlan: historicPlan,
-                listaMixPlan: listaMixPlan,
+                listaMixPlan: $rootScope.listaMixPlan,
                 credito: credito
             }, {
                 code: '2017014',
                 name: 'Walmart',
                 address: "Radial Leste, 2000 - Tatuapé - São Paulo - SP",
                 historic: historic,
-                listaMix: listaMix,
+                listaMix: $rootScope.listaMix,
                 historicPlan: historicPlan,
-                listaMixPlan: listaMixPlan,
+                listaMixPlan: $rootScope.listaMixPlan,
                 credito: credito
             }, {
                 code: '2017015',
                 name: 'Makro',
                 address: "Rodovia Dutra km 40 - São Paulo - SP",
                 historic: historic,
-                listaMix: listaMix,
+                listaMix: $rootScope.listaMix,
                 historicPlan: historicPlan,
-                listaMixPlan: listaMixPlan,
+                listaMixPlan: $rootScope.listaMixPlan,
                 credito: credito
             }, {
                 code: '2017016',
                 name: 'Delben Supermercados',
                 address: "Av. Brigadeiro Luiz Antonio, 21 - Bela vista - São Paulo - SP",
                 historic: historic,
-                listaMix: listaMix,
+                listaMix: $rootScope.listaMix,
                 historicPlan: historicPlan,
-                listaMixPlan: listaMixPlan,
+                listaMixPlan: $rootScope.listaMixPlan,
                 credito: credito
             }
 

@@ -96,9 +96,9 @@
                         </tr>
                     </thead> -->
                         <tbody>
-                            <tr ng-repeat="item in selectedClient.historicPlan">
-                                <td>{{item.number}}</td>
-                                <td>{{item.date}}</td>
+                            <tr ng-repeat="item in selectedClientPlan.historicPlan">
+                                <td>{{item.codigo}}</td>
+                                <td>{{item.nome}}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -126,7 +126,7 @@
                     <button type="button" class="btn btn-primary btn-block" ng-click="adicionarMixPlan()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Adicionar Todos</button>
                 </div>
             </div>
-            <button type="button" class="btn btn-success btn-lg btn-block btn-finish" ng-click="concluirPedido()"><i class="fa fa-shopping-cart " aria-hidden="true"></i> Concluir plano</button>
+            <button type="button" class="btn btn-success btn-lg btn-block btn-finish" ng-click="concluirPlano()"><i class="fa fa-shopping-cart " aria-hidden="true"></i> Concluir plano</button>
         </div>
     </div>
 

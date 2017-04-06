@@ -80,6 +80,11 @@ angular.module("App.controllers", [])
     .controller("PlanoController", function($scope, $rootScope, $uibModal, $window) {
         $rootScope.clear();
 
+         $rootScope.closeHistoricPlan = function() {
+            $rootScope.selectedHistoricPlan = null;
+        }
+
+        $rootScope.selectedHistoricPlan = null;
         $rootScope.selectedAcao = null;
         $rootScope.novaAcao = {};
 
@@ -112,6 +117,21 @@ angular.module("App.controllers", [])
 
         }
 
+        $rootScope.concluirPlano = function() {
+            $scope.open('md', '', 'view/modal/plano-concluido.html', '');
+            //$rootScope.selectedClient = null;
+            //$rootScope.clear();
+
+            $rootScope.itensPedido = [];
+            $rootScope.itensAcoes = [];
+
+        }
+
+        $rootScope.selectHistoricPlan = function(historic) {
+            $rootScope.selectedHistoricPlan = historic;
+        }
+
+
         $rootScope.abrirHistoricoPlan = function() {
             $scope.open('lg', '', 'view/modal/historico-plano.html', '');
         }
@@ -124,6 +144,7 @@ angular.module("App.controllers", [])
         $rootScope.itemPedido = {};
 
         $rootScope.selectedHistoric = null;
+
 
         $rootScope.selectedClient = null;
 
@@ -158,7 +179,7 @@ angular.module("App.controllers", [])
         }
 
 
-        
+
 
 
         $rootScope.selectHistoric = function(historic) {
@@ -220,7 +241,7 @@ angular.module("App.controllers", [])
             $rootScope.updateCartValues();
         }
 
-        
+
 
 
 
@@ -247,7 +268,7 @@ angular.module("App.controllers", [])
 
         $scope.open('md', '', 'view/modal/cliente.html', '');
     })
-    .controller("ModalInstanceCtrl", function($scope, $rootScope, $uibModalInstance) {
+    .controller("ModalInstanceCtrl", function($scope, $rootScope, $uibModalInstance, $location) {
 
 
 
@@ -255,6 +276,12 @@ angular.module("App.controllers", [])
 
         $scope.clientType = false;
         $scope.numeroPedido = Math.round(r * 9999999);
+
+         $rootScope.novoPlano = function() {
+            $uibModalInstance.dismiss('cancel');
+            $rootScope.clear();
+            //$rootScope.open('md', '', 'view/modal/cliente.html', '');
+        }
 
         $rootScope.novoPedido = function() {
             $uibModalInstance.dismiss('cancel');
@@ -333,6 +360,11 @@ angular.module("App.controllers", [])
             $uibModalInstance.close();
         };
 
+        $scope.gotoHome = function() {
+            $location.path("/home");
+            $uibModalInstance.dismiss('cancel');
+        };
+
         $scope.cancel = function() {
             console.log("cancel()");
             $rootScope.clear();
@@ -344,6 +376,7 @@ angular.module("App.controllers", [])
             $uibModalInstance.dismiss('cancel');
 
             $rootScope.selectedClient = client;
+            $rootScope.selectedClientPlan = client;
         }
     })
     .controller("MainController", function($scope, $rootScope, $filter, $uibModal, $document, $location) {
@@ -518,7 +551,36 @@ angular.module("App.controllers", [])
             }]
         };
 
-        var historicPlan = [];
+        var historicPlan = [{
+            codigo: "65456465",
+            tipo: "Cliente",
+            objetivo: "AUMENTAR RECEITA",
+            nome: "PlanoMaio16",
+            inicio: "02-04-2016",
+            fim: "01-08-2016",
+            valor: "140.000,00",
+            items: [
+                { "sku": "SKU20170002", "tipo": "AÇÃO M3", "verba": "100000", "volume": "200", "desconto": "5", "tipoPagamento": "DESCONTO PRÓXIMA COMPRA", "precoUnitario": 4.55 },
+                { "sku": "SKU20170006", "tipo": "AÇÃO ESTOQUE 5", "verba": "40000", "volume": "40", "desconto": "4", "tipoPagamento": "PAGAMENTO EM DINHEIRO", "precoUnitario": 2.55 }
+            ]
+        },{
+            codigo: "46546554",
+            tipo: "Cliente",
+            objetivo: "DIMINUIÇÃO DE ESTOQUE",
+            nome: "PlanoDesembro16",
+            inicio: "02-11-2016",
+            fim: "01-02-2017",
+            valor: "50.000,00",
+            items: [
+                { "sku": "SKU20170002", "tipo": "AÇÃO NATAL", "verba": "30000", "volume": "200", "desconto": "5", "tipoPagamento": "DESCONTO PRÓXIMA COMPRA", "precoUnitario": 4.55 },
+                { "sku": "SKU20170006", "tipo": "AÇÃO PONTA ESTOQUE", "verba": "20000", "volume": "40", "desconto": "4", "tipoPagamento": "PAGAMENTO EM DINHEIRO", "precoUnitario": 2.55 }
+            ]
+        }
+
+
+
+        ];
+
         var listaMixPlan = [{ "sku": "SKU20170001", "tipo": "AÇÃO ANIVERSÁRIO", "verba": "10000", "volume": "50", "desconto": "1", "tipoPagamento": "CRÉDITO EM CONTA", "precoUnitario": 3.55 },
             { "sku": "SKU20170002", "tipo": "AÇÃO NATAL", "verba": "100000", "volume": "200", "desconto": "5", "tipoPagamento": "DESCONTO PRÓXIMA COMPRA", "precoUnitario": 4.55 },
             { "sku": "SKU20170006", "tipo": "AÇÃO PONTA ESTOQUE", "verba": "40000", "volume": "40", "desconto": "4", "tipoPagamento": "PAGAMENTO EM DINHEIRO", "precoUnitario": 2.55 }

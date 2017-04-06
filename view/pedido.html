@@ -153,6 +153,7 @@
                 <div class="panel-heading"><i class="fa fa-link" aria-hidden="true"></i> Mix perfeito</div>
                 <div class="panel-body">
                     <table class="table table-hover ">
+                    <i ng-show="selectedClient.listaMix.items.length == 0" class="fa fa-ban icon-bg   " aria-hidden="true"></i>
                         <tbody>
                             <tr ng-repeat="item in selectedClient.listaMix.items">
                                 <!-- <td><i class="fa fa-plus-circle" aria-hidden="true"></i></td> -->

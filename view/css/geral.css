@@ -1183,3 +1183,10 @@ tfoot {
     width: 100%;
     text-align: center;
 }
+
+.icon-bg {
+        text-align: center;
+    width: 100%;
+    opacity: .1;
+    font-size: 130px;
+}

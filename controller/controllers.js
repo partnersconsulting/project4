@@ -37,14 +37,14 @@ angular.module("App.controllers", [])
                 name: "Indicadores de Vendas",
                 icon: "fa-credit-card",
                 link: "https://demo-presalesbrazil.us1.sapbusinessobjects.cloud/sap/fpa/ui/tenants/presalesbrazil/app.html#;view_id=story;storyId=0C3FE3585EBE2E44E10000000A6C988B;forceOpenView=true"
-            },{
+            }, {
                 name: "Indicadores de Marketing",
                 icon: "fa-pie-chart",
                 link: "https://demo-presalesbrazil.us1.sapbusinessobjects.cloud/sap/fpa/ui/tenants/presalesbrazil/app.html#;view_id=story;storyId=8A17E3585EBE2E44E10000000A6C988B;forceOpenView=true"
             }
 
 
- 
+
 
             /*, {
                 name: "Minhas Tarefas",
@@ -81,6 +81,7 @@ angular.module("App.controllers", [])
         $rootScope.clear();
 
         $rootScope.selectedAcao = null;
+        $rootScope.novaAcao = {};
 
         $rootScope.selecionaAcao = function(acao) {
             $rootScope.selectedAcao = acao;
@@ -89,17 +90,29 @@ angular.module("App.controllers", [])
 
         $rootScope.adicionarNovaAcao = function(item) {
             $rootScope.itensAcoes.push(item);
+            $rootScope.clear();
         }
 
 
-        $rootScope.novaAcao = {};
 
         $rootScope.selecionaProdutoAcao = function(produto) {
             $rootScope.selectedProductAcao = produto;
             $rootScope.showProdutos = false;
         }
 
-         $scope.open('md', '', 'view/modal/cliente-plano.html', '');
+        $rootScope.adicionarMixPlan = function() {
+
+            angular.forEach($rootScope.selectedClient.listaMixPlan, function(value, key) {
+                $rootScope.adicionarNovaAcao(value);
+            });
+
+            $rootScope.selectedClient.listaMixPlan = [];
+
+            $rootScope.clear();
+
+        }
+
+        $scope.open('md', '', 'view/modal/cliente-plano.html', '');
 
     })
     .controller("PedidosController", function($scope, $rootScope, $uibModal, $window) {
@@ -199,6 +212,10 @@ angular.module("App.controllers", [])
 
             $rootScope.updateCartValues();
         }
+
+        
+
+
 
         $rootScope.totalItems = 0;
         $rootScope.valorTotal = 0;
@@ -333,6 +350,10 @@ angular.module("App.controllers", [])
             $rootScope.familia = '';
 
             $rootScope.itemPedido = {};
+
+            $rootScope.selectedAcao = {};
+            $rootScope.selectedProductAcao = null;
+            $rootScope.novaAcao = {};
 
         }
 
@@ -488,6 +509,13 @@ angular.module("App.controllers", [])
             }]
         };
 
+        var historicPlan = [];
+        var listaMixPlan = [{ "sku": "SKU20170001", "tipo": "AÇÃO ANIVERSÁRIO", "verba": "10000", "volume": "50", "desconto": "1", "tipoPagamento": "CRÉDITO EM CONTA", "precoUnitario": 3.55 },
+            { "sku": "SKU20170002", "tipo": "AÇÃO NATAL", "verba": "100000", "volume": "200", "desconto": "5", "tipoPagamento": "DESCONTO PRÓXIMA COMPRA", "precoUnitario": 4.55 },
+            { "sku": "SKU20170006", "tipo": "AÇÃO PONTA ESTOQUE", "verba": "40000", "volume": "40", "desconto": "4", "tipoPagamento": "PAGAMENTO EM DINHEIRO", "precoUnitario": 2.55 }
+        ];
+
+
 
         $rootScope.listaClientes = [{
                 code: '2017011',
@@ -495,6 +523,8 @@ angular.module("App.controllers", [])
                 address: "Av. Brigadeiro Luiz Antonio, 21 - Bela vista - São Paulo - SP",
                 historic: historic,
                 listaMix: listaMix,
+                historicPlan: historicPlan,
+                listaMixPlan: listaMixPlan,
                 credito: credito
             }, {
                 code: '2017012',
@@ -502,6 +532,8 @@ angular.module("App.controllers", [])
                 address: "Rua Macuco, 200 - Moema - São Paulo - SP",
                 historic: historic,
                 listaMix: listaMix,
+                historicPlan: historicPlan,
+                listaMixPlan: listaMixPlan,
                 credito: credito
             }, {
                 code: '2017013',
@@ -509,6 +541,8 @@ angular.module("App.controllers", [])
                 address: "Av Bandeirantes, km 20 - São Paulo - SP",
                 historic: historic,
                 listaMix: listaMix,
+                historicPlan: historicPlan,
+                listaMixPlan: listaMixPlan,
                 credito: credito
             }, {
                 code: '2017014',
@@ -516,6 +550,8 @@ angular.module("App.controllers", [])
                 address: "Radial Leste, 2000 - Tatuapé - São Paulo - SP",
                 historic: historic,
                 listaMix: listaMix,
+                historicPlan: historicPlan,
+                listaMixPlan: listaMixPlan,
                 credito: credito
             }, {
                 code: '2017015',
@@ -523,6 +559,8 @@ angular.module("App.controllers", [])
                 address: "Rodovia Dutra km 40 - São Paulo - SP",
                 historic: historic,
                 listaMix: listaMix,
+                historicPlan: historicPlan,
+                listaMixPlan: listaMixPlan,
                 credito: credito
             }, {
                 code: '2017016',
@@ -530,6 +568,8 @@ angular.module("App.controllers", [])
                 address: "Av. Brigadeiro Luiz Antonio, 21 - Bela vista - São Paulo - SP",
                 historic: historic,
                 listaMix: listaMix,
+                historicPlan: historicPlan,
+                listaMixPlan: listaMixPlan,
                 credito: credito
             }
 

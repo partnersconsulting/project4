@@ -96,7 +96,7 @@
                         </tr>
                     </thead> -->
                         <tbody>
-                            <tr ng-repeat="item in selectedClient.historic">
+                            <tr ng-repeat="item in selectedClient.historicPlan">
                                 <td>{{item.number}}</td>
                                 <td>{{item.date}}</td>
                             </tr>
@@ -112,22 +112,27 @@
                 <div class="panel-body">
                     <table class="table table-hover ">
                         <tbody>
-                            <tr ng-repeat="item in selectedClient.listaMix.items">
+                            <tr ng-repeat="item in selectedClient.listaMixPlan">
                                 <!-- <td><i class="fa fa-plus-circle" aria-hidden="true"></i></td> -->
-                                <td>{{item.quantidade}} CX</td>
-                                <td>{{item.name}}</td>
-                                <td>{{item.desconto*100}}%</td>
+                                <td>{{item.sku}} CX</td>
+                                <td>{{item.verba}}</td>
+                                <td>{{item.desconto}}%</td>
+
+                                {{item}}
+
                             </tr>
                         </tbody>
                     </table>
                 </div>
                 <div class="panel-footer">
-                    <button type="button" class="btn btn-primary btn-block" ng-click="adicionarMix()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Adicionar Todos</button>
+                    <button type="button" class="btn btn-primary btn-block" ng-click="adicionarMixPlan()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Adicionar Todos</button>
                 </div>
             </div>
             <button type="button" class="btn btn-success btn-lg btn-block btn-finish" ng-click="concluirPedido()"><i class="fa fa-shopping-cart " aria-hidden="true"></i> Concluir plano</button>
         </div>
     </div>
+
+
     <div class="row row-info">
         <div class="col-md-2">
             <i class="fa fa-hashtag" aria-hidden="true"></i> Itens: {{totalItems}}

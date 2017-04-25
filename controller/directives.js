@@ -162,66 +162,61 @@ angular.module('App.directives', [])
                 ngModelCtrl.$parsers.push(fromUser);
             }
         };
-    })
-
-
-.directive('currencyInput', function($filter) {
-    return {
-        scope: {
-            amount: '='
-        },
-        link: function(scope, el, attrs) {
-            el.val($filter('currency')(scope.amount, 'R$ '));
-
-            el.bind('focus', function() {
-                el.val(scope.amount);
-            });
-
-            el.bind('input', function() {
-                scope.amount = el.val();
-                scope.$apply();
-            });
-
-            el.bind('blur', function() {
+    }).directive('currencyInput', function($filter) {
+        return {
+            scope: {
+                amount: '='
+            },
+            link: function(scope, el, attrs) {
                 el.val($filter('currency')(scope.amount, 'R$ '));
-            });
+
+                el.bind('focus', function() {
+                    el.val(scope.amount);
+                });
+
+                el.bind('input', function() {
+                    scope.amount = el.val();
+                    scope.$apply();
+                });
+
+                el.bind('blur', function() {
+                    el.val($filter('currency')(scope.amount, 'R$ '));
+                });
+            }
         }
-    }
-})
-.directive('validNumber', function() {
-      return {
-        require: '?ngModel',
-        link: function(scope, element, attrs, ngModelCtrl) {
-          if(!ngModelCtrl) {
-            return; 
-          }
+    }).directive('validNumber', function() {
+        return {
+            require: '?ngModel',
+            link: function(scope, element, attrs, ngModelCtrl) {
+                if (!ngModelCtrl) {
+                    return;
+                }
 
-          ngModelCtrl.$parsers.push(function(val) {
-            if (angular.isUndefined(val)) {
-                var val = '';
-            }
-            var clean = val.replace(/[^0-9\.]/g, '');
-            var decimalCheck = clean.split('.');
+                ngModelCtrl.$parsers.push(function(val) {
+                    if (angular.isUndefined(val)) {
+                        var val = '';
+                    }
+                    var clean = val.replace(/[^0-9\.]/g, '');
+                    var decimalCheck = clean.split('.');
 
-            if(!angular.isUndefined(decimalCheck[1])) {
-                decimalCheck[1] = decimalCheck[1].slice(0,2);
-                clean =decimalCheck[0] + '.' + decimalCheck[1];
-            }
+                    if (!angular.isUndefined(decimalCheck[1])) {
+                        decimalCheck[1] = decimalCheck[1].slice(0, 2);
+                        clean = decimalCheck[0] + '.' + decimalCheck[1];
+                    }
 
-            if (val !== clean) {
-              ngModelCtrl.$setViewValue(clean);
-              ngModelCtrl.$render();
-            }
-            return clean;
-          });
+                    if (val !== clean) {
+                        ngModelCtrl.$setViewValue(clean);
+                        ngModelCtrl.$render();
+                    }
+                    return clean;
+                });
 
-          element.bind('keypress', function(event) {
-            if(event.keyCode === 32) {
-              event.preventDefault();
+                element.bind('keypress', function(event) {
+                    if (event.keyCode === 32) {
+                        event.preventDefault();
+                    }
+                });
             }
-          });
-        }
-      };
+        };
     })
 ;
-

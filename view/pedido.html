@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-9">
             <div class="row row-margin">
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <div class="panel panel-ype panel-ype-fixed">
                         <div class="panel-heading"><i class="fa fa-user-circle" aria-hidden="true"></i> Cliente</div>
                         <div class="panel-body">
@@ -26,7 +26,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <div class="panel panel-ype panel-ype-fixed">
                         <div class="panel-heading"><i class="fa fa-money" aria-hidden="true"></i> Crédito</div>
                         <div class="panel-body">
@@ -49,7 +49,38 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
+                    <div class="panel panel-ype panel-ype-fixed">
+                        <div class="panel-heading"><i class="fa fa-table" aria-hidden="true"></i></i> Plano Negocio</div>
+                        <div class="panel-body">
+                            <div class="row flex-row home-entry ">
+                                <div class="col-md-12 form-mini">
+
+                                     <entry title="" type="select" size="12" model="planoNegocio.selectedPlanoNegocio" list="listaPlanoNegocio" ></entry>
+
+                                     <p class="selecionePlano" ng-hide="planoNegocio.selectedPlanoNegocio">Selecione o Plano de Negócio!</p>
+                                    <table class="table table-hover table-block" ng-show="planoNegocio.selectedPlanoNegocio">
+                                        <thead>
+                                        <tr>
+                                            <th>Tipo</th>
+                                            <th>Descrição</th>
+                                            <th>Desconto</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr ng-repeat="item in itemsPlanoNegocio">
+                                            <td>{{item.name}}</td>
+                                            <td>{{item.descricao}}</td>
+                                            <td>{{item.desconto}} %</td>
+                                        </tr>
+                                        </tbody>
+                                    </table> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
                     <div class="panel panel-ype panel-ype-fixed">
                         <div class="panel-heading"><i class="fa fa-table" aria-hidden="true"></i></i> Crédito Liberar</div>
                         <div class="panel-body">
@@ -100,6 +131,7 @@
                             <th>Preço com desconto</th>
                             <th>Impostos</th>
                             <th>Valor Total</th>
+                            <th>Status do pedido</th>
                             <th></th>
                             <!-- <th>Ações</th> -->
                         </tr>
@@ -114,6 +146,7 @@
                             <td>R$ {{(itemPedido.price - (itemPedido.price * itemPedido.desconto)).toFixed(2)}}</td>
                             <td>R$ {{itemPedido.impostos}}</td>
                             <td>R$ {{((itemPedido.price - (itemPedido.price * itemPedido.desconto)) * itemPedido.quantidade).toFixed(2)}}</td>
+                            <td>{{itemPedido.desconto > 0.05 ? 'em Análise': 'OK'}}</td>
                              <td class="botao-excluir-row"> <span class="btn btn-danger btn-xs" ng-click="removerItem(itemPedido)"><i class="fa fa-times-circle" aria-hidden="true "></i></span></td>
                         </tr>
                     </tbody>
@@ -173,22 +206,26 @@
     </div>
 
     <div class="row row-info">
-        <div class="col-md-2">
+        <div class="col-md-2 rodape">
             <i class="fa fa-hashtag" aria-hidden="true"></i> Itens: {{totalItems}}
         </div>
-        <div class="col-md-2">
+        <div class="col-md-2 rodape">
             <i class="fa fa-cube" aria-hidden="true"></i> Caixas: {{totalItems/5 | limitTo:3}}
         </div>
-        <div class="col-md-2">
-            <i class="fa fa-th-large" aria-hidden="true"></i> Paletes: {{totalItems/40 | limitTo:3}}
+        <div class="col-md-2 rodape"
+             popover-animation="true"
+             popover-enable="!isPaletePerfeito"
+             popover-is-open="!isPaletePerfeito"
+             uib-popover="Monte seu palete perfeito adicionando Sabão em Barra YPE">
+            <i class="fa fa-th-large" aria-hidden="true"></i> Paletes: {{(totalItems/40) | limitTo:3}}
         </div>
-        <div class="col-md-2">
+        <div class="col-md-2 rodape">
             <i class="fa fa-balance-scale" aria-hidden="true"></i> Peso Total: {{totalItems * .5 | limitTo:3}}kg
         </div>
-        <div class="col-md-2">
+        <div class="col-md-2 rodape">
             <i class="fa fa-arrows-h" aria-hidden="true"></i> Volume: {{totalItems/20 | limitTo:3}}m3
         </div>
-        <div class="col-md-2">
+        <div class="col-md-2 rodape">
             <i class="fa fa-dollar" aria-hidden="true"></i> Total: {{valorTotal | currency : "R$ "}}
         </div>
     </div>

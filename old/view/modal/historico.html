@@ -1,0 +1,66 @@
+<div class="modal-header header-green">
+    <h3 class="modal-title" id="modal-title">Historico de pedidos</h3>
+</div>
+<div class="modal-body" id="modal-body">
+    <div class="input-group input-group-lg" ng-hide="selectedHistoric">
+        <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
+        <input type="text" class="form-control" placeholder="busca pedidos" aria-describedby="sizing-addon1" ng-model="filtro">
+    </div>
+    <div ng-show="selectedHistoric" class="historico">
+        <span class="titulo"><i class="fa fa-hashtag" aria-hidden="true"></i> Número: {{selectedHistoric.number}}</span>
+        <span class="data"><i class="fa fa-calendar" aria-hidden="true"></i> {{selectedHistoric.date}}</span>
+        <a ng-click="closeHistoric()" class="close"><i class="fa fa-times-circle fa-2x" aria-hidden="true"></i></a>
+    </div>
+    <hr>
+
+    <table class="table table-hover table-striped" ng-hide="selectedHistoric">
+        <thead>
+            <tr>
+                <th>Codigo Pedido</th>
+                <th>Data</th>
+                <th>Total Items</th>
+                <th>Desconto</th>
+                <th>Valor</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="historic in selectedClient.historic | filter:filtro" ng-click="selectHistoric(historic)">
+                <th scope="row">{{historic.number}}</th>
+                <th>{{historic.date}}</th>
+                <th>{{historic.quantidade}}</th>
+                <th>{{historic.desconto}}</th>
+                <th>R$ {{historic.valor}}</th>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="table table-hover table-striped" ng-show="selectedHistoric">
+        <thead>
+            <tr>
+                <th>Codigo</th>
+                <th>Nome</th>
+                <th>Sku</th>
+                <th>Qnt</th>
+                <th>Preço</th>
+                <th>Impostos</th>
+                <th>Desconto</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in selectedHistoric.items">
+                <th scope="row">{{item.id}}</th>
+                <th>{{item.name}}</th>
+                <th>{{item.sku}}</th>
+                <th>{{item.quantidade}} CX</th>
+                <th>R$ {{item.price}}</th>
+                <th>R$ {{item.impostos}}</th>
+                <th>{{item.desconto}} %</th>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+<div class="modal-footer">
+    <button class="btn btn-warning" ng-show="selectedHistoric" type="button" ng-click="reloadPedido()"><i class="fa fa-refresh" aria-hidden="true"></i> Refazer pedido</button>
+    <button class="btn btn-danger" type="button" ng-click="cancel()">Cancelar</button>
+</div>

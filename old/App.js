@@ -26,24 +26,6 @@ angular.module('App', [
         })
 
 
-    /*.when('/cadastro_voluntario', {
-        templateUrl: 'view/cadastro_voluntario.html',
-        controller: 'VoluntariosController'
-    })
-    .when('/pesquisas', {
-        templateUrl: 'view/pesquisas.html',
-        controller: 'PesquisasController'
-    })
-    .when('/cadastro_pesquisa', {
-        templateUrl: 'view/cadastro_pesquisa.html',
-        controller: 'PesquisasController'
-    })
-    .when('/relatorios', {
-        templateUrl: 'view/relatorios.html',
-        controller: 'RelatoriosController'
-    })*/
-
-
     .otherwise({ redirectTo: 'home' });
 
 });

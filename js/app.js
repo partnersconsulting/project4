@@ -1,0 +1,49 @@
+angular.module('app', [
+    "app.controllers",
+    "app.services",
+    "app.directives",
+    "app.filters",
+        'ngAnimate',
+        "ngRoute",
+        "ngResource",
+        'ui.bootstrap',
+        'ngCsv',
+        'chart.js'
+]).config(function($routeProvider) {
+
+    $routeProvider
+        .when('/home', {
+            templateUrl: 'view/home.html',
+            controller: 'HomeController'
+        })
+        .when('/cadastro_pedido', {
+            templateUrl: 'view/pedido.html',
+            controller: 'PedidosController'
+        })
+        .when('/cadastro_plano', {
+            templateUrl: 'view/plano.html',
+            controller: 'PlanoController'
+        })
+
+
+    /*.when('/cadastro_voluntario', {
+        templateUrl: 'view/cadastro_voluntario.html',
+        controller: 'VoluntariosController'
+    })
+    .when('/pesquisas', {
+        templateUrl: 'view/pesquisas.html',
+        controller: 'PesquisasController'
+    })
+    .when('/cadastro_pesquisa', {
+        templateUrl: 'view/cadastro_pesquisa.html',
+        controller: 'PesquisasController'
+    })
+    .when('/relatorios', {
+        templateUrl: 'view/relatorios.html',
+        controller: 'RelatoriosController'
+    })*/
+
+
+    .otherwise({ redirectTo: 'home' });
+
+});

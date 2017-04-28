@@ -19,11 +19,20 @@
             <div class="col-md-10">
                 <span class="title">{{selectedProduct.name}}</span>
                 <div class="props">
-                    <span class="prop">Preço Unitário: R$ {{selectedProduct.price}}</span>
-                   <!--  <span ng-show="precoComDesconto > 0" class="prop">Preço com Desconto: R$ {{precoComDesconto}}</span> -->
+                   <span class="prop">Preço Unitário: R$ {{selectedProduct.price}}</span>
+                   <span class="prop" ng-show="planoNegocio.selectedPlanoNegocio">Desconto Plano Negócio: {{planoNegocio.desconto}}%</span>
+                   <span class="prop"> Valor total sem desconto: R$ {{( (itemPedido.qnt * selectedProduct.price)).toFixed(2)}}</span>
+                   <span class="prop" ng-if="itemPedido.desconto > 0"> Valor total com desconto: R$ {{( (itemPedido.qnt * selectedProduct.price) - (itemPedido.desconto*(itemPedido.qnt * selectedProduct.price)/100) ).toFixed(2)}}</span>
+
+                   <span class="prop" ng-if="planoNegocio.selectedPlanoNegocio"> Valor total com desconto de plano de Negocio: R$ {{( (itemPedido.qnt * selectedProduct.price) - (itemPedido.desconto*(itemPedido.qnt * selectedProduct.price)/100) - (planoNegocio.desconto*(itemPedido.qnt * selectedProduct.price)/100) ).toFixed(2)}}</span>
+
+                   <span class="prop prop-alert" ng-if="itemPedido.desconto > 5 && itemPedido.desconto <= 10"> Desconto será enviado para aprovação!</span>
+
+                   <span class="prop prop-danger" ng-if="itemPedido.desconto > 10"> Desconto não permitido!</span>
+
                 </div>
 	            <numberpicker model="itemPedido.qnt"  title="Quantidade" min="1" max="50" step="1"></numberpicker>
-	            <numberpicker model="itemPedido.desconto" title="Desconto(%)" min="0" max="10" step=".5"></numberpicker>
+	            <numberpicker model="itemPedido.desconto" title="Desconto(%)" min="0" max="100" step=".5"></numberpicker>
             </div>
 
 
@@ -31,6 +40,6 @@
     </div>
 </div>
 <div class="modal-footer">
-    <button class="btn btn-success" type="button" ng-click="adicionar()">Adicionar</button>
+    <button class="btn btn-success" ng-disabled="itemPedido.desconto > 10"  type="button" ng-click="adicionar()">Adicionar</button>
     <button class="btn btn-warning" type="button" ng-click="cancel()">Cancelar</button>
 </div>

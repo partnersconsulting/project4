@@ -1,0 +1,195 @@
+<panel title="" linkback="">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="row row-margin">
+                <div class="col-md-4">
+                    <div class="panel panel-ype panel-ype-fixed">
+                        <div class="panel-heading"><i class="fa fa-user-circle" aria-hidden="true"></i> Cliente</div>
+                        <div class="panel-body">
+                            <div class="row flex-row home-entry ">
+                                <!-- <entry title="" onlyview="viewEvento" type="select " size="4" model="convidadoGrupoAlvo.grupo " list="listaClientes"></entry>
+ -->
+                                <div class="col-md-12 form-mini" ng-click="openClienteLink()">
+                                    <div class="form-group ">
+                                        <!-- <label>Nome</label> -->
+                                        <div class="form-control client">{{selectedClient.name}}</div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <div class="form-control">{{selectedClient.code}}</div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <div class="form-control address">{{selectedClient.address}}</div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="panel panel-ype panel-ype-fixed">
+                        <div class="panel-heading"><i class="fa fa-money" aria-hidden="true"></i> Crédito</div>
+                        <div class="panel-body">
+                            <div class="row flex-row home-entry ">
+                                <div class="col-md-12 form-mini">
+                                    <div class="form-group ">
+                                        <label>Total</label>
+                                        <div class="form-control">{{selectedClient.credito.total}}</div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label>Livre</label>
+                                        <div class="form-control">{{selectedClient.credito.livre}}</div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label>Comprometido</label>
+                                        <div class="form-control">{{selectedClient.credito.comprometido}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="panel panel-ype panel-ype-fixed">
+                        <div class="panel-heading"><i class="fa fa-table" aria-hidden="true"></i></i> Crédito Liberar</div>
+                        <div class="panel-body">
+                            <div class="row flex-row home-entry ">
+                                <div class="col-md-12 form-mini">
+                                    <div class="form-group ">
+                                        <label>Total</label>
+                                        <div class="form-control">{{selectedClient.credito.liberar.total}}</div>
+                                    </div>
+                                    <table class="table table-hover ">
+                                        <tbody>
+                                            <tr ng-repeat="item in selectedClient.credito.liberar.faturas">
+                                                <td>{{item.code}}</td>
+                                                <td>{{item.data}}</td>
+                                                <td>{{item.valor}}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <button ng-click="novoItemPedido()" type="button" class="btn btn-success effect2 buttonAdd"><i class="fa fa-3x fa-plus-circle" aria-hidden="true"></i></button>
+                </div>
+                <div class="col-md-10">
+                    <span class="produtos">
+  
+                                <div class="item-list" ng-click="selecionaMaisVendido(produto)" ng-repeat="produto in maisVendidos">
+                                    <img ng-src="{{produto.image}}" class="img-responsive">
+                                </div>
+                        <!-- <img class="pull-left img-responsive " src="images/produtos.png "> -->
+                        </span>
+                </div>
+            </div>
+            <div class="table-items">
+                <table class="table table-hover table-responsive ">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nome</th>
+                            <th>SKU</th>
+                            <th>Qnt</th>
+                            <th>Preço Unitário</th>
+                            <th>Preço com desconto</th>
+                            <th>Impostos</th>
+                            <th>Valor Total</th>
+                            <th></th>
+                            <!-- <th>Ações</th> -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="itemPedido in itensPedido">
+                            <td>{{itemPedido.id}}</td>
+                            <td>{{itemPedido.name}}</td>
+                            <td>{{itemPedido.sku}}</td>
+                            <td>{{itemPedido.quantidade}} CX</td>
+                            <td>R$ {{itemPedido.price}}</td>
+                            <td>R$ {{(itemPedido.price - (itemPedido.price * itemPedido.desconto)).toFixed(2)}}</td>
+                            <td>R$ {{itemPedido.impostos}}</td>
+                            <td>R$ {{((itemPedido.price - (itemPedido.price * itemPedido.desconto)) * itemPedido.quantidade).toFixed(2)}}</td>
+                             <td class="botao-excluir-row"> <span class="btn btn-danger btn-xs" ng-click="removerItem(itemPedido)"><i class="fa fa-times-circle" aria-hidden="true "></i></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <button type="button " class="btn btn-success pull-right " ng-show="collapseFormEvento " ng-click="novoEvento() "><i class="fa fa-floppy-o" aria-hidden="true "></i> Salvar Pedido</button>
+        </div>
+        <div class="col-md-3">
+            <!-- <div class="panel panel-ype">
+            <div class="panel-heading"><i class="fa fa-usd" aria-hidden="true"></i> Pedido de Vendas</div>
+            <div class="panel-body">
+            </div>
+            </div> -->
+            <div class="panel panel-ype panel-historico">
+                <div class="panel-heading"><i class="fa fa-history" aria-hidden="true"></i> Histórico de pedidos</div>
+                <div class="panel-body">
+                    <table class="table table-hover ">
+                        <!--                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Data</th>
+                        </tr>
+                    </thead> -->
+                        <tbody>
+                            <tr ng-repeat="item in selectedClient.historic">
+                                <td>{{item.number}}</td>
+                                <td>{{item.date}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="panel-footer">
+                    <button type="button" class="btn btn-primary btn-block" ng-click="abrirHistorico()"><i class="fa fa-history" aria-hidden="true"></i> Abrir Historico</button>
+                </div>
+            </div>
+            <div class="panel panel-ype painel-mix">
+                <div class="panel-heading"><i class="fa fa-link" aria-hidden="true"></i> Mix perfeito</div>
+                <div class="panel-body">
+                    <table class="table table-hover ">
+                    <i ng-show="selectedClient.listaMix.items.length == 0" class="fa fa-ban icon-bg   " aria-hidden="true"></i>
+                        <tbody>
+                            <tr ng-repeat="item in listMix.items">
+                                <!-- <td><i class="fa fa-plus-circle" aria-hidden="true"></i></td> -->
+                                <td>{{item.quantidade}} CX</td>
+                                <td>{{item.name}}</td>
+                                <td>{{item.desconto*100}}%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="panel-footer">
+                    <button type="button" class="btn btn-primary btn-block" ng-click="adicionarMix()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Adicionar Todos</button>
+                </div>
+            </div>
+            <button type="button" class="btn btn-success btn-lg btn-block btn-finish"  ng-click="concluirPedido()"><i class="fa fa-shopping-cart " aria-hidden="true"></i> Concluir pedido</button>
+        </div>
+    </div>
+
+    <div class="row row-info">
+        <div class="col-md-2">
+            <i class="fa fa-hashtag" aria-hidden="true"></i> Itens: {{totalItems}}
+        </div>
+        <div class="col-md-2">
+            <i class="fa fa-cube" aria-hidden="true"></i> Caixas: {{totalItems/5 | limitTo:3}}
+        </div>
+        <div class="col-md-2">
+            <i class="fa fa-th-large" aria-hidden="true"></i> Paletes: {{totalItems/40 | limitTo:3}}
+        </div>
+        <div class="col-md-2">
+            <i class="fa fa-balance-scale" aria-hidden="true"></i> Peso Total: {{totalItems * .5 | limitTo:3}}kg
+        </div>
+        <div class="col-md-2">
+            <i class="fa fa-arrows-h" aria-hidden="true"></i> Volume: {{totalItems/20 | limitTo:3}}m3
+        </div>
+        <div class="col-md-2">
+            <i class="fa fa-dollar" aria-hidden="true"></i> Total: {{valorTotal | currency : "R$ "}}
+        </div>
+    </div>
+</panel>

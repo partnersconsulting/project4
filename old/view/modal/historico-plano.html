@@ -1,0 +1,74 @@
+<div class="modal-header header-green">
+    <h3 class="modal-title" id="modal-title">Historico de planos</h3>
+</div>
+<div class="modal-body" id="modal-body">
+    <div class="input-group input-group-lg" ng-hide="selectedHistoricPlan">
+        <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-search" aria-hidden="true"></i></span>
+        <input type="text" class="form-control" placeholder="busca planos" aria-describedby="sizing-addon1" ng-model="filtro">
+    </div>
+    <div ng-show="selectedHistoricPlan" class="historico">
+        <span class="titulo"><i class="fa fa-hashtag" aria-hidden="true"></i> Número: {{selectedHistoricPlan.number}}</span>
+        <span class="data"><i class="fa fa-calendar" aria-hidden="true"></i> {{selectedHistoricPlan.date}}</span>
+        <a ng-click="closeHistoricPlan()" class="close"><i class="fa fa-times-circle fa-2x" aria-hidden="true"></i></a>
+    </div>
+    <hr>
+
+
+    <table class="table table-hover table-striped" ng-hide="selectedHistoricPlan">
+        <thead>
+            <tr>
+                <th>Codigo</th>
+                <th>Tipo</th>
+                <th>Objetivo</th>
+                <th>Nome</th>
+                <th>Inicio</th>
+                <th>Fim</th>
+                <th>Valor</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="historic in selectedClientPlan.historicPlan | filter:filtro" ng-click="selectHistoricPlan(historic)">
+                <th scope="row">{{historic.codigo}}</th>
+                <th>{{historic.tipo}}</th>
+                <th>{{historic.objetivo}}</th>
+                <th>{{historic.nome}}</th>
+                <th>{{historic.inicio}}</th>
+                <th>{{historic.fim}}</th>
+                <th>R$ {{historic.valor}}</th>
+            </tr>
+        </tbody>
+    </table>
+
+
+            
+
+    <table class="table table-hover table-striped" ng-show="selectedHistoricPlan">
+        <thead>
+            <tr>
+                <th>Sku</th>
+                <th>Tipo</th>
+                <th>Verba</th>
+                <th>Volume</th>
+                <th>Desconto</th>
+                <th>Tipo Pagamento</th>
+                <th>Preco Unitário</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="item in selectedHistoricPlan.items">
+                <th scope="row">{{item.sku}}</th>
+                <th>{{item.tipo}}</th>
+                <th>R$ {{item.verba}}</th>
+                <th>{{item.volume}}</th>
+                <th>{{item.desconto}} %</th>
+                <th>{{item.tipoPagamento}}</th>
+                <th>R$ {{item.precoUnitario}}</th>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+<div class="modal-footer">
+    <!-- <button class="btn btn-warning" ng-show="selectedHistoricPlan" type="button" ng-click="reloadPedido()"><i class="fa fa-refresh" aria-hidden="true"></i> Refazer plano</button> -->
+    <button class="btn btn-danger" type="button" ng-click="cancel()">Cancelar</button>
+</div>

@@ -259,6 +259,16 @@ select.form-control {
     background-color: #777;
 } */
 
+.table-block {
+    display: block;
+    overflow: hidden;
+}
+
+.table-block tbody tr td,
+.table-block thead tr th {
+    padding: 6px;
+}
+
 .table {
     background: #fff;
     font-size: 11px;
@@ -365,12 +375,20 @@ tfoot {
     color: #2aabd2;
 }
 
+.icon-red {
+    color: #d24441;
+}
+
 .icon-green {
     color: #3c763d;
 }
 
 .header-blue {
     background-color: #2aabd2;
+}
+
+.header-red {
+    background-color: #d24441;
 }
 
 .header-green {
@@ -986,10 +1004,10 @@ tfoot {
     height: 30px;
     background: #ddd;
 }
-.form-mini.form-label select.form-control ,
-.form-mini.form-label input.form-control  {
-    
-    background: #fff    ;
+
+.form-mini.form-label select.form-control,
+.form-mini.form-label input.form-control {
+    background: #fff;
 }
 
 .table-items {
@@ -999,6 +1017,7 @@ tfoot {
     overflow-x: hidden;
     background: rgba(255, 255, 255, .4);
 }
+
 
 /*.table-items:before {
     content: "\f07a";
@@ -1048,7 +1067,7 @@ tfoot {
     bottom: 0px;
 }
 
-.row-info div {
+.row-info div.rodape {
     background: rgba(51, 51, 51, .6);
     height: 100%;
     padding: 12px 5px;
@@ -1186,8 +1205,39 @@ tfoot {
 }
 
 .icon-bg {
-        text-align: center;
+    text-align: center;
     width: 100%;
     opacity: .1;
     font-size: 130px;
+}
+
+.playerURL iframe,
+.playerURL {
+    width: 100%;
+    height: 100%;
+}
+
+.selecionePlano {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.prop-alert{
+        background: #f19e07;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    text-align: center;
+    color: #fff;
+    font-weight: 600;
+}
+
+.prop-danger{
+         background: #c00;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    text-align: center;
+    color: #fff;
+    font-weight: 600;
 }

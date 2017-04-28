@@ -1,0 +1,26 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="row logos">
+            <a href="#/home"><img class="pull-left img-responsive logo-ype" src="images/logo_ype.jpg"></a>
+            <div class="panel-head-title">
+                <span class="icon icon-home" ng-if="linkback">
+                    <a href="#/home"><i class="fa fa-home" aria-hidden="true"></i></a>
+                </span>
+                <span class="icon" ng-if="linkback">
+                <a href="#/{{ linkback }}">
+                    <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                    </a>
+                </span>
+                <span class="panel-title">
+                {{ title }}
+                    
+                </span>
+            </div>
+            <!-- <img class="pull-right img-responsive" src="images/logo2.png"> -->
+            <img class="pull-right img-responsive banner-ype" src="images/banners/banner-ype.png">
+            
+        </div>
+    </div>
+    <div class="panel-body" ng-transclude ng-class="{ 'panel-body-form':type==='form' }">
+    </div>
+</div>

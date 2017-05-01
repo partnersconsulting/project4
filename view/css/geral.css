@@ -914,7 +914,7 @@ tfoot {
 
 .painel-mix .panel-body {
     /*height: 165px;*/
-    height: calc(50vh - 220px);
+    height: calc(50vh - 270px);
     padding: 10px;
 }
 
@@ -1126,6 +1126,8 @@ tfoot {
     text-align: left;
     display: inline;
     vertical-align: super;
+    width: 120px;
+    display: inline-block;
 }
 
 .number-picker .title:after {
@@ -1222,8 +1224,8 @@ tfoot {
     font-weight: 600;
 }
 
-.prop-alert{
-        background: #f19e07;
+.prop-alert {
+    background: #f19e07;
     padding: 5px 10px;
     border-radius: 5px;
     margin-top: 10px;
@@ -1232,12 +1234,58 @@ tfoot {
     font-weight: 600;
 }
 
-.prop-danger{
-         background: #c00;
+.prop-danger {
+    background: #c00;
     padding: 5px 10px;
     border-radius: 5px;
     margin-top: 10px;
     text-align: center;
     color: #fff;
     font-weight: 600;
+}
+
+.dl-flex {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.dl-flex dt {
+    flex: 0 0 75%;
+    overflow: hidden;
+    margin-top: 6px;
+    border-bottom: 1px solid #ddd;
+}
+
+.dl-flex dd {
+    flex: 25% 0 0;
+    padding-left: 20px;
+    max-width: 65%;
+    padding: 2px 10px;
+    background: #eee;
+    font-weight: 600;
+    margin-top: 3px;
+}
+
+.caminhao {
+    font-size: 300px;
+}
+
+.caixas {
+    z-index: 10;
+    position: fixed;
+    margin-left: 41%;
+    margin-top: 50px;
+}
+
+.caixas li {
+    display: inline-block;
+    width: 51px;
+    height: 40px;
+    margin-top: 8px;
+    background: rgba(255, 255, 255, .2);
+}
+
+.caixas li.active {
+    background: green;
 }

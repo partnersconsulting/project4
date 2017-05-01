@@ -19,13 +19,27 @@
             <div class="col-md-10">
                 <span class="title">{{selectedProduct.name}}</span>
                 <div class="props">
-                   <span class="prop">Preço Unitário: R$ {{selectedProduct.price}}</span>
+
+                  <dl class="dl-flex">
+  <dt>Preço Unitário:</dt>
+  <dd>{{selectedProduct.price | currency}}</dd>
+<!--   <dt>Desconto Plano Negócio:</dt>
+  <dd>{{planoNegocio.desconto}}%</dd> -->
+  <dt>Valor total sem desconto:</dt>
+  <dd>{{( (itemPedido.qnt * selectedProduct.price)).toFixed(2) | currency}}</dd>
+  <dt>Valor total com desconto:</dt>
+  <dd>{{( (itemPedido.qnt * selectedProduct.price) - (itemPedido.desconto*(itemPedido.qnt * selectedProduct.price)/100) ).toFixed(2) | currency}}</dd>
+  <dt ng-if="planoNegocio.selectedPlanoNegocio">Valor c/ plano de Negocio ({{planoNegocio.desconto}}%):</dt>
+  <dd ng-if="planoNegocio.selectedPlanoNegocio">{{( (itemPedido.qnt * selectedProduct.price) - (itemPedido.desconto*(itemPedido.qnt * selectedProduct.price)/100) - (planoNegocio.desconto*(itemPedido.qnt * selectedProduct.price)/100) ).toFixed(2) | currency}}</dd>
+</dl>
+
+<!--                    <span class="prop">Preço Unitário: R$ {{selectedProduct.price | currency}}</span>
                    <span class="prop" ng-show="planoNegocio.selectedPlanoNegocio">Desconto Plano Negócio: {{planoNegocio.desconto}}%</span>
                    <span class="prop"> Valor total sem desconto: R$ {{( (itemPedido.qnt * selectedProduct.price)).toFixed(2)}}</span>
                    <span class="prop" ng-if="itemPedido.desconto > 0"> Valor total com desconto: R$ {{( (itemPedido.qnt * selectedProduct.price) - (itemPedido.desconto*(itemPedido.qnt * selectedProduct.price)/100) ).toFixed(2)}}</span>
 
                    <span class="prop" ng-if="planoNegocio.selectedPlanoNegocio"> Valor total com desconto de plano de Negocio: R$ {{( (itemPedido.qnt * selectedProduct.price) - (itemPedido.desconto*(itemPedido.qnt * selectedProduct.price)/100) - (planoNegocio.desconto*(itemPedido.qnt * selectedProduct.price)/100) ).toFixed(2)}}</span>
-
+ -->
                    <span class="prop prop-alert" ng-if="itemPedido.desconto > 5 && itemPedido.desconto <= 10"> Desconto será enviado para aprovação!</span>
 
                    <span class="prop prop-danger" ng-if="itemPedido.desconto > 10"> Desconto não permitido!</span>

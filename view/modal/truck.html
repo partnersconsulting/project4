@@ -1,0 +1,29 @@
+<div class="modal-header header-green">
+    <h3 class="modal-title" id="modal-title">Pedido {{pedido.code}}!</h3>
+</div>
+<div class="modal-body" id="modal-body">
+   <div class="caixas">
+   	<ul>
+	<li ng-class="{'active': totalItems > 14}"></li>
+   	<li ng-class="{'active': totalItems > 16}"></li>
+   	<li ng-class="{'active': totalItems > 18}"></li>
+   </ul>
+   <ul>
+	<li ng-class="{'active': totalItems > 8}"></li>
+   	<li ng-class="{'active': totalItems > 10}"></li>
+   	<li ng-class="{'active': totalItems > 12}"></li>
+   </ul>
+   <ul>
+   	<li ng-class="{'active': totalItems > 2}"></li>
+   	<li ng-class="{'active': totalItems > 4}"></li>
+   	<li ng-class="{'active': totalItems > 6}"></li>
+   </ul>
+   </div>
+   <i class="fa fa-truck caminhao" aria-hidden="true"></i>
+
+   <h3>Faltam {{ 18 - totalItems }} caixas para completar o caminhão!</h3>
+
+</div>
+<div class="modal-footer">
+    <button class="btn" type="button" ng-click="cancel()">Fechar</button>
+</div>

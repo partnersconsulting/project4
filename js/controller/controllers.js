@@ -157,6 +157,18 @@ angular.module("app.controllers", [])
         $rootScope.itemsPlanoNegocio = $rootScope.itemsPlano9;
 
 
+
+        
+
+        $scope.checkTruck = function (){
+            console.log("checkTruck()");
+
+            $scope.open('md', '', 'view/modal/truck.html', '');
+        }
+
+
+
+
         $scope.onChangePlano = function (){
             console.log("onChangePlano()");
         }
@@ -364,7 +376,7 @@ angular.module("app.controllers", [])
     .controller("ModalInstanceCtrl", function ($scope, $rootScope, $uibModalInstance, $location) {
         var r = Math.random();
 
-        if ($rootScope.planoNegocio.selectedPlanoNegocio){
+        if ($rootScope.planoNegocio && $rootScope.planoNegocio.selectedPlanoNegocio){
             if ($rootScope.planoNegocio.selectedPlanoNegocio.value == "plano3"){
                 $rootScope.planoNegocio.desconto = 3;
             } else if ($rootScope.planoNegocio.selectedPlanoNegocio.value == "plano5"){
@@ -1150,6 +1162,17 @@ angular.module("app.controllers", [])
         $rootScope.itensPedido = [];
         $rootScope.itensAcoes = [];
 
+
+
+
+               $rootScope. listaMecanicas = [{
+            name: "Bonificação",
+            value: "bonificacao"
+        },{
+            name: "Rebate",
+            value: "rebate"
+        }];
+        
 
         
         $rootScope.listaPlanoNegocio = [{

@@ -22,7 +22,7 @@
                     <span class="prop">Preço Unitário: R$ {{selectedProductAcao.price}}</span>
                     <!--  <span ng-show="precoComDesconto > 0" class="prop">Preço com Desconto: R$ {{precoComDesconto}}</span> -->
                 </div>
-                <entry title="Verba (R$)" type="currency" size="6" model="novaAcao.verba" placeholder="10000"></entry>
+                <entry title="Verba (R$)" type="currency" size="6" model="novaAcao.verba" placeholder="10.000,00"></entry>
                 <entry title="Volume (Caixas)" type="text" size="6" model="novaAcao.volume" placeholder="100"></entry>
                 <entry title="Desconto(%)" type="text" size="6" model="novaAcao.desconto" placeholder="2%"></entry>
                 <entry title="Tipo Pagamento" type="select" size="6" model="novaAcao.tipoPagamento" list="listaTiposPagamentos"></entry>
@@ -31,9 +31,10 @@
                 <entry title="Mecânica" type="select" size="12" model="novaAcao.mecanica" list="listaMecanicas"></entry>
                 <!-- <entry title="ROI" type="text" size="12" model="novaAcao.roi" placeholder="2%"></entry> -->
                 <div class="col-md-12">
-                    <div class="form-group" ng-show="novaAcao.volume && novaAcao.crossIn" >
+                    <div class="form-group" ng-show="novaAcao.volume && novaAcao.crossIn && novaAcao.desconto" >
                         <label class="ng-binding">ROI</label>
-                        <div class="form-control" type="text"> {{novaAcao.crossIn/novaAcao.volume*.0513}}</div>
+
+                        <div ng-class="{ 'back-orange': roi > .1 , 'back-green': roi > .5,'back-red': roi < .1}" class="form-control" type="text"> {{roi = (novaAcao.crossIn/novaAcao.volume*.0513)*(100-novaAcao.desconto)/100;}}</div>
                     </div>
                 </div>
             </div>
@@ -44,3 +45,21 @@
     <button class="btn btn-success" type="button" ng-click="adicionarAcao()">Adicionar</button>
     <button class="btn btn-warning" type="button" ng-click="cancel()">Cancelar</button>
 </div>
+
+<!-- 
+
+.back-green{
+    background: #093;
+    color: #fff;
+}
+
+.back-orange{
+    background: #f90;
+    color: #fff;
+}
+
+
+.back-red{
+    background: #f30;
+    color: #fff;
+} -->

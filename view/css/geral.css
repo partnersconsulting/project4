@@ -1346,3 +1346,20 @@ tfoot {
 .form-group {
     margin-bottom: 10px;
 }
+
+.back-orange{
+    background: #f90;
+    color: #fff;
+}
+
+
+.back-red{
+    background: #f30;
+    color: #fff;
+}
+
+
+.back-green{
+    background: #093;
+    color: #fff;
+}

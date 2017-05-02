@@ -130,6 +130,7 @@
                             <th>Preço Unitário</th>
                             <th>Preço com desconto</th>
                             <th>Impostos</th>
+                           <!--  <th ng-if="planoNegocio.selectedPlanoNegocio">Valor Plano</th> -->
                             <th>Valor Total</th>
                             <th>Status do pedido</th>
                             <th></th>
@@ -145,6 +146,11 @@
                             <td>R$ {{itemPedido.price}}</td>
                             <td>R$ {{(itemPedido.price - (itemPedido.price * itemPedido.desconto)).toFixed(2)}}</td>
                             <td>R$ {{itemPedido.impostos}}</td>
+                 <!--            <td ng-if="planoNegocio.selectedPlanoNegocio">R$ {{(((itemPedido.price - (itemPedido.price * itemPedido.desconto)) * itemPedido.quantidade).toFixed(2) ) }}</td>
+
+
+
+ -->
                             <td>R$ {{((itemPedido.price - (itemPedido.price * itemPedido.desconto)) * itemPedido.quantidade).toFixed(2)}}</td>
                             <td>{{itemPedido.desconto > 0.05 ? 'em Análise': 'OK'}}</td>
                              <td class="botao-excluir-row"> <span class="btn btn-danger btn-xs" ng-click="removerItem(itemPedido)"><i class="fa fa-times-circle" aria-hidden="true "></i></span></td>

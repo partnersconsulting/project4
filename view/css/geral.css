@@ -912,6 +912,15 @@ tfoot {
     padding: 10px;
 }
 
+.panel .plano-panel-body {
+    height: calc(50vh - 350px);
+}
+.painel-mix .panel-body.justificativa-panel-body {
+
+    height: calc(50vh - 390px);
+}
+
+
 .painel-mix .panel-body {
     /*height: 165px;*/
     height: calc(50vh - 270px);
@@ -1293,3 +1302,37 @@ tfoot {
 .field-footer label{
  color: #fff;
 }
+
+.select-qnt {
+        width: 80px;
+    display: inline;
+    height: 29px;
+    /* margin-top: -10px; */
+    margin-left: 30px;
+}
+
+.table-score {
+    width: calc(100% - 30px);
+    border: 1px solid #fff;
+}
+
+.td-red {
+ background: #c30;
+ color: #fff;
+}
+
+.td-green {
+ background: #093;
+ color: #fff;
+}
+
+.td-blue {
+ background: #09f;
+ color: #fff;
+}
+
+.table-score td {
+    text-align: center;
+    font-weight: 600;
+    border: 1px solid #fff;
+    }

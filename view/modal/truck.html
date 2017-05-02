@@ -2,11 +2,11 @@
     <h3 class="modal-title" id="modal-title">Pedido {{pedido.code}}!</h3>
 </div>
 <div class="modal-body" id="modal-body">
-   <div class="caixas">
+   <div class="caixas" ng-if="totalItems <= 18">
    	<ul>
 	<li ng-class="{'active': totalItems > 14}"></li>
    	<li ng-class="{'active': totalItems > 16}"></li>
-   	<li ng-class="{'active': totalItems > 18}"></li>
+   	<li ng-class="{'active': totalItems >= 18}"></li>
    </ul>
    <ul>
 	<li ng-class="{'active': totalItems > 8}"></li>
@@ -19,9 +19,38 @@
    	<li ng-class="{'active': totalItems > 6}"></li>
    </ul>
    </div>
+
+<div class="caixas" ng-if="totalItems > 18">
+   	<ul>
+	<li ng-class="{'active': totalItems >= 32}"></li>
+   	<li ng-class="{'active': totalItems >= 34}"></li>
+   	<li ng-class="{'active': totalItems >= 36}"></li>
+   </ul>
+   <ul>
+	<li ng-class="{'active': totalItems >= 26}"></li>
+   	<li ng-class="{'active': totalItems >= 28}"></li>
+   	<li ng-class="{'active': totalItems >= 30}"></li>
+   </ul>
+   <ul>
+   	<li ng-class="{'active': totalItems >= 20}"></li>
+   	<li ng-class="{'active': totalItems >= 22}"></li>
+   	<li ng-class="{'active': totalItems >= 24}"></li>
+   </ul>
+   </div>
+
+
    <i class="fa fa-truck caminhao" aria-hidden="true"></i>
 
-   <h3>Faltam {{ 18 - totalItems }} caixas para completar o caminhão!</h3>
+   <h3  ng-if="totalItems <= 18" >Faltam {{ 18 - totalItems }} caixas para completar o caminhão!</h3>
+
+   <h2  ng-if="totalItems > 18" >Caminhão 01 completo!<br><br></h2>
+   <h3  ng-if="totalItems > 18" >Faltam {{ 36 - totalItems }} caixas para completar o caminhão 02!</h3>
+
+
+
+
+
+
 
 </div>
 <div class="modal-footer">

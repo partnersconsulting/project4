@@ -228,6 +228,8 @@ angular.module("app.controllers", [])
 
         $rootScope.concluirPedido = function () {
 
+            console.log(">>> $rootScope.concluirPedido()");
+
             //$rootScope.selectedClient = null;
             //$rootScope.clear();
 
@@ -442,7 +444,13 @@ angular.module("app.controllers", [])
                 volume: $rootScope.novaAcao.volume,
                 desconto: $rootScope.novaAcao.desconto,
                 tipoPagamento: $rootScope.novaAcao.tipoPagamento.name,
-                precoUnitario: $rootScope.selectedProductAcao.price
+                precoUnitario: $rootScope.selectedProductAcao.price,
+                crossIn: $rootScope.novaAcao.crossIn,
+                crossOut: $rootScope.novaAcao.crossOut,
+                mecanica: $rootScope.novaAcao.mecanica
+
+
+
             }
 
             $rootScope.adicionarNovaAcao(item);

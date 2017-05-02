@@ -57,27 +57,63 @@
                             <th>VERBA</th>
                             <th>VOLUME DE COMPRA</th>
                             <th>%DESCONTO</th>
+                            <TH>SELL IN</TH>
+                            <TH>SELL OUT</TH>
+                            <TH>MECÂNICA!</TH>
                             <th>TIPO PAGAMENTO</th>
                             <th>PREÇO UNITÁRIO</th>
                         </tr>
                     </thead>
                     <tbody>
-
                         <tr ng-repeat="itemAcao in itensAcoes">
                             <td>{{itemAcao.sku}}</td>
                             <td>{{itemAcao.tipo}}</td>
                             <td>{{itemAcao.verba}}</td>
                             <td>{{itemAcao.volume}}</td>
                             <td>{{itemAcao.desconto}}</td>
+                            <TH>{{itemAcao.crossIn}}</TH>
+                            <TH>{{itemAcao.crossOut}}</TH>
+                            <TH>{{itemAcao.mecanica.name}}</TH>
                             <td>{{itemAcao.tipoPagamento}}</td>
                             <td>{{itemAcao.precoUnitario}}</td>
-                
                             <!-- <td class="botao-excluir-row"> <span class="btn btn-danger btn-xs" ng-click="removerItem(itemPedido)"><i class="fa fa-times-circle" aria-hidden="true "></i></span></td> -->
                         </tr>
                     </tbody>
                 </table>
             </div>
-            <button type="button " class="btn btn-success pull-right " ng-show="collapseFormEvento " ng-click="novoEvento() "><i class="fa fa-floppy-o" aria-hidden="true "></i> Salvar Pedido</button>
+
+            <div ng-if="itensAcoes.length > 0" >
+                <table class="table table-hover table-responsive table-score">
+                    <thead>
+                        <tr>
+<th>Meta ROL</th>
+<th>Meta Mix</th>
+<th>Ações Modelo CTM</th>
+<th>Ações Familia</th>
+<th>%Verba Total</th>
+<th>Score Final</th>
+<th>Alçada de Aprovação</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr >
+
+<td class="td-red">0,57</td>
+<td class="td-red">0</td>
+<td class="td-red">0</td>
+<td class="td-green">50</td>
+<td class="td-red">0</td>
+<td class="td-blue">10,57</td>
+<td class="td-blue">GR</td>
+
+
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+
         </div>
         <div class="col-md-3">
             <!-- <div class="panel panel-ype">
@@ -87,7 +123,7 @@
             </div> -->
             <div class="panel panel-ype panel-historico">
                 <div class="panel-heading"><i class="fa fa-history" aria-hidden="true"></i> Histórico de planos</div>
-                <div class="panel-body">
+                <div class="panel-body plano-panel-body">
                     <table class="table table-hover ">
                         <!--                    <thead>
                         <tr>
@@ -109,7 +145,7 @@
             </div>
             <div class="panel panel-ype painel-mix">
                 <div class="panel-heading"><i class="fa fa-link" aria-hidden="true"></i> Mix perfeito</div>
-                <div class="panel-body">
+                <div class="panel-body plano-panel-body">
                     <table class="table table-hover ">
                         <i ng-show="selectedClient.listaMixPlan.length == 0" class="fa fa-ban icon-bg   " aria-hidden="true"></i>
                         <tbody>
@@ -126,14 +162,16 @@
                     <button type="button" class="btn btn-primary btn-block" ng-click="adicionarMixPlan()"><i class="fa fa-arrow-left" aria-hidden="true"></i> Adicionar Todos</button>
                 </div>
             </div>
+            <div class="panel panel-ype painel-mix">
+                <div class="panel-heading"><i class="fa fa-link" aria-hidden="true"></i> Justificativa</div>
+                <div class="panel-body justificativa-panel-body">
+                    <textarea rows="4"></textarea>
+                </div>
+            </div>
             <button type="button" class="btn btn-success btn-lg btn-block btn-finish" ng-click="concluirPlano()"><i class="fa fa-shopping-cart " aria-hidden="true"></i> Concluir plano</button>
         </div>
     </div>
-
-     <div class="row field-footer">
-         <entry title="Justificativa" type="text" size="9" model="plano.justificativa" ></entry>
-     </div>
-  <!--   <div class="row row-info">
+    <!--   <div class="row row-info">
         <div class="col-md-2">
             <i class="fa fa-hashtag" aria-hidden="true"></i> Itens: {{totalItems}}
         </div>

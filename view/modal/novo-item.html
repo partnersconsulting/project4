@@ -27,10 +27,11 @@
   <dd>{{planoNegocio.desconto}}%</dd> -->
   <dt>Valor total sem desconto:</dt>
   <dd>{{( (itemPedido.qnt * selectedProduct.price)).toFixed(2) | currency}}</dd>
-  <dt>Valor total com desconto:</dt>
-  <dd>{{( (itemPedido.qnt * selectedProduct.price) - (itemPedido.desconto*(itemPedido.qnt * selectedProduct.price)/100) ).toFixed(2) | currency}}</dd>
   <dt ng-if="planoNegocio.selectedPlanoNegocio">Valor c/ plano de Negocio ({{planoNegocio.desconto}}%):</dt>
+  <dd ng-if="planoNegocio.selectedPlanoNegocio">{{( (itemPedido.qnt * selectedProduct.price) - (planoNegocio.desconto*(itemPedido.qnt * selectedProduct.price)/100) ).toFixed(2) | currency}}</dd>
+  <dt>Valor total com desconto:</dt>
   <dd ng-if="planoNegocio.selectedPlanoNegocio">{{( (itemPedido.qnt * selectedProduct.price) - (itemPedido.desconto*(itemPedido.qnt * selectedProduct.price)/100) - (planoNegocio.desconto*(itemPedido.qnt * selectedProduct.price)/100) ).toFixed(2) | currency}}</dd>
+    <dd ng-if="!planoNegocio.selectedPlanoNegocio">{{( (itemPedido.qnt * selectedProduct.price) - (itemPedido.desconto*(itemPedido.qnt * selectedProduct.price)/100)  ).toFixed(2) | currency}}</dd>
 </dl>
 
 <!--                    <span class="prop">Preço Unitário: R$ {{selectedProduct.price | currency}}</span>
@@ -45,7 +46,10 @@
                    <span class="prop prop-danger" ng-if="itemPedido.desconto > 10"> Desconto não permitido!</span>
 
                 </div>
-	            <numberpicker model="itemPedido.qnt"  title="Quantidade" min="1" max="50" step="1"></numberpicker>
+	            <numberpickercx model="itemPedido.qnt"  title="Quantidade" min="1" max="50" step="1"></numberpickercx>
+
+
+
 	            <numberpicker model="itemPedido.desconto" title="Desconto(%)" min="0" max="100" step=".5"></numberpicker>
             </div>
 

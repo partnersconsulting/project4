@@ -918,7 +918,7 @@ tfoot {
 }
 .painel-mix .panel-body.justificativa-panel-body {
 
-    height: calc(50vh - 390px);
+    height: calc(50vh - 430px);
         min-height: 60px;
 }
 

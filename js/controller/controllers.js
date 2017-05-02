@@ -1004,7 +1004,7 @@ angular.module("app.controllers", [])
                 price: 4.90,
                 desconto: .3,
                 name: "Multiuso Ypê"
-            }, {
+            }/*, {
                 id: "200700099",
                 sku: 'SKU20170142',
                 quantidade: 10,
@@ -1012,7 +1012,7 @@ angular.module("app.controllers", [])
                 price: 3.77,
                 desconto: .3,
                 name: "Sabão barra 100g"
-            }]
+            }*/]
         };
         $rootScope.newDate = new Date();
         $rootScope.listaMixPlan = [{

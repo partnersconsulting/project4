@@ -45,6 +45,14 @@ angular.module("app.controllers", [])
             icon: "fa-pie-chart",
             link: "https://demo-presalesbrazil.us1.sapbusinessobjects.cloud/sap/fpa/ui/tenants/presalesbrazil/app.html#;view_id=story;storyId=8A17E3585EBE2E44E10000000A6C988B;forceOpenView=true"
         }
+
+        , {
+            name: "Roteiros",
+            icon: "fa-map-signs",
+            link: "https://my330686.crm.ondemand.com/sap/public/ap/ui/repository/SAP_UI/HTML5/newclient.html?app.component=/SAP_UI_CT/Main/root.uiccwoc&rootWindow=X&redirectUrl=/sap/public/ap/ui/runtime&sap-ui-language=pt#Nav/1/eyJiSXNTaG93bkFzV29jVmlldyI6dHJ1ZSwidGFyZ2V0IjoiL0JZRF9DT0QvU2FsZXNPbkRlbWFuZC9WaXNpdC9WaXNpdFJvdXRlL1JvdXRlX1dDVklFVy5XQ1ZJRVcudWl3b2N2aWV3Iiwid2luSWQiOiJlOTllYmU3YzhlZGRkYjY5ZGMwMTZjOTI5MDgyYWRhOSJ9"
+        }
+
+
             /*, {
              name: "Minhas Tarefas",
              icon: "fa-list-alt",

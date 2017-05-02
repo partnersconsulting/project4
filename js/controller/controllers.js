@@ -154,7 +154,7 @@ angular.module("app.controllers", [])
 
 
 
-        $rootScope.itemsPlanoNegocio = $rootScope.itemsPlano9;
+        $rootScope.itemsPlanoNegocio = $rootScope.itemsPlano10;
 
 
 
@@ -379,12 +379,12 @@ angular.module("app.controllers", [])
         var r = Math.random();
 
         if ($rootScope.planoNegocio && $rootScope.planoNegocio.selectedPlanoNegocio){
-            if ($rootScope.planoNegocio.selectedPlanoNegocio.value == "plano3"){
-                $rootScope.planoNegocio.desconto = 3;
-            } else if ($rootScope.planoNegocio.selectedPlanoNegocio.value == "plano5"){
-                $rootScope.planoNegocio.desconto = 5;
-             } else if ($rootScope.planoNegocio.selectedPlanoNegocio.value == "plano9"){
-                $rootScope.planoNegocio.desconto = 9;
+            if ($rootScope.planoNegocio.selectedPlanoNegocio.value == "plano10"){
+                $rootScope.planoNegocio.desconto = 10;
+            } else if ($rootScope.planoNegocio.selectedPlanoNegocio.value == "plano15"){
+                $rootScope.planoNegocio.desconto = 15;
+             } else if ($rootScope.planoNegocio.selectedPlanoNegocio.value == "plano18"){
+                $rootScope.planoNegocio.desconto = 18;
             }
         }
 
@@ -846,14 +846,14 @@ angular.module("app.controllers", [])
 
         $rootScope.plusPalete = 0;
 
-        $rootScope.itemsPlano3 = [
+        $rootScope.itemsPlano10 = [
             {
                 id: "200700055",
                 sku: 'SKU20170042',
                 quantidade: 1,
                 impostos: 1.22,
                 price: 1.27,
-                desconto: 3,
+                desconto: 10,
                 descricao: "Barra Ypê",
                 name: "Sabão"
             },
@@ -863,7 +863,7 @@ angular.module("app.controllers", [])
                 quantidade: 5,
                 impostos: 1.42,
                 price: 2.99,
-                desconto: 3,
+                desconto: 10,
                 descricao: "1L",
                 name: "Desinfetante"
             },
@@ -873,19 +873,19 @@ angular.module("app.controllers", [])
                 quantidade: 8,
                 impostos: 1.92,
                 price: 4.90,
-                desconto: 3,
+                desconto: 10,
                 descricao: "Multiuso",
                 name: "Ypê"
             }];
 
-             $rootScope.itemsPlano5 = [
+             $rootScope.itemsPlano15 = [
             {
                 id: "200700055",
                 sku: 'SKU20170042',
                 quantidade: 1,
                 impostos: 1.22,
                 price: 1.27,
-                desconto: 5,
+                desconto: 15,
                 descricao: "Barra Ypê",
                 name: "Sabão"
             },
@@ -895,7 +895,7 @@ angular.module("app.controllers", [])
                 quantidade: 5,
                 impostos: 1.42,
                 price: 2.99,
-                desconto: 5,
+                desconto: 15,
                 descricao: "1L",
                 name: "Desinfetante"
             },
@@ -905,19 +905,19 @@ angular.module("app.controllers", [])
                 quantidade: 8,
                 impostos: 1.92,
                 price: 4.90,
-                desconto: 5,
+                desconto: 15,
                 descricao: "Multiuso",
                 name: "Ypê"
             }];
 
-              $rootScope.itemsPlano9 = [
+              $rootScope.itemsPlano18 = [
             {
                 id: "200700055",
                 sku: 'SKU20170042',
                 quantidade: 1,
                 impostos: 1.22,
                 price: 1.27,
-                desconto: 9,
+                desconto: 18,
                 descricao: "Barra Ypê",
                 name: "Sabão"
             },
@@ -927,7 +927,7 @@ angular.module("app.controllers", [])
                 quantidade: 5,
                 impostos: 1.42,
                 price: 2.99,
-                desconto: 9,
+                desconto: 18,
                 descricao: "1L",
                 name: "Desinfetante"
             },
@@ -937,7 +937,7 @@ angular.module("app.controllers", [])
                 quantidade: 8,
                 impostos: 1.92,
                 price: 4.90,
-                desconto: 9,
+                desconto: 18,
                 descricao: "Multiuso",
                 name: "Ypê"
             }];
@@ -1184,14 +1184,14 @@ angular.module("app.controllers", [])
 
         
         $rootScope.listaPlanoNegocio = [{
-            name: "Plano 3",
-            value: "plano3"
+            name: "Plano 10",
+            value: "plano10"
         },{
-            name: "Plano 5",
-            value: "plano5"
+            name: "Plano 15",
+            value: "plano15"
         },{
-            name: "Plano 9",
-            value: "plano9"
+            name: "Plano 18",
+            value: "plano18"
         }];
 
 

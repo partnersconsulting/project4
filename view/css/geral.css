@@ -224,7 +224,7 @@ select.form-control {
 .form-group label {
     font-size: 0.875rem;
     opacity: .8;
-    line-height: 22px;
+    line-height: 18px;
 }
 
 .form-group label.multiline {
@@ -914,19 +914,18 @@ tfoot {
 
 .panel .plano-panel-body {
     height: calc(50vh - 350px);
-        min-height: 80px;
+    min-height: 80px;
 }
+
 .painel-mix .panel-body.justificativa-panel-body {
-
     height: calc(50vh - 430px);
-        min-height: 60px;
+    min-height: 60px;
 }
-
 
 .painel-mix .panel-body {
     /*height: 165px;*/
     height: calc(50vh - 270px);
-        min-height: 70px;
+    min-height: 70px;
     padding: 10px;
 }
 
@@ -1302,12 +1301,12 @@ tfoot {
     background: green;
 }
 
-.field-footer label{
- color: #fff;
+.field-footer label {
+    color: #fff;
 }
 
 .select-qnt {
-        width: 80px;
+    width: 80px;
     display: inline;
     height: 29px;
     /* margin-top: -10px; */
@@ -1320,26 +1319,30 @@ tfoot {
 }
 
 .td-red {
- background: #c30;
- color: #fff;
+    background: #c30;
+    color: #fff;
 }
 
 .td-green {
- background: #093;
- color: #fff;
+    background: #093;
+    color: #fff;
 }
 
 .td-blue {
- background: #09f;
- color: #fff;
+    background: #09f;
+    color: #fff;
 }
 
 .table-score td {
     text-align: center;
     font-weight: 600;
     border: 1px solid #fff;
-    }
+}
 
-    .justificativa {
-        width: 100%;
-    }
+.justificativa {
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 10px;
+}

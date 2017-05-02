@@ -1225,18 +1225,18 @@ angular.module("app.controllers", [])
             name: "AÇÃO DESCONTO",
             value: "acao3"
         }, {
-            name: "AÇÃO GONDOLA",
+/*            name: "AÇÃO GONDOLA",
             value: "acao4"
-        }, {
+        }, {*/
             name: "AÇÃO MATERIAL MERCHANT",
             value: "acao5"
         }, {
-            name: "AÇÃO PONTA ESTOQUE",
+            name: "AÇÃO BONIFICAÇÃO",
             value: "acao6"
-        }, {
+        }/*, {
             name: "AÇÃO NATAL",
             value: "acao7"
-        }];
+        }*/];
         $rootScope.produtos = [{
             name: 'assolan',
             image: 'images/marcas/marca_assolan.png',

@@ -1012,7 +1012,7 @@ tfoot {
 
 .table-items {
     display: block;
-    height: calc(100vh - 517px);
+    height: calc(100vh - 587px);
     overflow-y: auto;
     overflow-x: hidden;
     background: rgba(255, 255, 255, .4);
@@ -1288,4 +1288,8 @@ tfoot {
 
 .caixas li.active {
     background: green;
+}
+
+.field-footer label{
+ color: #fff;
 }
